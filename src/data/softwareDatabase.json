@@ -1,0 +1,398 @@
+[
+  {
+    "discipline": "architectural-design",
+    "displayName": "Architectural Design",
+    "categories": [
+      {
+        "categoryName": "BIM/Modelling Tools",
+        "categoryId": "arch-bim",
+        "software": [
+          { "id": "arch-bim-revit", "name": "Autodesk Revit" },
+          { "id": "arch-bim-archicad", "name": "ArchiCAD" },
+          { "id": "arch-bim-vectorworks", "name": "Vectorworks Architect" },
+          { "id": "arch-bim-rhino", "name": "Rhino 3D" },
+          { "id": "arch-bim-sketchup", "name": "SketchUp Pro" },
+          { "id": "arch-bim-autocad-arch", "name": "AutoCAD Architecture" },
+          { "id": "arch-bim-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Visualisation & Rendering",
+        "categoryId": "arch-viz",
+        "software": [
+          { "id": "arch-viz-enscape", "name": "Enscape" },
+          { "id": "arch-viz-twinmotion", "name": "Twinmotion" },
+          { "id": "arch-viz-lumion", "name": "Lumion" },
+          { "id": "arch-viz-d5", "name": "D5 Render" },
+          { "id": "arch-viz-vray", "name": "V-Ray" },
+          { "id": "arch-viz-corona", "name": "Corona Renderer" },
+          { "id": "arch-viz-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Computational Design",
+        "categoryId": "arch-comp",
+        "software": [
+          { "id": "arch-comp-grasshopper", "name": "Grasshopper (Rhino)" },
+          { "id": "arch-comp-dynamo", "name": "Dynamo (Revit)" },
+          { "id": "arch-comp-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Documentation & Drawing",
+        "categoryId": "arch-doc",
+        "software": [
+          { "id": "arch-doc-autocad", "name": "AutoCAD" },
+          { "id": "arch-doc-bluebeam", "name": "Bluebeam Revu" },
+          { "id": "arch-doc-adobe", "name": "Adobe Creative Suite" },
+          { "id": "arch-doc-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Specification & Schedules",
+        "categoryId": "arch-spec",
+        "software": [
+          { "id": "arch-spec-nbs-chorus", "name": "NBS Chorus" },
+          { "id": "arch-spec-nbs-create", "name": "NBS Create" },
+          { "id": "arch-spec-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "building-surveying",
+    "displayName": "Building Surveying",
+    "categories": [
+      {
+        "categoryName": "Survey & Measurement",
+        "categoryId": "bs-survey",
+        "software": [
+          { "id": "bs-survey-leica", "name": "Leica Cyclone" },
+          { "id": "bs-survey-faro", "name": "Faro Scene" },
+          { "id": "bs-survey-autocad", "name": "AutoCAD" },
+          { "id": "bs-survey-revit", "name": "Revit" },
+          { "id": "bs-survey-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Condition Assessment",
+        "categoryId": "bs-condition",
+        "software": [
+          { "id": "bs-condition-kykloud", "name": "Kykloud" },
+          { "id": "bs-condition-monitoring", "name": "Condition Monitoring Software" },
+          { "id": "bs-condition-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Documentation",
+        "categoryId": "bs-doc",
+        "software": [
+          { "id": "bs-doc-bluebeam", "name": "Bluebeam Revu" },
+          { "id": "bs-doc-office", "name": "Microsoft Office Suite" },
+          { "id": "bs-doc-adobe", "name": "Adobe Acrobat Pro" },
+          { "id": "bs-doc-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Building Pathology",
+        "categoryId": "bs-pathology",
+        "software": [
+          { "id": "bs-pathology-snagr", "name": "Snag R" },
+          { "id": "bs-pathology-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "building-services-mep",
+    "displayName": "Building Services/MEP Engineering",
+    "categories": [
+      {
+        "categoryName": "BIM/Modelling",
+        "categoryId": "mep-bim",
+        "software": [
+          { "id": "mep-bim-revit", "name": "Revit MEP" },
+          { "id": "mep-bim-autocad", "name": "AutoCAD MEP" },
+          { "id": "mep-bim-magicad", "name": "Magicad" },
+          { "id": "mep-bim-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Analysis & Calculation",
+        "categoryId": "mep-analysis",
+        "software": [
+          { "id": "mep-analysis-ies", "name": "IES Virtual Environment (IES VE)" },
+          { "id": "mep-analysis-hevacomp", "name": "Hevacomp" },
+          { "id": "mep-analysis-dialux", "name": "Dialux (lighting)" },
+          { "id": "mep-analysis-relux", "name": "Relux (lighting)" },
+          { "id": "mep-analysis-amtech", "name": "AmTech (electrical)" },
+          { "id": "mep-analysis-trimble", "name": "Trimble ProDesign" },
+          { "id": "mep-analysis-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "CFD & Thermal",
+        "categoryId": "mep-cfd",
+        "software": [
+          { "id": "mep-cfd-ies", "name": "IES VE" },
+          { "id": "mep-cfd-tas", "name": "TAS (EDSL)" },
+          { "id": "mep-cfd-designbuilder", "name": "DesignBuilder" },
+          { "id": "mep-cfd-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "civil-structural-engineering",
+    "displayName": "Civil & Structural Engineering",
+    "categories": [
+      {
+        "categoryName": "Structural Analysis & Design",
+        "categoryId": "struct-analysis",
+        "software": [
+          { "id": "struct-analysis-tekla-designer", "name": "Tekla Structural Designer" },
+          { "id": "struct-analysis-robot", "name": "Robot Structural Analysis" },
+          { "id": "struct-analysis-etabs", "name": "ETABS" },
+          { "id": "struct-analysis-staad", "name": "STAAD.Pro" },
+          { "id": "struct-analysis-sap2000", "name": "SAP2000" },
+          { "id": "struct-analysis-tedds", "name": "Tedds" },
+          { "id": "struct-analysis-masterseries", "name": "Masterseries" },
+          { "id": "struct-analysis-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "BIM/Modelling",
+        "categoryId": "struct-bim",
+        "software": [
+          { "id": "struct-bim-revit", "name": "Revit Structure" },
+          { "id": "struct-bim-tekla", "name": "Tekla Structures" },
+          { "id": "struct-bim-autocad", "name": "AutoCAD Structural" },
+          { "id": "struct-bim-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Foundation & Geotechnical",
+        "categoryId": "struct-geotech",
+        "software": [
+          { "id": "struct-geotech-rewall", "name": "ReWall/ReSlope" },
+          { "id": "struct-geotech-wallap", "name": "Wallap" },
+          { "id": "struct-geotech-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "interior-design",
+    "displayName": "Interior Design",
+    "categories": [
+      {
+        "categoryName": "Design & Modelling",
+        "categoryId": "int-design",
+        "software": [
+          { "id": "int-design-revit", "name": "Revit" },
+          { "id": "int-design-sketchup", "name": "SketchUp Pro" },
+          { "id": "int-design-autocad", "name": "AutoCAD" },
+          { "id": "int-design-vectorworks", "name": "Vectorworks" },
+          { "id": "int-design-rhino", "name": "Rhino 3D" },
+          { "id": "int-design-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Visualisation",
+        "categoryId": "int-viz",
+        "software": [
+          { "id": "int-viz-enscape", "name": "Enscape" },
+          { "id": "int-viz-twinmotion", "name": "Twinmotion" },
+          { "id": "int-viz-lumion", "name": "Lumion" },
+          { "id": "int-viz-vray", "name": "V-Ray" },
+          { "id": "int-viz-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Specification & FF&E",
+        "categoryId": "int-spec",
+        "software": [
+          { "id": "int-spec-werkspot", "name": "Werkspot" },
+          { "id": "int-spec-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Graphics",
+        "categoryId": "int-graphics",
+        "software": [
+          { "id": "int-graphics-adobe", "name": "Adobe Creative Suite" },
+          { "id": "int-graphics-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "fire-engineering",
+    "displayName": "Fire Engineering",
+    "categories": [
+      {
+        "categoryName": "Fire Simulation & Modelling",
+        "categoryId": "fire-sim",
+        "software": [
+          { "id": "fire-sim-pyrosim", "name": "PyroSim (FDS interface)" },
+          { "id": "fire-sim-fds", "name": "Fire Dynamics Simulator (FDS)" },
+          { "id": "fire-sim-cfast", "name": "CFAST" },
+          { "id": "fire-sim-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Egress & Evacuation",
+        "categoryId": "fire-egress",
+        "software": [
+          { "id": "fire-egress-pathfinder", "name": "Pathfinder" },
+          { "id": "fire-egress-simulex", "name": "Simulex" },
+          { "id": "fire-egress-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Smoke Control",
+        "categoryId": "fire-smoke",
+        "software": [
+          { "id": "fire-smoke-contam", "name": "Contam" },
+          { "id": "fire-smoke-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "planning",
+    "displayName": "Planning",
+    "categories": [
+      {
+        "categoryName": "GIS & Mapping",
+        "categoryId": "plan-gis",
+        "software": [
+          { "id": "plan-gis-arcgis", "name": "ArcGIS (ArcMap/ArcGIS Pro)" },
+          { "id": "plan-gis-qgis", "name": "QGIS" },
+          { "id": "plan-gis-urban", "name": "ArcGIS Urban" },
+          { "id": "plan-gis-cityengine", "name": "ArcGIS CityEngine" },
+          { "id": "plan-gis-mapinfo", "name": "MapInfo" },
+          { "id": "plan-gis-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "3D Visualisation",
+        "categoryId": "plan-3d",
+        "software": [
+          { "id": "plan-3d-sketchup", "name": "SketchUp Pro" },
+          { "id": "plan-3d-rhino", "name": "Rhino Urban" },
+          { "id": "plan-3d-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Document Management",
+        "categoryId": "plan-doc",
+        "software": [
+          { "id": "plan-doc-portal", "name": "Planning Portal systems" },
+          { "id": "plan-doc-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "project-management",
+    "displayName": "Project Management",
+    "categories": [
+      {
+        "categoryName": "Project Management Software",
+        "categoryId": "pm-software",
+        "software": [
+          { "id": "pm-software-procore", "name": "Procore" },
+          { "id": "pm-software-asite", "name": "Asite" },
+          { "id": "pm-software-viewpoint", "name": "Viewpoint" },
+          { "id": "pm-software-msproject", "name": "Microsoft Project" },
+          { "id": "pm-software-primavera", "name": "Primavera P6" },
+          { "id": "pm-software-asta", "name": "Asta Powerproject" },
+          { "id": "pm-software-monday", "name": "Monday.com" },
+          { "id": "pm-software-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Collaboration & Documentation",
+        "categoryId": "pm-collab",
+        "software": [
+          { "id": "pm-collab-bim360", "name": "BIM 360/Autodesk Construction Cloud" },
+          { "id": "pm-collab-aconex", "name": "Aconex" },
+          { "id": "pm-collab-4projects", "name": "4Projects" },
+          { "id": "pm-collab-sharepoint", "name": "SharePoint" },
+          { "id": "pm-collab-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "quantity-surveying",
+    "displayName": "Quantity Surveying",
+    "categories": [
+      {
+        "categoryName": "Measurement & Takeoff",
+        "categoryId": "qs-measure",
+        "software": [
+          { "id": "qs-measure-costx", "name": "CostX" },
+          { "id": "qs-measure-bluebeam", "name": "Bluebeam Revu" },
+          { "id": "qs-measure-planswift", "name": "PlanSwift" },
+          { "id": "qs-measure-cubit", "name": "Cubit" },
+          { "id": "qs-measure-glodon", "name": "Glodon Cubicost" },
+          { "id": "qs-measure-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Cost Management",
+        "categoryId": "qs-cost",
+        "software": [
+          { "id": "qs-cost-causeway", "name": "Causeway (formerly COINS)" },
+          { "id": "qs-cost-conquest", "name": "Conquest" },
+          { "id": "qs-cost-asta", "name": "Asta Powerproject" },
+          { "id": "qs-cost-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "BIM/5D",
+        "categoryId": "qs-bim",
+        "software": [
+          { "id": "qs-bim-costx", "name": "CostX (BIM)" },
+          { "id": "qs-bim-revit", "name": "Revit" },
+          { "id": "qs-bim-bim360", "name": "Autodesk BIM 360" },
+          { "id": "qs-bim-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "admin-support",
+    "displayName": "Admin Support",
+    "categories": [
+      {
+        "categoryName": "Core Tools",
+        "categoryId": "admin-core",
+        "software": [
+          { "id": "admin-core-office365", "name": "Microsoft Office 365" },
+          { "id": "admin-core-google", "name": "Google Workspace" },
+          { "id": "admin-core-adobe", "name": "Adobe Acrobat Pro" },
+          { "id": "admin-core-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
+    "discipline": "it-support",
+    "displayName": "IT Support",
+    "categories": [
+      {
+        "categoryName": "Core Tools",
+        "categoryId": "it-core",
+        "software": [
+          { "id": "it-core-office365", "name": "Microsoft Office 365" },
+          { "id": "it-core-google", "name": "Google Workspace" },
+          { "id": "it-core-adobe", "name": "Adobe Acrobat Pro" },
+          { "id": "it-core-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  }
+]
