@@ -78,7 +78,7 @@ function App() {
   // Restore prompt modal
   if (showRestorePrompt) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-[#F5F5F5] flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6">
           <Alert
             type="info"
@@ -132,7 +132,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#F5F5F5]">
       {currentStep > 0 && currentStep < 8 && (
         <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
       )}

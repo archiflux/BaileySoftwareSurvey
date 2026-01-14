@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Bailey Partnership Visual Design System */
+:root {
+  /* Primary Brand Colours */
+  --bp-teal-primary: #00838F;
+  --bp-teal-dark: #006064;
+  --bp-cyan-accent: #00BCD4;
+
+  /* Neutrals */
+  --bp-white: #FFFFFF;
+  --bp-grey-light: #F5F5F5;
+  --bp-grey-medium: #E0E0E0;
+  --bp-grey-dark: #424242;
+  --bp-black: #212121;
+
+  /* Accent */
+  --bp-sky-blue: #03A9F4;
+
+  /* Spacing Scale (8px base) */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 72px;
+  --space-xxl: 120px;
+}
+
 /* Global styles */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,4 +35,130 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--bp-grey-dark);
+  line-height: 1.6;
+}
+
+/* Bailey Partnership Typography */
+@layer components {
+  .bp-heading-hero {
+    @apply text-5xl font-bold uppercase tracking-wide leading-tight text-white;
+  }
+
+  .bp-heading-section {
+    @apply text-4xl font-bold uppercase tracking-wide leading-tight;
+    color: var(--bp-black);
+  }
+
+  .bp-heading-sub {
+    @apply text-2xl font-semibold uppercase tracking-wide leading-snug;
+    color: var(--bp-teal-dark);
+  }
+
+  .bp-body-text {
+    @apply text-base font-normal leading-relaxed;
+    color: var(--bp-grey-dark);
+  }
+
+  .bp-text-small {
+    @apply text-sm font-normal leading-normal;
+    color: var(--bp-grey-dark);
+  }
+
+  /* Form Elements */
+  .bp-input {
+    @apply w-full px-4 py-3 text-base border rounded-sm bg-white transition-colors duration-200;
+    border-color: var(--bp-grey-medium);
+    color: var(--bp-grey-dark);
+  }
+
+  .bp-input:focus {
+    @apply outline-none;
+    border-color: var(--bp-teal-primary);
+    box-shadow: 0 0 0 3px rgba(0, 131, 143, 0.1);
+  }
+
+  .bp-input::placeholder {
+    @apply font-light;
+    color: #9E9E9E;
+  }
+
+  .bp-label {
+    @apply block text-sm font-semibold uppercase tracking-wider mb-2;
+    color: var(--bp-teal-dark);
+  }
+
+  /* Buttons */
+  .bp-button-primary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-white border-none cursor-pointer transition-all duration-300;
+    background: var(--bp-teal-primary);
+    border-radius: 50px;
+  }
+
+  .bp-button-primary:hover {
+    background: var(--bp-teal-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 131, 143, 0.3);
+  }
+
+  .bp-button-secondary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold uppercase tracking-widest cursor-pointer transition-all duration-300 bg-transparent border-2;
+    color: var(--bp-teal-primary);
+    border-color: var(--bp-teal-primary);
+    border-radius: 50px;
+  }
+
+  .bp-button-secondary:hover {
+    background: var(--bp-teal-primary);
+    @apply text-white;
+  }
+
+  /* Cards */
+  .bp-card {
+    @apply bg-white p-6 rounded transition-shadow duration-300;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .bp-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Dividers */
+  .bp-divider {
+    @apply h-px my-12;
+    background: var(--bp-grey-medium);
+  }
+
+  .bp-divider-accent {
+    @apply h-0.5;
+    background: linear-gradient(90deg, var(--bp-teal-primary) 0%, transparent 100%);
+    max-width: 120px;
+  }
+
+  /* Two-tone heading pattern */
+  .bp-heading-split .accent {
+    color: var(--bp-teal-primary);
+    @apply block;
+  }
+
+  .bp-heading-split .primary {
+    color: var(--bp-black);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bp-heading-hero {
+    @apply text-3xl;
+  }
+
+  .bp-heading-section {
+    @apply text-2xl;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bp-heading-hero {
+    @apply text-6xl;
+  }
 }

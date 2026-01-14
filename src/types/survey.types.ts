@@ -95,6 +95,7 @@ export interface PreviouslyUsedResponse {
   usedWhere: UsageLocation[];
   stoppedReasons: StoppedReason[];
   otherReason?: string;
+  supersededBy?: string;
 }
 
 export type Benefit = 'significant' | 'moderate' | 'slight' | 'unsure';

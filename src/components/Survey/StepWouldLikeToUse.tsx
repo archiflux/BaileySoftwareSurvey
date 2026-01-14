@@ -7,13 +7,13 @@ import { useSurveyState } from '../../hooks/useSurveyState';
 import { benefitLabels, type Benefit } from '../../types/survey.types';
 
 export const StepWouldLikeToUse: React.FC = () => {
-  const { surveyResponse, addOrUpdateWouldLikeToUse, nextStep, previousStep, getSoftwareByUsageStatus } = useSurveyState();
+  const { surveyResponse, addOrUpdateWouldLikeToUse, goToNextValidStep, goToPreviousValidStep, getSoftwareByUsageStatus } = useSurveyState();
   const wouldLikeToUseSoftware = getSoftwareByUsageStatus('would-like-to-use');
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentSoftware = wouldLikeToUseSoftware[currentIndex];
 
-  const [benefit, setBenefit] = useState<Benefit>('significant');
+  const [benefit, setBenefit] = useState<Benefit | null>(null);
   const [wouldReplace, setWouldReplace] = useState('');
   const [interest, setInterest] = useState('');
   const [error, setError] = useState('');
@@ -30,17 +30,22 @@ export const StepWouldLikeToUse: React.FC = () => {
         setWouldReplace(existing.wouldReplace || '');
         setInterest(existing.interest);
       } else {
-        setBenefit('significant');
+        setBenefit(null);
         setWouldReplace('');
         setInterest('');
       }
     }
   }, [currentIndex, currentSoftware]);
 
-  const handleSave = () => {
+  const handleSave = (): boolean => {
+    if (!benefit) {
+      setError('Please select the level of benefit');
+      return false;
+    }
+
     if (!interest.trim()) {
       setError('Please describe why you are interested in this software');
-      return;
+      return false;
     }
 
     setError('');
@@ -50,46 +55,41 @@ export const StepWouldLikeToUse: React.FC = () => {
       wouldReplace: wouldReplace.trim() || undefined,
       interest: interest.trim()
     });
+    return true;
   };
 
   const handleNext = () => {
-    handleSave();
+    if (!handleSave()) return;
+
     if (currentIndex < wouldLikeToUseSoftware.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      nextStep();
+      goToNextValidStep();
     }
   };
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
-      handleSave();
       setCurrentIndex(currentIndex - 1);
     } else {
-      previousStep();
+      goToPreviousValidStep();
     }
   };
 
-  const handleSkip = () => {
-    nextStep();
-  };
-
+  // This step should never render if no software - navigation will skip it
   if (wouldLikeToUseSoftware.length === 0) {
-    useEffect(() => {
-      nextStep();
-    }, []);
     return null;
   }
 
   const softwareName = currentSoftware.customName || currentSoftware.softwareName;
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-32 pb-12">
+    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-3xl font-bold text-gray-900">Software You Would Like to Use</h2>
-            <span className="text-sm font-medium text-gray-600">
+            <h2 className="text-3xl font-bold uppercase tracking-wide" style={{ color: '#212121' }}>Software You Would Like to Use</h2>
+            <span className="text-sm font-medium" style={{ color: '#424242' }}>
               {currentIndex + 1} of {wouldLikeToUseSoftware.length}
             </span>
           </div>
@@ -108,7 +108,7 @@ export const StepWouldLikeToUse: React.FC = () => {
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
                 What level of benefit would this software provide to your work? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
@@ -143,22 +143,13 @@ export const StepWouldLikeToUse: React.FC = () => {
             />
           </div>
 
-          <div className="mt-8 flex justify-between items-center">
+          <div className="mt-8">
             <NavigationButtons
               onBack={handlePrevious}
               onNext={handleNext}
               nextLabel={currentIndex < wouldLikeToUseSoftware.length - 1 ? 'Next Software' : 'Continue'}
               backLabel={currentIndex > 0 ? 'Previous Software' : 'Back'}
             />
-            {currentIndex === 0 && (
-              <button
-                type="button"
-                onClick={handleSkip}
-                className="text-sm text-gray-500 hover:text-gray-700 underline"
-              >
-                Skip remaining
-              </button>
-            )}
           </div>
         </Card>
       </Container>

@@ -19,6 +19,10 @@ interface SurveyStore {
   nextStep: () => void;
   previousStep: () => void;
 
+  // Smart navigation that skips empty follow-up steps
+  goToNextValidStep: () => void;
+  goToPreviousValidStep: () => void;
+
   updateUserProfile: (profile: Partial<UserProfile>) => void;
   updateSoftwareSelections: (selections: SoftwareSelection[]) => void;
   addOrUpdateCurrentlyUsing: (response: CurrentlyUsingResponse) => void;
@@ -57,10 +61,10 @@ const initialSurveyResponse: Partial<SurveyResponse> = {
   previouslyUsedResponses: [],
   wouldLikeToUseResponses: [],
   generalFeedback: {
-    overallSatisfaction: 3,
-    trainingResources: 'neutral',
-    itSupport: 'neutral',
-    softwareIntegration: 'neutral',
+    overallSatisfaction: undefined as unknown as any,
+    trainingResources: undefined as unknown as any,
+    itSupport: undefined as unknown as any,
+    softwareIntegration: undefined as unknown as any,
     improvementSuggestions: '',
     personalLicenses: '',
     additionalComments: ''
@@ -79,6 +83,91 @@ export const useSurveyState = create<SurveyStore>((set, get) => ({
   previousStep: () => set((state) => ({
     currentStep: Math.max(0, state.currentStep - 1)
   })),
+
+  // Smart navigation that skips empty follow-up steps (3, 4, 5)
+  goToNextValidStep: () => {
+    const state = get();
+    const { currentStep, surveyResponse } = state;
+
+    const hasCurrentlyUsing = (surveyResponse.softwareSelections || []).some(
+      s => s.usageStatus === 'currently-using'
+    );
+    const hasPreviouslyUsed = (surveyResponse.softwareSelections || []).some(
+      s => s.usageStatus === 'used-previously'
+    );
+    const hasWouldLike = (surveyResponse.softwareSelections || []).some(
+      s => s.usageStatus === 'would-like-to-use'
+    );
+
+    let nextStep = currentStep + 1;
+
+    // From step 2 (Software Selection), find the first valid follow-up step
+    if (currentStep === 2) {
+      if (hasCurrentlyUsing) nextStep = 3;
+      else if (hasPreviouslyUsed) nextStep = 4;
+      else if (hasWouldLike) nextStep = 5;
+      else nextStep = 6; // Go straight to General Feedback
+    }
+    // From step 3 (Currently Using)
+    else if (currentStep === 3) {
+      if (hasPreviouslyUsed) nextStep = 4;
+      else if (hasWouldLike) nextStep = 5;
+      else nextStep = 6;
+    }
+    // From step 4 (Previously Used)
+    else if (currentStep === 4) {
+      if (hasWouldLike) nextStep = 5;
+      else nextStep = 6;
+    }
+    // From step 5 (Would Like to Use)
+    else if (currentStep === 5) {
+      nextStep = 6;
+    }
+
+    set({ currentStep: nextStep });
+  },
+
+  goToPreviousValidStep: () => {
+    const state = get();
+    const { currentStep, surveyResponse } = state;
+
+    const hasCurrentlyUsing = (surveyResponse.softwareSelections || []).some(
+      s => s.usageStatus === 'currently-using'
+    );
+    const hasPreviouslyUsed = (surveyResponse.softwareSelections || []).some(
+      s => s.usageStatus === 'used-previously'
+    );
+    const hasWouldLike = (surveyResponse.softwareSelections || []).some(
+      s => s.usageStatus === 'would-like-to-use'
+    );
+
+    let prevStep = currentStep - 1;
+
+    // From step 6 (General Feedback), find the last valid follow-up step
+    if (currentStep === 6) {
+      if (hasWouldLike) prevStep = 5;
+      else if (hasPreviouslyUsed) prevStep = 4;
+      else if (hasCurrentlyUsing) prevStep = 3;
+      else prevStep = 2; // Go back to Software Selection
+    }
+    // From step 5 (Would Like to Use)
+    else if (currentStep === 5) {
+      if (hasPreviouslyUsed) prevStep = 4;
+      else if (hasCurrentlyUsing) prevStep = 3;
+      else prevStep = 2;
+    }
+    // From step 4 (Previously Used)
+    else if (currentStep === 4) {
+      if (hasCurrentlyUsing) prevStep = 3;
+      else prevStep = 2;
+    }
+    // From step 3 (Currently Using)
+    else if (currentStep === 3) {
+      prevStep = 2;
+    }
+
+    set({ currentStep: Math.max(0, prevStep) });
+  },
 
   updateUserProfile: (profile) => set((state) => ({
     surveyResponse: {

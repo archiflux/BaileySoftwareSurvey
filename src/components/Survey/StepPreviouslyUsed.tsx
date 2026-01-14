@@ -7,7 +7,7 @@ import { useSurveyState } from '../../hooks/useSurveyState';
 import { usageLocationLabels, stoppedReasonLabels, type UsageLocation, type StoppedReason } from '../../types/survey.types';
 
 export const StepPreviouslyUsed: React.FC = () => {
-  const { surveyResponse, addOrUpdatePreviouslyUsed, nextStep, previousStep, getSoftwareByUsageStatus } = useSurveyState();
+  const { surveyResponse, addOrUpdatePreviouslyUsed, goToNextValidStep, goToPreviousValidStep, getSoftwareByUsageStatus } = useSurveyState();
   const previouslyUsedSoftware = getSoftwareByUsageStatus('used-previously');
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,6 +16,7 @@ export const StepPreviouslyUsed: React.FC = () => {
   const [usedWhere, setUsedWhere] = useState<Set<UsageLocation>>(new Set());
   const [stoppedReasons, setStoppedReasons] = useState<Set<StoppedReason>>(new Set());
   const [otherReason, setOtherReason] = useState('');
+  const [supersededBy, setSupersededBy] = useState('');
   const [error, setError] = useState('');
 
   // Load existing response if available
@@ -29,28 +30,35 @@ export const StepPreviouslyUsed: React.FC = () => {
         setUsedWhere(new Set(existing.usedWhere));
         setStoppedReasons(new Set(existing.stoppedReasons));
         setOtherReason(existing.otherReason || '');
+        setSupersededBy(existing.supersededBy || '');
       } else {
         setUsedWhere(new Set());
         setStoppedReasons(new Set());
         setOtherReason('');
+        setSupersededBy('');
       }
     }
   }, [currentIndex, currentSoftware]);
 
-  const handleSave = () => {
+  const handleSave = (): boolean => {
     if (usedWhere.size === 0) {
       setError('Please select where you used this software');
-      return;
+      return false;
     }
 
     if (stoppedReasons.size === 0) {
       setError('Please select at least one reason for stopping');
-      return;
+      return false;
     }
 
     if (stoppedReasons.has('other') && !otherReason.trim()) {
       setError('Please specify the other reason');
-      return;
+      return false;
+    }
+
+    if (stoppedReasons.has('superseded') && !supersededBy.trim()) {
+      setError('Please specify which software replaced this one');
+      return false;
     }
 
     setError('');
@@ -58,36 +66,32 @@ export const StepPreviouslyUsed: React.FC = () => {
       softwareId: currentSoftware.softwareId,
       usedWhere: Array.from(usedWhere),
       stoppedReasons: Array.from(stoppedReasons),
-      otherReason: stoppedReasons.has('other') ? otherReason.trim() : undefined
+      otherReason: stoppedReasons.has('other') ? otherReason.trim() : undefined,
+      supersededBy: stoppedReasons.has('superseded') ? supersededBy.trim() : undefined
     });
+    return true;
   };
 
   const handleNext = () => {
-    handleSave();
+    if (!handleSave()) return;
+
     if (currentIndex < previouslyUsedSoftware.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      nextStep();
+      goToNextValidStep();
     }
   };
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
-      handleSave();
       setCurrentIndex(currentIndex - 1);
     } else {
-      previousStep();
+      goToPreviousValidStep();
     }
   };
 
-  const handleSkip = () => {
-    nextStep();
-  };
-
+  // This step should never render if no software - navigation will skip it
   if (previouslyUsedSoftware.length === 0) {
-    useEffect(() => {
-      nextStep();
-    }, []);
     return null;
   }
 
@@ -114,12 +118,12 @@ export const StepPreviouslyUsed: React.FC = () => {
   const softwareName = currentSoftware.customName || currentSoftware.softwareName;
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-32 pb-12">
+    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-3xl font-bold text-gray-900">Software You Previously Used</h2>
-            <span className="text-sm font-medium text-gray-600">
+            <h2 className="text-3xl font-bold uppercase tracking-wide" style={{ color: '#212121' }}>Software You Previously Used</h2>
+            <span className="text-sm font-medium" style={{ color: '#424242' }}>
               {currentIndex + 1} of {previouslyUsedSoftware.length}
             </span>
           </div>
@@ -138,7 +142,7 @@ export const StepPreviouslyUsed: React.FC = () => {
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
                 Where did you use this software? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
@@ -154,7 +158,7 @@ export const StepPreviouslyUsed: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
                 Why did you stop using this software? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
@@ -168,34 +172,39 @@ export const StepPreviouslyUsed: React.FC = () => {
                 ))}
               </div>
 
+              {stoppedReasons.has('superseded') && (
+                <div className="mt-3">
+                  <Input
+                    label="What software replaced it?"
+                    placeholder="e.g., AutoCAD was replaced by Revit"
+                    value={supersededBy}
+                    onChange={(e) => setSupersededBy(e.target.value)}
+                    required
+                  />
+                </div>
+              )}
+
               {stoppedReasons.has('other') && (
                 <div className="mt-3">
                   <Input
+                    label="Please specify the reason"
                     placeholder="Please specify the reason"
                     value={otherReason}
                     onChange={(e) => setOtherReason(e.target.value)}
+                    required
                   />
                 </div>
               )}
             </div>
           </div>
 
-          <div className="mt-8 flex justify-between items-center">
+          <div className="mt-8">
             <NavigationButtons
               onBack={handlePrevious}
               onNext={handleNext}
               nextLabel={currentIndex < previouslyUsedSoftware.length - 1 ? 'Next Software' : 'Continue'}
               backLabel={currentIndex > 0 ? 'Previous Software' : 'Back'}
             />
-            {currentIndex === 0 && (
-              <button
-                type="button"
-                onClick={handleSkip}
-                className="text-sm text-gray-500 hover:text-gray-700 underline"
-              >
-                Skip remaining
-              </button>
-            )}
           </div>
         </Card>
       </Container>
