@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - claude/explain-codebase-mkd1lc6423ntuviu-mks9e
   workflow_dispatch:
 
 permissions:
