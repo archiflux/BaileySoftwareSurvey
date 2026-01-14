@@ -5,7 +5,7 @@ import { Container } from '../Layout/Container';
 import { NavigationButtons } from '../Layout/NavigationButtons';
 import { useSurveyState } from '../../hooks/useSurveyState';
 import { getSoftwareForDiscipline } from '../../utils/softwareDatabase';
-import type { SoftwareSelection, UsageStatus } from '../../types/survey.types';
+import type { SoftwareSelection, UsageStatus, SoftwareItem } from '../../types/survey.types';
 
 export const StepSoftwareSelection: React.FC = () => {
   const { surveyResponse, updateSoftwareSelections, goToNextValidStep, previousStep } = useSurveyState();
@@ -17,10 +17,14 @@ export const StepSoftwareSelection: React.FC = () => {
   const [customNames, setCustomNames] = useState<Map<string, string>>(new Map());
   const [error, setError] = useState<string>('');
 
+  // Track dynamic "Other" entries per category
+  const [dynamicOthers, setDynamicOthers] = useState<Map<string, SoftwareItem[]>>(new Map());
+
   // Initialize from existing selections
   useEffect(() => {
     const existingSelections = new Map<string, Set<UsageStatus>>();
     const existingCustomNames = new Map<string, string>();
+    const existingDynamicOthers = new Map<string, SoftwareItem[]>();
 
     surveyResponse.softwareSelections?.forEach(selection => {
       if (!existingSelections.has(selection.softwareId)) {
@@ -31,10 +35,28 @@ export const StepSoftwareSelection: React.FC = () => {
       if (selection.customName) {
         existingCustomNames.set(selection.softwareId, selection.customName);
       }
+
+      // Track dynamic "Other" entries by checking if they have IDs ending with a number
+      if (selection.softwareId.match(/-other-\d+$/)) {
+        const categoryId = selection.softwareId.replace(/-other-\d+$/, '');
+        if (!existingDynamicOthers.has(categoryId)) {
+          existingDynamicOthers.set(categoryId, []);
+        }
+        const dynamicList = existingDynamicOthers.get(categoryId)!;
+        // Only add if not already in the list
+        if (!dynamicList.some(item => item.id === selection.softwareId)) {
+          dynamicList.push({
+            id: selection.softwareId,
+            name: 'Other - please specify',
+            isOther: true
+          });
+        }
+      }
     });
 
     setSelections(existingSelections);
     setCustomNames(existingCustomNames);
+    setDynamicOthers(existingDynamicOthers);
   }, []);
 
   const handleCheckboxChange = (softwareId: string, status: UsageStatus, checked: boolean) => {
@@ -56,10 +78,42 @@ export const StepSoftwareSelection: React.FC = () => {
     setSelections(newSelections);
   };
 
-  const handleCustomNameChange = (softwareId: string, name: string) => {
+  const handleCustomNameChange = (softwareId: string, name: string, categoryId: string) => {
     const newCustomNames = new Map(customNames);
     if (name.trim()) {
       newCustomNames.set(softwareId, name);
+
+      // Check if this is an "Other" option and if it has any selections
+      // If so, add a new "Other" option below it
+      const hasSelections = selections.has(softwareId) && selections.get(softwareId)!.size > 0;
+
+      if (hasSelections) {
+        const categoryDynamicOthers = dynamicOthers.get(categoryId) || [];
+        const lastOtherId = categoryDynamicOthers.length > 0
+          ? categoryDynamicOthers[categoryDynamicOthers.length - 1].id
+          : `${categoryId}-other`;
+
+        // Only add new "Other" if current one is the last one
+        if (softwareId === lastOtherId || softwareId === `${categoryId}-other`) {
+          const nextIndex = categoryDynamicOthers.length + 1;
+          const newOtherId = `${categoryId}-other-${nextIndex}`;
+
+          // Check if this ID already exists
+          if (!categoryDynamicOthers.some(item => item.id === newOtherId)) {
+            const newDynamicOthers = new Map(dynamicOthers);
+            const updatedList = [
+              ...categoryDynamicOthers,
+              {
+                id: newOtherId,
+                name: 'Other - please specify',
+                isOther: true
+              }
+            ];
+            newDynamicOthers.set(categoryId, updatedList);
+            setDynamicOthers(newDynamicOthers);
+          }
+        }
+      }
     } else {
       newCustomNames.delete(softwareId);
     }
@@ -71,7 +125,13 @@ export const StepSoftwareSelection: React.FC = () => {
     const softwareSelections: SoftwareSelection[] = [];
 
     disciplineData?.categories.forEach(category => {
-      category.software.forEach(software => {
+      // Get all software including dynamic "Other" entries
+      const allSoftware = [
+        ...category.software,
+        ...(dynamicOthers.get(category.categoryId) || [])
+      ];
+
+      allSoftware.forEach(software => {
         const statuses = selections.get(software.id);
         if (statuses && statuses.size > 0) {
           // Check if custom name is required but missing
@@ -122,58 +182,66 @@ export const StepSoftwareSelection: React.FC = () => {
           )}
 
           <div className="space-y-8">
-            {disciplineData.categories.map(category => (
-              <div key={category.categoryId} className="border-b border-border pb-6 last:border-0">
-                <h3 className="text-lg font-semibold mb-4 text-[#0052FF]">
-                  {category.categoryName}
-                </h3>
+            {disciplineData.categories.map(category => {
+              // Combine regular software with dynamic "Other" entries
+              const allSoftware = [
+                ...category.software,
+                ...(dynamicOthers.get(category.categoryId) || [])
+              ];
 
-                <div className="space-y-3">
-                  {category.software.map(software => {
-                    const isSelected = selections.has(software.id);
-                    const statuses = selections.get(software.id) || new Set();
+              return (
+                <div key={category.categoryId} className="border-b border-border pb-6 last:border-0">
+                  <h3 className="text-lg font-semibold mb-4 text-[#0052FF]">
+                    {category.categoryName}
+                  </h3>
 
-                    return (
-                      <div key={software.id} className="bg-gradient-to-r from-[#0052FF]/5 to-transparent p-4 rounded-xl border border-[#0052FF]/10 hover:border-[#0052FF]/20 transition-colors">
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                          <div className="md:col-span-1 font-medium text-foreground">
-                            {software.name}
+                  <div className="space-y-3">
+                    {allSoftware.map(software => {
+                      const isSelected = selections.has(software.id);
+                      const statuses = selections.get(software.id) || new Set();
+
+                      return (
+                        <div key={software.id} className="bg-gradient-to-r from-[#0052FF]/5 to-transparent p-4 rounded-xl border border-[#0052FF]/10 hover:border-[#0052FF]/20 transition-colors">
+                          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                            <div className="md:col-span-1 font-medium text-foreground">
+                              {software.name}
+                            </div>
+                            <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                              <Checkbox
+                                label="Currently using"
+                                checked={statuses.has('currently-using')}
+                                onChange={(e) => handleCheckboxChange(software.id, 'currently-using', e.target.checked)}
+                              />
+                              <Checkbox
+                                label="Used previously"
+                                checked={statuses.has('used-previously')}
+                                onChange={(e) => handleCheckboxChange(software.id, 'used-previously', e.target.checked)}
+                              />
+                              <Checkbox
+                                label="Would like to use"
+                                checked={statuses.has('would-like-to-use')}
+                                onChange={(e) => handleCheckboxChange(software.id, 'would-like-to-use', e.target.checked)}
+                              />
+                            </div>
                           </div>
-                          <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <Checkbox
-                              label="Currently using"
-                              checked={statuses.has('currently-using')}
-                              onChange={(e) => handleCheckboxChange(software.id, 'currently-using', e.target.checked)}
-                            />
-                            <Checkbox
-                              label="Used previously"
-                              checked={statuses.has('used-previously')}
-                              onChange={(e) => handleCheckboxChange(software.id, 'used-previously', e.target.checked)}
-                            />
-                            <Checkbox
-                              label="Would like to use"
-                              checked={statuses.has('would-like-to-use')}
-                              onChange={(e) => handleCheckboxChange(software.id, 'would-like-to-use', e.target.checked)}
-                            />
-                          </div>
+
+                          {software.isOther && isSelected && (
+                            <div className="mt-3 ml-0 md:ml-[25%]">
+                              <Input
+                                placeholder="Please specify the software name"
+                                value={customNames.get(software.id) || ''}
+                                onChange={(e) => handleCustomNameChange(software.id, e.target.value, category.categoryId)}
+                                className="max-w-md"
+                              />
+                            </div>
+                          )}
                         </div>
-
-                        {software.isOther && isSelected && (
-                          <div className="mt-3 ml-0 md:ml-[25%]">
-                            <Input
-                              placeholder="Please specify the software name"
-                              value={customNames.get(software.id) || ''}
-                              onChange={(e) => handleCustomNameChange(software.id, e.target.value)}
-                              className="max-w-md"
-                            />
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-8">

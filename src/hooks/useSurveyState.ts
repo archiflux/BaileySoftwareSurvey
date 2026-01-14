@@ -6,7 +6,9 @@ import type {
   CurrentlyUsingResponse,
   PreviouslyUsedResponse,
   WouldLikeToUseResponse,
-  GeneralFeedback
+  GeneralFeedback,
+  RoleLevel,
+  Discipline
 } from '../types/survey.types';
 
 interface SurveyStore {
@@ -53,8 +55,8 @@ const initialSurveyResponse: Partial<SurveyResponse> = {
   userProfile: {
     email: '',
     fullName: '',
-    roleLevel: 'associate',
-    discipline: 'architectural-design'
+    roleLevel: '' as RoleLevel,
+    discipline: '' as Discipline
   },
   softwareSelections: [],
   currentlyUsingResponses: [],
