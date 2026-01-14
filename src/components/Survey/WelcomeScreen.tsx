@@ -10,7 +10,7 @@ interface WelcomeScreenProps {
 
 export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#0052FF] via-[#0052FF]/95 to-[#4D7CFF] py-12">
       <Container maxWidth="2xl">
         <Card className="text-center">
           <div className="flex justify-center mb-8">
@@ -26,7 +26,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4 text-foreground">
-            {APP_NAME}
+            Bailey Partnership Group {APP_NAME}
           </h1>
 
           <p className="text-lg mb-10 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
