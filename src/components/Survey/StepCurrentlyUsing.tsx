@@ -94,31 +94,31 @@ export const StepCurrentlyUsing: React.FC = () => {
   const softwareName = currentSoftware.customName || currentSoftware.softwareName;
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted pt-28 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-3xl font-bold uppercase tracking-wide" style={{ color: '#212121' }}>Software You Currently Use</h2>
-            <span className="text-sm font-medium" style={{ color: '#424242' }}>
+            <h2 className="text-2xl md:text-3xl font-display font-bold tracking-tight text-foreground">Software You Currently Use</h2>
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#0052FF]/10 text-[#0052FF]">
               {currentIndex + 1} of {currentlyUsingSoftware.length}
             </span>
           </div>
 
-          <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 mb-6">
-            <p className="text-lg font-semibold text-primary">
+          <div className="bg-gradient-to-r from-[#0052FF]/10 to-[#4D7CFF]/10 border border-[#0052FF]/30 rounded-xl p-4 mb-6">
+            <p className="text-lg font-semibold text-[#0052FF]">
               {softwareName}
             </p>
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700">
               {error}
             </div>
           )}
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3 text-[#0052FF]">
                 How frequently do you use this software? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
@@ -136,7 +136,7 @@ export const StepCurrentlyUsing: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3 text-[#0052FF]">
                 How would you rate your training level? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">

@@ -9,18 +9,18 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({
   children,
   className = '',
-  padding = 'md'
+  padding = 'lg'
 }) => {
   const paddingStyles = {
     none: 'p-0',
     sm: 'p-4',
     md: 'p-6',
-    lg: 'p-8'
+    lg: 'p-8 md:p-10'
   };
 
   return (
     <div
-      className={`bg-white rounded-lg shadow-md border border-gray-200 ${paddingStyles[padding]} ${className}`}
+      className={`bg-white rounded-2xl shadow-lg border border-border/50 transition-shadow duration-300 hover:shadow-xl ${paddingStyles[padding]} ${className}`}
     >
       {children}
     </div>
