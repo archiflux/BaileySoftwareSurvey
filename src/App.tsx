@@ -136,7 +136,9 @@ function App() {
       {currentStep > 0 && currentStep < 8 && (
         <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
       )}
-      {renderStep()}
+      <div key={currentStep} className="page-transition">
+        {renderStep()}
+      </div>
     </div>
   );
 }

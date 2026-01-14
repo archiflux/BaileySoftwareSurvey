@@ -19,6 +19,8 @@ export const StepSoftwareSelection: React.FC = () => {
 
   // Track dynamic "Other" entries per category
   const [dynamicOthers, setDynamicOthers] = useState<Map<string, SoftwareItem[]>>(new Map());
+  // Track which "Other" boxes have spawned a next one to prevent duplicates
+  const [spawnedNextBox, setSpawnedNextBox] = useState<Set<string>>(new Set());
 
   // Initialize from existing selections
   useEffect(() => {
@@ -84,10 +86,11 @@ export const StepSoftwareSelection: React.FC = () => {
       newCustomNames.set(softwareId, name);
 
       // Check if this is an "Other" option and if it has any selections
-      // If so, add a new "Other" option below it
+      // Only add a new "Other" box if we haven't already spawned one for this ID
       const hasSelections = selections.has(softwareId) && selections.get(softwareId)!.size > 0;
+      const hasNotSpawnedYet = !spawnedNextBox.has(softwareId);
 
-      if (hasSelections) {
+      if (hasSelections && hasNotSpawnedYet) {
         const categoryDynamicOthers = dynamicOthers.get(categoryId) || [];
         const lastOtherId = categoryDynamicOthers.length > 0
           ? categoryDynamicOthers[categoryDynamicOthers.length - 1].id
@@ -111,6 +114,11 @@ export const StepSoftwareSelection: React.FC = () => {
             ];
             newDynamicOthers.set(categoryId, updatedList);
             setDynamicOthers(newDynamicOthers);
+
+            // Mark this "Other" box as having spawned a next one
+            const newSpawnedSet = new Set(spawnedNextBox);
+            newSpawnedSet.add(softwareId);
+            setSpawnedNextBox(newSpawnedSet);
           }
         }
       }

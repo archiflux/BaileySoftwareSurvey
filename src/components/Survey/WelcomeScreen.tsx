@@ -18,6 +18,10 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
               src="/Icon-colour.png"
               alt="Bailey Partnership Logo"
               className="w-24 h-24 object-contain rounded-xl shadow-lg"
+              onError={(e) => {
+                console.error('Failed to load icon:', e);
+                e.currentTarget.style.display = 'none';
+              }}
             />
           </div>
 
