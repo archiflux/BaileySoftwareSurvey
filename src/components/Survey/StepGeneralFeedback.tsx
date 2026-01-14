@@ -7,7 +7,7 @@ import { useSurveyState } from '../../hooks/useSurveyState';
 import { agreementScaleLabels, type AgreementScale, type Satisfaction } from '../../types/survey.types';
 
 export const StepGeneralFeedback: React.FC = () => {
-  const { surveyResponse, updateGeneralFeedback, nextStep, previousStep } = useSurveyState();
+  const { surveyResponse, updateGeneralFeedback, nextStep, goToPreviousValidStep } = useSurveyState();
   const feedback = surveyResponse.generalFeedback;
 
   const [overallSatisfaction, setOverallSatisfaction] = useState<Satisfaction | null>(
@@ -172,7 +172,7 @@ export const StepGeneralFeedback: React.FC = () => {
 
           <div className="mt-8">
             <NavigationButtons
-              onBack={previousStep}
+              onBack={goToPreviousValidStep}
               onNext={handleNext}
               nextLabel="Review Responses"
             />

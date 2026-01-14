@@ -7,7 +7,7 @@ import { useSurveyState } from '../../hooks/useSurveyState';
 import { frequencyLabels, trainingLevelLabels, type Frequency, type TrainingLevel, type Satisfaction } from '../../types/survey.types';
 
 export const StepCurrentlyUsing: React.FC = () => {
-  const { surveyResponse, addOrUpdateCurrentlyUsing, nextStep, previousStep, getSoftwareByUsageStatus } = useSurveyState();
+  const { surveyResponse, addOrUpdateCurrentlyUsing, goToNextValidStep, goToPreviousValidStep, getSoftwareByUsageStatus } = useSurveyState();
   const currentlyUsingSoftware = getSoftwareByUsageStatus('currently-using');
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -74,7 +74,7 @@ export const StepCurrentlyUsing: React.FC = () => {
     if (currentIndex < currentlyUsingSoftware.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      nextStep();
+      goToNextValidStep();
     }
   };
 
@@ -82,15 +82,12 @@ export const StepCurrentlyUsing: React.FC = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     } else {
-      previousStep();
+      goToPreviousValidStep();
     }
   };
 
+  // This step should never render if no software - navigation will skip it
   if (currentlyUsingSoftware.length === 0) {
-    // Skip this step if no software selected
-    useEffect(() => {
-      nextStep();
-    }, []);
     return null;
   }
 

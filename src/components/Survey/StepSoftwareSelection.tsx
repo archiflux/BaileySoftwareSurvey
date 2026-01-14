@@ -8,7 +8,7 @@ import { getSoftwareForDiscipline } from '../../utils/softwareDatabase';
 import type { SoftwareSelection, UsageStatus } from '../../types/survey.types';
 
 export const StepSoftwareSelection: React.FC = () => {
-  const { surveyResponse, updateSoftwareSelections, nextStep, previousStep } = useSurveyState();
+  const { surveyResponse, updateSoftwareSelections, goToNextValidStep, previousStep } = useSurveyState();
   const profile = surveyResponse.userProfile!;
   const disciplineData = getSoftwareForDiscipline(profile.discipline);
 
@@ -99,7 +99,7 @@ export const StepSoftwareSelection: React.FC = () => {
 
     setError('');
     updateSoftwareSelections(softwareSelections);
-    nextStep();
+    goToNextValidStep();
   };
 
   if (!disciplineData) {
@@ -107,11 +107,11 @@ export const StepSoftwareSelection: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-32 pb-12">
+    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
       <Container maxWidth="2xl">
         <Card>
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Software Selection</h2>
-          <p className="text-gray-600 mb-6">
+          <h2 className="text-3xl font-bold uppercase tracking-wide mb-2" style={{ color: '#212121' }}>Software Selection</h2>
+          <p className="mb-6" style={{ color: '#424242' }}>
             For each software tool below, indicate your usage status. You can select multiple options for each software.
           </p>
 
@@ -123,8 +123,8 @@ export const StepSoftwareSelection: React.FC = () => {
 
           <div className="space-y-8">
             {disciplineData.categories.map(category => (
-              <div key={category.categoryId} className="border-b border-gray-200 pb-6 last:border-0">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <div key={category.categoryId} className="border-b border-[#E0E0E0] pb-6 last:border-0">
+                <h3 className="text-xl font-semibold uppercase tracking-wide mb-4" style={{ color: '#006064' }}>
                   {category.categoryName}
                 </h3>
 
@@ -134,9 +134,9 @@ export const StepSoftwareSelection: React.FC = () => {
                     const statuses = selections.get(software.id) || new Set();
 
                     return (
-                      <div key={software.id} className="bg-gray-50 p-4 rounded-lg">
+                      <div key={software.id} className="bg-primary/5 p-4 rounded-lg border border-primary/10">
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                          <div className="md:col-span-1 font-medium text-gray-900">
+                          <div className="md:col-span-1 font-medium" style={{ color: '#212121' }}>
                             {software.name}
                           </div>
                           <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-3">

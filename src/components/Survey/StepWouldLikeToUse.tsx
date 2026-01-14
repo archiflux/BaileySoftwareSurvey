@@ -7,7 +7,7 @@ import { useSurveyState } from '../../hooks/useSurveyState';
 import { benefitLabels, type Benefit } from '../../types/survey.types';
 
 export const StepWouldLikeToUse: React.FC = () => {
-  const { surveyResponse, addOrUpdateWouldLikeToUse, nextStep, previousStep, getSoftwareByUsageStatus } = useSurveyState();
+  const { surveyResponse, addOrUpdateWouldLikeToUse, goToNextValidStep, goToPreviousValidStep, getSoftwareByUsageStatus } = useSurveyState();
   const wouldLikeToUseSoftware = getSoftwareByUsageStatus('would-like-to-use');
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -64,7 +64,7 @@ export const StepWouldLikeToUse: React.FC = () => {
     if (currentIndex < wouldLikeToUseSoftware.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      nextStep();
+      goToNextValidStep();
     }
   };
 
@@ -72,14 +72,12 @@ export const StepWouldLikeToUse: React.FC = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     } else {
-      previousStep();
+      goToPreviousValidStep();
     }
   };
 
+  // This step should never render if no software - navigation will skip it
   if (wouldLikeToUseSoftware.length === 0) {
-    useEffect(() => {
-      nextStep();
-    }, []);
     return null;
   }
 

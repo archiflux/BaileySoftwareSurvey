@@ -7,7 +7,7 @@ import { useSurveyState } from '../../hooks/useSurveyState';
 import { usageLocationLabels, stoppedReasonLabels, type UsageLocation, type StoppedReason } from '../../types/survey.types';
 
 export const StepPreviouslyUsed: React.FC = () => {
-  const { surveyResponse, addOrUpdatePreviouslyUsed, nextStep, previousStep, getSoftwareByUsageStatus } = useSurveyState();
+  const { surveyResponse, addOrUpdatePreviouslyUsed, goToNextValidStep, goToPreviousValidStep, getSoftwareByUsageStatus } = useSurveyState();
   const previouslyUsedSoftware = getSoftwareByUsageStatus('used-previously');
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -78,7 +78,7 @@ export const StepPreviouslyUsed: React.FC = () => {
     if (currentIndex < previouslyUsedSoftware.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      nextStep();
+      goToNextValidStep();
     }
   };
 
@@ -86,14 +86,12 @@ export const StepPreviouslyUsed: React.FC = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     } else {
-      previousStep();
+      goToPreviousValidStep();
     }
   };
 
+  // This step should never render if no software - navigation will skip it
   if (previouslyUsedSoftware.length === 0) {
-    useEffect(() => {
-      nextStep();
-    }, []);
     return null;
   }
 
