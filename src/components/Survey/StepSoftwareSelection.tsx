@@ -107,11 +107,11 @@ export const StepSoftwareSelection: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted pt-28 pb-12">
       <Container maxWidth="2xl">
         <Card>
-          <h2 className="text-3xl font-bold uppercase tracking-wide mb-2" style={{ color: '#212121' }}>Software Selection</h2>
-          <p className="mb-6" style={{ color: '#424242' }}>
+          <h2 className="text-2xl md:text-3xl font-display font-bold tracking-tight mb-2 text-foreground">Software Selection</h2>
+          <p className="mb-6 text-muted-foreground">
             For each software tool below, indicate your usage status. You can select multiple options for each software.
           </p>
 
@@ -123,8 +123,8 @@ export const StepSoftwareSelection: React.FC = () => {
 
           <div className="space-y-8">
             {disciplineData.categories.map(category => (
-              <div key={category.categoryId} className="border-b border-[#E0E0E0] pb-6 last:border-0">
-                <h3 className="text-xl font-semibold uppercase tracking-wide mb-4" style={{ color: '#006064' }}>
+              <div key={category.categoryId} className="border-b border-border pb-6 last:border-0">
+                <h3 className="text-lg font-semibold mb-4 text-[#0052FF]">
                   {category.categoryName}
                 </h3>
 
@@ -134,9 +134,9 @@ export const StepSoftwareSelection: React.FC = () => {
                     const statuses = selections.get(software.id) || new Set();
 
                     return (
-                      <div key={software.id} className="bg-primary/5 p-4 rounded-lg border border-primary/10">
+                      <div key={software.id} className="bg-gradient-to-r from-[#0052FF]/5 to-transparent p-4 rounded-xl border border-[#0052FF]/10 hover:border-[#0052FF]/20 transition-colors">
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                          <div className="md:col-span-1 font-medium" style={{ color: '#212121' }}>
+                          <div className="md:col-span-1 font-medium text-foreground">
                             {software.name}
                           </div>
                           <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-3">

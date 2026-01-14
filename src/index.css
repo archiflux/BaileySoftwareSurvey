@@ -1,21 +1,30 @@
 @import "tailwindcss";
 
-/* Bailey Partnership Visual Design System */
+/* Modern Minimalist Design System */
 :root {
-  /* Primary Brand Colours */
-  --bp-teal-primary: #00838F;
-  --bp-teal-dark: #006064;
-  --bp-cyan-accent: #00BCD4;
+  /* Primary Accent - Electric Blue Gradient */
+  --accent: #0052FF;
+  --accent-secondary: #4D7CFF;
+  --accent-foreground: #FFFFFF;
 
-  /* Neutrals */
+  /* Background & Surfaces */
+  --background: #FAFAFA;
+  --foreground: #0F172A;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --card: #FFFFFF;
+  --border: #E2E8F0;
+
+  /* Legacy colors for compatibility */
+  --bp-teal-primary: #0052FF;
+  --bp-teal-dark: #0041CC;
+  --bp-cyan-accent: #4D7CFF;
   --bp-white: #FFFFFF;
   --bp-grey-light: #F5F5F5;
   --bp-grey-medium: #E0E0E0;
   --bp-grey-dark: #424242;
   --bp-black: #212121;
-
-  /* Accent */
-  --bp-sky-blue: #03A9F4;
+  --bp-sky-blue: #4D7CFF;
 
   /* Spacing Scale (8px base) */
   --space-xs: 8px;
@@ -28,13 +37,14 @@
 
 /* Global styles */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--bp-grey-dark);
-  line-height: 1.6;
+  color: var(--foreground);
+  background-color: var(--background);
+  line-height: 1.625;
 }
 
 /* Bailey Partnership Typography */
@@ -123,17 +133,17 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: white;
-  background: var(--bp-teal-primary);
+  background: linear-gradient(to right, var(--accent), var(--accent-secondary));
   border: none;
-  border-radius: 50px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .bp-button-primary:hover {
-  background: var(--bp-teal-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 131, 143, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 82, 255, 0.35);
+  filter: brightness(1.1);
 }
 
 .bp-button-secondary {
@@ -145,17 +155,18 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--bp-teal-primary);
+  color: var(--accent);
   background: transparent;
-  border: 2px solid var(--bp-teal-primary);
-  border-radius: 50px;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .bp-button-secondary:hover {
-  background: var(--bp-teal-primary);
+  background: var(--accent);
   color: white;
+  box-shadow: 0 4px 14px rgba(0, 82, 255, 0.25);
 }
 
 /* Cards */

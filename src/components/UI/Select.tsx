@@ -30,7 +30,7 @@ export const Select: React.FC<SelectProps> = ({
       {label && (
         <label
           htmlFor={selectId}
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-semibold uppercase tracking-wide text-[#0052FF] mb-2"
         >
           {label}
           {props.required && <span className="text-red-500 ml-1">*</span>}
@@ -39,10 +39,11 @@ export const Select: React.FC<SelectProps> = ({
       <select
         id={selectId}
         className={`
-          w-full px-3 py-2 border rounded-lg shadow-sm bg-white
-          focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary
-          disabled:bg-gray-100 disabled:cursor-not-allowed
-          ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300'}
+          w-full px-4 py-3 border rounded-xl bg-white text-foreground
+          transition-all duration-200
+          focus:outline-none focus:ring-2 focus:ring-[#0052FF] focus:ring-offset-2 focus:border-[#0052FF]
+          disabled:bg-muted disabled:cursor-not-allowed
+          ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-border hover:border-[#0052FF]/30'}
           ${className}
         `}
         aria-invalid={!!error}
@@ -61,12 +62,12 @@ export const Select: React.FC<SelectProps> = ({
         ))}
       </select>
       {error && (
-        <p id={`${selectId}-error`} className="mt-1 text-sm text-red-600">
+        <p id={`${selectId}-error`} className="mt-2 text-sm text-red-600">
           {error}
         </p>
       )}
       {helperText && !error && (
-        <p id={`${selectId}-helper`} className="mt-1 text-sm text-gray-500">
+        <p id={`${selectId}-helper`} className="mt-2 text-sm text-muted-foreground">
           {helperText}
         </p>
       )}

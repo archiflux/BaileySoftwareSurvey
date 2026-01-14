@@ -14,30 +14,33 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep, totalStep
   const currentStepTitle = STEP_TITLES[currentStep] || '';
 
   return (
-    <div className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <div className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm border-b border-border/50 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-4">
-            <h2 className="text-sm font-semibold text-gray-700">
-              Bailey Partnership Software Survey
-            </h2>
+            <div className="flex items-center gap-3">
+              <img src="/Icon-colour.png" alt="BP" className="w-8 h-8 rounded-lg" />
+              <h2 className="text-sm font-semibold text-foreground hidden sm:block">
+                Software Survey
+              </h2>
+            </div>
             {currentStep > 0 && currentStep < totalSteps && (
-              <span className="text-sm text-gray-500">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#0052FF]/10 text-[#0052FF]">
                 Step {currentStep} of {totalSteps - 1}
               </span>
             )}
           </div>
           {currentStepTitle && currentStep > 0 && currentStep < totalSteps && (
-            <span className="text-sm font-medium text-gray-900 hidden sm:block">
+            <span className="text-sm font-medium text-foreground hidden md:block">
               {currentStepTitle}
             </span>
           )}
         </div>
 
         {currentStep > 0 && currentStep < totalSteps && (
-          <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+          <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
             <div
-              className="bg-primary h-full rounded-full transition-all duration-300 ease-in-out"
+              className="bg-gradient-to-r from-[#0052FF] to-[#4D7CFF] h-full rounded-full transition-all duration-500 ease-out"
               style={{ width: `${progressPercentage}%` }}
               role="progressbar"
               aria-valuenow={progressPercentage}

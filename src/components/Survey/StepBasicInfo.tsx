@@ -50,11 +50,11 @@ export const StepBasicInfo: React.FC = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted pt-28 pb-12">
       <Container maxWidth="2xl">
         <Card>
-          <h2 className="text-3xl font-bold uppercase tracking-wide mb-2" style={{ color: '#212121' }}>Basic Information</h2>
-          <p className="mb-8" style={{ color: '#424242' }}>
+          <h2 className="text-2xl md:text-3xl font-display font-bold tracking-tight mb-2 text-foreground">Basic Information</h2>
+          <p className="mb-8 text-muted-foreground">
             Let's start with some basic information about you and your role.
           </p>
 
@@ -80,7 +80,7 @@ export const StepBasicInfo: React.FC = () => {
             />
 
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3 text-[#0052FF]">
                 Role Level <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">

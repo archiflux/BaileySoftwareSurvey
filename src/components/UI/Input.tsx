@@ -21,7 +21,7 @@ export const Input: React.FC<InputProps> = ({
       {label && (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-semibold uppercase tracking-wide text-[#0052FF] mb-2"
         >
           {label}
           {props.required && <span className="text-red-500 ml-1">*</span>}
@@ -30,10 +30,12 @@ export const Input: React.FC<InputProps> = ({
       <input
         id={inputId}
         className={`
-          w-full px-3 py-2 border rounded-lg shadow-sm
-          focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary
-          disabled:bg-gray-100 disabled:cursor-not-allowed
-          ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300'}
+          w-full px-4 py-3 border rounded-xl bg-white text-foreground
+          transition-all duration-200
+          focus:outline-none focus:ring-2 focus:ring-[#0052FF] focus:ring-offset-2 focus:border-[#0052FF]
+          disabled:bg-muted disabled:cursor-not-allowed
+          placeholder:text-muted-foreground/50
+          ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-border hover:border-[#0052FF]/30'}
           ${className}
         `}
         aria-invalid={!!error}
@@ -41,12 +43,12 @@ export const Input: React.FC<InputProps> = ({
         {...props}
       />
       {error && (
-        <p id={`${inputId}-error`} className="mt-1 text-sm text-red-600">
+        <p id={`${inputId}-error`} className="mt-2 text-sm text-red-600">
           {error}
         </p>
       )}
       {helperText && !error && (
-        <p id={`${inputId}-helper`} className="mt-1 text-sm text-gray-500">
+        <p id={`${inputId}-helper`} className="mt-2 text-sm text-muted-foreground">
           {helperText}
         </p>
       )}
