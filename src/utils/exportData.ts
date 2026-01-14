@@ -45,7 +45,10 @@ export const submitToGoogleSheets = async (
   }
 
   try {
-    const response = await fetch(GOOGLE_SHEETS_URL, {
+    // With 'no-cors' mode, we can't read the response body
+    // Google Apps Script will return an opaque response
+    // We assume success if no network error occurred
+    await fetch(GOOGLE_SHEETS_URL, {
       method: 'POST',
       mode: 'no-cors', // Google Apps Script doesn't support CORS preflight
       headers: {
@@ -53,11 +56,6 @@ export const submitToGoogleSheets = async (
       },
       body: JSON.stringify(surveyResponse),
     });
-
-    // With 'no-cors' mode, we can't read the response body
-    // Google Apps Script will return an opaque response
-    // We assume success if no network error occurred
-    // The actual response is handled by Google Apps Script
 
     // For 'no-cors' requests, response.ok is always false and response.status is 0
     // We need to trust that the request was sent successfully
