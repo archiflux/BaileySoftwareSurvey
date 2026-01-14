@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from '../UI/Card';
-import { Checkbox, Input } from '../UI';
+import { Checkbox, Input, Alert } from '../UI';
 import { Container } from '../Layout/Container';
 import { NavigationButtons } from '../Layout/NavigationButtons';
 import { useSurveyState } from '../../hooks/useSurveyState';
@@ -182,6 +182,13 @@ export const StepSoftwareSelection: React.FC = () => {
           <p className="mb-6 text-muted-foreground">
             For each software tool below, indicate your usage status. You can select multiple options for each software.
           </p>
+
+          <Alert
+            type="info"
+            title="Important Reminder"
+            message="You don't need to select an option for all software listed below. Only indicate your status for the software you have used, are currently using, or are interested in using."
+            className="mb-6"
+          />
 
           {error && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
