@@ -4,7 +4,8 @@ import { Button } from '../UI/Button';
 import { Container } from '../Layout/Container';
 import { NavigationButtons } from '../Layout/NavigationButtons';
 import { useSurveyState } from '../../hooks/useSurveyState';
-import { ChevronDown, ChevronUp, Edit } from 'lucide-react';
+import { submitToGoogleSheets } from '../../utils/exportData';
+import { ChevronDown, ChevronUp, Edit, AlertCircle, RefreshCw } from 'lucide-react';
 import {
   roleLevelLabels,
   disciplineLabels,
@@ -23,6 +24,7 @@ export const StepReview: React.FC = () => {
     new Set(['basic', 'selections', 'currently', 'previously', 'wouldlike', 'feedback'])
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
     const newExpanded = new Set(expandedSections);
@@ -36,11 +38,35 @@ export const StepReview: React.FC = () => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    submitSurvey();
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    nextStep();
+    setSubmitError(null);
+
+    try {
+      // First, mark the survey as completed and update timestamp
+      submitSurvey();
+
+      // Get the updated survey response with completion status
+      const completedResponse = {
+        ...surveyResponse,
+        completionStatus: 'completed' as const,
+        timestamp: new Date().toISOString()
+      };
+
+      // Submit to Google Sheets
+      const result = await submitToGoogleSheets(completedResponse);
+
+      if (result.success) {
+        // Success - proceed to thank you screen
+        nextStep();
+      } else {
+        // Show error but keep the user on the review page
+        setSubmitError(result.error || 'An unexpected error occurred. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitError('A network error occurred. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const profile = surveyResponse.userProfile!;
@@ -75,6 +101,40 @@ export const StepReview: React.FC = () => {
               Please review your responses before submitting. You can edit any section by clicking the Edit button.
             </p>
           </div>
+
+          {/* Submission Error Alert */}
+          {submitError && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <h4 className="font-semibold text-red-800 mb-1">Submission Failed</h4>
+                  <p className="text-red-700 text-sm">{submitError}</p>
+                  <button
+                    onClick={handleSubmit}
+                    disabled={isSubmitting}
+                    className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <RefreshCw className={`w-4 h-4 ${isSubmitting ? 'animate-spin' : ''}`} />
+                    {isSubmitting ? 'Retrying...' : 'Try Again'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Loading Overlay */}
+          {isSubmitting && !submitError && (
+            <div className="mb-6 p-4 bg-primary/5 border border-primary/20 rounded-lg">
+              <div className="flex items-center gap-3">
+                <RefreshCw className="w-5 h-5 text-primary animate-spin" />
+                <div>
+                  <p className="font-medium" style={{ color: '#006064' }}>Submitting your survey...</p>
+                  <p className="text-sm" style={{ color: '#424242' }}>Please wait while we save your responses.</p>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="space-y-4">
             {/* Basic Information */}

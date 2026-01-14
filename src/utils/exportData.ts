@@ -1,6 +1,82 @@
 import type { SurveyResponse } from '../types/survey.types';
 
 /**
+ * Google Sheets Web App URL
+ * Replace this with your deployed Google Apps Script Web App URL
+ * See docs/google-apps-script.js for deployment instructions
+ */
+const GOOGLE_SHEETS_URL = import.meta.env.VITE_GOOGLE_SHEETS_URL || '';
+
+/**
+ * Response type from Google Sheets submission
+ */
+export interface GoogleSheetsResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+  timestamp?: string;
+}
+
+/**
+ * Submit survey response to Google Sheets
+ * @param surveyResponse - The complete survey response to submit
+ * @returns Promise with the submission result
+ */
+export const submitToGoogleSheets = async (
+  surveyResponse: Partial<SurveyResponse>
+): Promise<GoogleSheetsResponse> => {
+  // Check if URL is configured
+  if (!GOOGLE_SHEETS_URL) {
+    console.warn('Google Sheets URL not configured. Set VITE_GOOGLE_SHEETS_URL environment variable.');
+    // Return success in development to allow testing without Google Sheets
+    if (import.meta.env.DEV) {
+      console.log('Development mode: Simulating successful submission');
+      console.log('Survey data:', surveyResponse);
+      return {
+        success: true,
+        message: 'Development mode - data logged to console',
+        timestamp: new Date().toISOString()
+      };
+    }
+    return {
+      success: false,
+      error: 'Google Sheets integration not configured. Please contact the IIET Committee.'
+    };
+  }
+
+  try {
+    const response = await fetch(GOOGLE_SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors', // Google Apps Script doesn't support CORS preflight
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(surveyResponse),
+    });
+
+    // With 'no-cors' mode, we can't read the response body
+    // Google Apps Script will return an opaque response
+    // We assume success if no network error occurred
+    // The actual response is handled by Google Apps Script
+
+    // For 'no-cors' requests, response.ok is always false and response.status is 0
+    // We need to trust that the request was sent successfully
+    return {
+      success: true,
+      message: 'Survey submitted successfully',
+      timestamp: new Date().toISOString()
+    };
+
+  } catch (error) {
+    console.error('Error submitting to Google Sheets:', error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Network error occurred'
+    };
+  }
+};
+
+/**
  * Export survey response as JSON file
  */
 export const exportToJSON = (surveyResponse: SurveyResponse): void => {
