@@ -80,7 +80,7 @@ export interface CurrentlyUsingResponse {
   comments?: string;
 }
 
-export type UsageLocation = 'bailey-partnership' | 'previous-employer' | 'both';
+export type UsageLocation = 'bailey-partnership' | 'previous-employer' | 'personal-capacity';
 
 export type StoppedReason =
   | 'superseded'
@@ -180,9 +180,9 @@ export const trainingLevelLabels: Record<TrainingLevel, string> = {
 };
 
 export const usageLocationLabels: Record<UsageLocation, string> = {
-  'bailey-partnership': 'At Bailey Partnership',
-  'previous-employer': 'At previous employer',
-  'both': 'At both'
+  'bailey-partnership': 'Used at Bailey Partnership',
+  'previous-employer': 'Used at a previous employer',
+  'personal-capacity': 'In a personal capacity'
 };
 
 export const stoppedReasonLabels: Record<StoppedReason, string> = {
