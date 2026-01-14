@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Bailey Partnership Visual Design System */
 :root {
@@ -40,125 +38,175 @@ body {
 }
 
 /* Bailey Partnership Typography */
-@layer components {
-  .bp-heading-hero {
-    @apply text-5xl font-bold uppercase tracking-wide leading-tight text-white;
-  }
+.bp-heading-hero {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  line-height: 1.25;
+  color: white;
+}
 
-  .bp-heading-section {
-    @apply text-4xl font-bold uppercase tracking-wide leading-tight;
-    color: var(--bp-black);
-  }
+.bp-heading-section {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  line-height: 1.25;
+  color: var(--bp-black);
+}
 
-  .bp-heading-sub {
-    @apply text-2xl font-semibold uppercase tracking-wide leading-snug;
-    color: var(--bp-teal-dark);
-  }
+.bp-heading-sub {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  line-height: 1.375;
+  color: var(--bp-teal-dark);
+}
 
-  .bp-body-text {
-    @apply text-base font-normal leading-relaxed;
-    color: var(--bp-grey-dark);
-  }
+.bp-body-text {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: var(--bp-grey-dark);
+}
 
-  .bp-text-small {
-    @apply text-sm font-normal leading-normal;
-    color: var(--bp-grey-dark);
-  }
+.bp-text-small {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bp-grey-dark);
+}
 
-  /* Form Elements */
-  .bp-input {
-    @apply w-full px-4 py-3 text-base border rounded-sm bg-white transition-colors duration-200;
-    border-color: var(--bp-grey-medium);
-    color: var(--bp-grey-dark);
-  }
+/* Form Elements */
+.bp-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--bp-grey-medium);
+  border-radius: 2px;
+  background-color: white;
+  color: var(--bp-grey-dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
 
-  .bp-input:focus {
-    @apply outline-none;
-    border-color: var(--bp-teal-primary);
-    box-shadow: 0 0 0 3px rgba(0, 131, 143, 0.1);
-  }
+.bp-input:focus {
+  outline: none;
+  border-color: var(--bp-teal-primary);
+  box-shadow: 0 0 0 3px rgba(0, 131, 143, 0.1);
+}
 
-  .bp-input::placeholder {
-    @apply font-light;
-    color: #9E9E9E;
-  }
+.bp-input::placeholder {
+  font-weight: 300;
+  color: #9E9E9E;
+}
 
-  .bp-label {
-    @apply block text-sm font-semibold uppercase tracking-wider mb-2;
-    color: var(--bp-teal-dark);
-  }
+.bp-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: var(--bp-teal-dark);
+}
 
-  /* Buttons */
-  .bp-button-primary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-white border-none cursor-pointer transition-all duration-300;
-    background: var(--bp-teal-primary);
-    border-radius: 50px;
-  }
+/* Buttons */
+.bp-button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: white;
+  background: var(--bp-teal-primary);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
-  .bp-button-primary:hover {
-    background: var(--bp-teal-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 131, 143, 0.3);
-  }
+.bp-button-primary:hover {
+  background: var(--bp-teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 131, 143, 0.3);
+}
 
-  .bp-button-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold uppercase tracking-widest cursor-pointer transition-all duration-300 bg-transparent border-2;
-    color: var(--bp-teal-primary);
-    border-color: var(--bp-teal-primary);
-    border-radius: 50px;
-  }
+.bp-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bp-teal-primary);
+  background: transparent;
+  border: 2px solid var(--bp-teal-primary);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
-  .bp-button-secondary:hover {
-    background: var(--bp-teal-primary);
-    @apply text-white;
-  }
+.bp-button-secondary:hover {
+  background: var(--bp-teal-primary);
+  color: white;
+}
 
-  /* Cards */
-  .bp-card {
-    @apply bg-white p-6 rounded transition-shadow duration-300;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
+/* Cards */
+.bp-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s;
+}
 
-  .bp-card:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  }
+.bp-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
 
-  /* Dividers */
-  .bp-divider {
-    @apply h-px my-12;
-    background: var(--bp-grey-medium);
-  }
+/* Dividers */
+.bp-divider {
+  height: 1px;
+  margin: 3rem 0;
+  background: var(--bp-grey-medium);
+}
 
-  .bp-divider-accent {
-    @apply h-0.5;
-    background: linear-gradient(90deg, var(--bp-teal-primary) 0%, transparent 100%);
-    max-width: 120px;
-  }
+.bp-divider-accent {
+  height: 2px;
+  background: linear-gradient(90deg, var(--bp-teal-primary) 0%, transparent 100%);
+  max-width: 120px;
+}
 
-  /* Two-tone heading pattern */
-  .bp-heading-split .accent {
-    color: var(--bp-teal-primary);
-    @apply block;
-  }
+/* Two-tone heading pattern */
+.bp-heading-split .accent {
+  color: var(--bp-teal-primary);
+  display: block;
+}
 
-  .bp-heading-split .primary {
-    color: var(--bp-black);
-  }
+.bp-heading-split .primary {
+  color: var(--bp-black);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .bp-heading-hero {
-    @apply text-3xl;
+    font-size: 1.875rem;
   }
 
   .bp-heading-section {
-    @apply text-2xl;
+    font-size: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .bp-heading-hero {
-    @apply text-6xl;
+    font-size: 3.75rem;
   }
 }
