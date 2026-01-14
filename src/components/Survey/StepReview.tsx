@@ -4,7 +4,7 @@ import { Button } from '../UI/Button';
 import { Container } from '../Layout/Container';
 import { NavigationButtons } from '../Layout/NavigationButtons';
 import { useSurveyState } from '../../hooks/useSurveyState';
-import { ChevronDown, ChevronUp, Edit, Download } from 'lucide-react';
+import { ChevronDown, ChevronUp, Edit } from 'lucide-react';
 import {
   roleLevelLabels,
   disciplineLabels,
@@ -15,11 +15,13 @@ import {
   benefitLabels,
   agreementScaleLabels
 } from '../../types/survey.types';
-import { exportToJSON } from '../../utils/exportData';
 
 export const StepReview: React.FC = () => {
   const { surveyResponse, submitSurvey, nextStep, previousStep, setCurrentStep } = useSurveyState();
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['basic']));
+  // All sections expanded by default
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(
+    new Set(['basic', 'selections', 'currently', 'previously', 'wouldlike', 'feedback'])
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const toggleSection = (section: string) => {
@@ -41,52 +43,37 @@ export const StepReview: React.FC = () => {
     nextStep();
   };
 
-  const handleDownloadDraft = () => {
-    exportToJSON(surveyResponse as any);
-  };
-
   const profile = surveyResponse.userProfile!;
   const feedback = surveyResponse.generalFeedback!;
 
   const SectionHeader: React.FC<{ id: string; title: string; count?: number }> = ({ id, title, count }) => (
     <button
       onClick={() => toggleSection(id)}
-      className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
+      className="w-full flex items-center justify-between p-4 bg-primary/5 hover:bg-primary/10 rounded-lg transition-colors"
     >
       <div className="flex items-center gap-2">
-        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+        <h3 className="text-lg font-semibold uppercase tracking-wide" style={{ color: '#006064' }}>{title}</h3>
         {count !== undefined && (
-          <span className="text-sm text-gray-600">({count})</span>
+          <span className="text-sm" style={{ color: '#424242' }}>({count})</span>
         )}
       </div>
       {expandedSections.has(id) ? (
-        <ChevronUp className="w-5 h-5 text-gray-600" />
+        <ChevronUp className="w-5 h-5 text-primary" />
       ) : (
-        <ChevronDown className="w-5 h-5 text-gray-600" />
+        <ChevronDown className="w-5 h-5 text-primary" />
       )}
     </button>
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-32 pb-12">
+    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
       <Container maxWidth="2xl">
         <Card>
-          <div className="flex justify-between items-start mb-6">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Review Your Responses</h2>
-              <p className="text-gray-600">
-                Please review your responses before submitting. You can edit any section by clicking the Edit button.
-              </p>
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleDownloadDraft}
-              className="flex items-center gap-2"
-            >
-              <Download className="w-4 h-4" />
-              Download Draft
-            </Button>
+          <div className="mb-6">
+            <h2 className="text-3xl font-bold uppercase tracking-wide mb-2" style={{ color: '#212121' }}>Review Your Responses</h2>
+            <p style={{ color: '#424242' }}>
+              Please review your responses before submitting. You can edit any section by clicking the Edit button.
+            </p>
           </div>
 
           <div className="space-y-4">
@@ -94,9 +81,9 @@ export const StepReview: React.FC = () => {
             <div>
               <SectionHeader id="basic" title="Basic Information" />
               {expandedSections.has('basic') && (
-                <div className="p-4 border border-gray-200 rounded-b-lg space-y-2">
+                <div className="p-4 border border-[#E0E0E0] rounded-b-lg space-y-2">
                   <div className="flex justify-between items-start">
-                    <div className="space-y-1">
+                    <div className="space-y-1" style={{ color: '#424242' }}>
                       <p><span className="font-medium">Email:</span> {profile.email}</p>
                       <p><span className="font-medium">Name:</span> {profile.fullName}</p>
                       <p><span className="font-medium">Role:</span> {roleLevelLabels[profile.roleLevel]}</p>
@@ -120,13 +107,13 @@ export const StepReview: React.FC = () => {
             <div>
               <SectionHeader id="selections" title="Software Selections" count={surveyResponse.softwareSelections?.length || 0} />
               {expandedSections.has('selections') && (
-                <div className="p-4 border border-gray-200 rounded-b-lg">
+                <div className="p-4 border border-[#E0E0E0] rounded-b-lg">
                   <div className="flex justify-between items-start mb-3">
                     <div className="space-y-2 flex-1">
                       {surveyResponse.softwareSelections?.map((selection, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-sm">
+                        <div key={idx} className="flex items-start gap-2 text-sm" style={{ color: '#424242' }}>
                           <span className="font-medium">{selection.customName || selection.softwareName}:</span>
-                          <span className="text-gray-600">{selection.usageStatus.replace(/-/g, ' ')}</span>
+                          <span>{selection.usageStatus.replace(/-/g, ' ')}</span>
                         </div>
                       ))}
                     </div>
@@ -149,16 +136,16 @@ export const StepReview: React.FC = () => {
               <div>
                 <SectionHeader id="currently" title="Currently Using Details" count={surveyResponse.currentlyUsingResponses.length} />
                 {expandedSections.has('currently') && (
-                  <div className="p-4 border border-gray-200 rounded-b-lg space-y-4">
+                  <div className="p-4 border border-[#E0E0E0] rounded-b-lg space-y-4">
                     {surveyResponse.currentlyUsingResponses.map((response, idx) => {
                       const software = surveyResponse.softwareSelections?.find(s => s.softwareId === response.softwareId);
                       return (
-                        <div key={idx} className="pb-4 border-b last:border-0">
-                          <p className="font-semibold mb-2">{software?.customName || software?.softwareName}</p>
-                          <div className="text-sm space-y-1 text-gray-700">
+                        <div key={idx} className="pb-4 border-b border-[#E0E0E0] last:border-0">
+                          <p className="font-semibold mb-2" style={{ color: '#006064' }}>{software?.customName || software?.softwareName}</p>
+                          <div className="text-sm space-y-1" style={{ color: '#424242' }}>
                             <p>Frequency: {frequencyLabels[response.frequency]}</p>
                             <p>Training: {trainingLevelLabels[response.trainingLevel]}</p>
-                            <p>Satisfaction: {response.satisfaction}/5 ⭐</p>
+                            <p>Enjoyment: {response.satisfaction}/5 stars</p>
                             {response.comments && <p>Comments: {response.comments}</p>}
                           </div>
                         </div>
@@ -174,15 +161,16 @@ export const StepReview: React.FC = () => {
               <div>
                 <SectionHeader id="previously" title="Previously Used Details" count={surveyResponse.previouslyUsedResponses.length} />
                 {expandedSections.has('previously') && (
-                  <div className="p-4 border border-gray-200 rounded-b-lg space-y-4">
+                  <div className="p-4 border border-[#E0E0E0] rounded-b-lg space-y-4">
                     {surveyResponse.previouslyUsedResponses.map((response, idx) => {
                       const software = surveyResponse.softwareSelections?.find(s => s.softwareId === response.softwareId);
                       return (
-                        <div key={idx} className="pb-4 border-b last:border-0">
-                          <p className="font-semibold mb-2">{software?.customName || software?.softwareName}</p>
-                          <div className="text-sm space-y-1 text-gray-700">
+                        <div key={idx} className="pb-4 border-b border-[#E0E0E0] last:border-0">
+                          <p className="font-semibold mb-2" style={{ color: '#006064' }}>{software?.customName || software?.softwareName}</p>
+                          <div className="text-sm space-y-1" style={{ color: '#424242' }}>
                             <p>Used at: {response.usedWhere.map(w => usageLocationLabels[w]).join(', ')}</p>
                             <p>Reasons for stopping: {response.stoppedReasons.map(r => stoppedReasonLabels[r]).join(', ')}</p>
+                            {response.supersededBy && <p>Replaced by: {response.supersededBy}</p>}
                             {response.otherReason && <p>Other reason: {response.otherReason}</p>}
                           </div>
                         </div>
@@ -198,13 +186,13 @@ export const StepReview: React.FC = () => {
               <div>
                 <SectionHeader id="wouldlike" title="Would Like to Use Details" count={surveyResponse.wouldLikeToUseResponses.length} />
                 {expandedSections.has('wouldlike') && (
-                  <div className="p-4 border border-gray-200 rounded-b-lg space-y-4">
+                  <div className="p-4 border border-[#E0E0E0] rounded-b-lg space-y-4">
                     {surveyResponse.wouldLikeToUseResponses.map((response, idx) => {
                       const software = surveyResponse.softwareSelections?.find(s => s.softwareId === response.softwareId);
                       return (
-                        <div key={idx} className="pb-4 border-b last:border-0">
-                          <p className="font-semibold mb-2">{software?.customName || software?.softwareName}</p>
-                          <div className="text-sm space-y-1 text-gray-700">
+                        <div key={idx} className="pb-4 border-b border-[#E0E0E0] last:border-0">
+                          <p className="font-semibold mb-2" style={{ color: '#006064' }}>{software?.customName || software?.softwareName}</p>
+                          <div className="text-sm space-y-1" style={{ color: '#424242' }}>
                             <p>Benefit: {benefitLabels[response.benefit]}</p>
                             {response.wouldReplace && <p>Would replace: {response.wouldReplace}</p>}
                             <p>Interest: {response.interest}</p>
@@ -221,18 +209,18 @@ export const StepReview: React.FC = () => {
             <div>
               <SectionHeader id="feedback" title="General Feedback" />
               {expandedSections.has('feedback') && (
-                <div className="p-4 border border-gray-200 rounded-b-lg">
+                <div className="p-4 border border-[#E0E0E0] rounded-b-lg">
                   <div className="flex justify-between items-start">
-                    <div className="space-y-2 text-sm">
-                      <p><span className="font-medium">Overall Satisfaction:</span> {feedback.overallSatisfaction}/5 ⭐</p>
-                      <p><span className="font-medium">Training Resources:</span> {agreementScaleLabels[feedback.trainingResources]}</p>
-                      <p><span className="font-medium">IT Support:</span> {agreementScaleLabels[feedback.itSupport]}</p>
-                      <p><span className="font-medium">Software Integration:</span> {agreementScaleLabels[feedback.softwareIntegration]}</p>
+                    <div className="space-y-2 text-sm" style={{ color: '#424242' }}>
+                      <p><span className="font-medium">Overall Enjoyment:</span> {feedback.overallSatisfaction}/5 stars</p>
+                      <p><span className="font-medium">Training Resources:</span> {feedback.trainingResources ? agreementScaleLabels[feedback.trainingResources] : 'Not answered'}</p>
+                      <p><span className="font-medium">IT Support:</span> {feedback.itSupport ? agreementScaleLabels[feedback.itSupport] : 'Not answered'}</p>
+                      <p><span className="font-medium">Software Integration:</span> {feedback.softwareIntegration ? agreementScaleLabels[feedback.softwareIntegration] : 'Not answered'}</p>
                       {feedback.improvementSuggestions && (
                         <p><span className="font-medium">Improvement Suggestions:</span> {feedback.improvementSuggestions}</p>
                       )}
                       {feedback.personalLicenses && (
-                        <p><span className="font-medium">Personal Licenses:</span> {feedback.personalLicenses}</p>
+                        <p><span className="font-medium">Personal Licences:</span> {feedback.personalLicenses}</p>
                       )}
                       {feedback.additionalComments && (
                         <p><span className="font-medium">Additional Comments:</span> {feedback.additionalComments}</p>

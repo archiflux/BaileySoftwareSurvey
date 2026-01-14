@@ -8,34 +8,49 @@ import { agreementScaleLabels, type AgreementScale, type Satisfaction } from '..
 
 export const StepGeneralFeedback: React.FC = () => {
   const { surveyResponse, updateGeneralFeedback, nextStep, previousStep } = useSurveyState();
-  const feedback = surveyResponse.generalFeedback!;
+  const feedback = surveyResponse.generalFeedback;
 
   const [overallSatisfaction, setOverallSatisfaction] = useState<Satisfaction | null>(
-    feedback.overallSatisfaction || null
+    feedback?.overallSatisfaction || null
   );
-  const [trainingResources, setTrainingResources] = useState<AgreementScale>(
-    feedback.trainingResources || 'neutral'
+  const [trainingResources, setTrainingResources] = useState<AgreementScale | null>(
+    feedback?.trainingResources || null
   );
-  const [itSupport, setItSupport] = useState<AgreementScale>(
-    feedback.itSupport || 'neutral'
+  const [itSupport, setItSupport] = useState<AgreementScale | null>(
+    feedback?.itSupport || null
   );
-  const [softwareIntegration, setSoftwareIntegration] = useState<AgreementScale>(
-    feedback.softwareIntegration || 'neutral'
+  const [softwareIntegration, setSoftwareIntegration] = useState<AgreementScale | null>(
+    feedback?.softwareIntegration || null
   );
   const [improvementSuggestions, setImprovementSuggestions] = useState(
-    feedback.improvementSuggestions || ''
+    feedback?.improvementSuggestions || ''
   );
   const [personalLicenses, setPersonalLicenses] = useState(
-    feedback.personalLicenses || ''
+    feedback?.personalLicenses || ''
   );
   const [additionalComments, setAdditionalComments] = useState(
-    feedback.additionalComments || ''
+    feedback?.additionalComments || ''
   );
   const [error, setError] = useState('');
 
   const handleNext = () => {
     if (!overallSatisfaction) {
-      setError('Please provide an overall satisfaction rating');
+      setError('Please provide an overall enjoyment rating');
+      return;
+    }
+
+    if (!trainingResources) {
+      setError('Please indicate your agreement about training resources');
+      return;
+    }
+
+    if (!itSupport) {
+      setError('Please indicate your agreement about IT support');
+      return;
+    }
+
+    if (!softwareIntegration) {
+      setError('Please indicate your agreement about software integration');
       return;
     }
 
@@ -53,11 +68,11 @@ export const StepGeneralFeedback: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-32 pb-12">
+    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
       <Container maxWidth="2xl">
         <Card>
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">General Feedback</h2>
-          <p className="text-gray-600 mb-8">
+          <h2 className="text-3xl font-bold uppercase tracking-wide mb-2" style={{ color: '#212121' }}>General Feedback</h2>
+          <p className="mb-8" style={{ color: '#424242' }}>
             Share your overall thoughts on software usage, training, and IT support at Bailey Partnership.
           </p>
 
@@ -69,7 +84,7 @@ export const StepGeneralFeedback: React.FC = () => {
 
           <div className="space-y-8">
             <StarRating
-              label="Overall satisfaction with software tools and resources"
+              label="Overall, do you enjoy using the software tools and resources available to you?"
               required
               value={overallSatisfaction}
               onChange={setOverallSatisfaction}
@@ -77,8 +92,8 @@ export const StepGeneralFeedback: React.FC = () => {
             />
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                I have access to adequate training resources for the software I use
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+                I have access to adequate training resources for the software I use <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
                 {Object.entries(agreementScaleLabels).map(([value, label]) => (
@@ -95,8 +110,8 @@ export const StepGeneralFeedback: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                IT support is responsive and helpful with software issues
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+                IT support is responsive and helpful with software issues <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
                 {Object.entries(agreementScaleLabels).map(([value, label]) => (
@@ -113,8 +128,8 @@ export const StepGeneralFeedback: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                Software tools integrate well with each other and our workflows
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+                Software tools integrate well with each other and our workflows <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
                 {Object.entries(agreementScaleLabels).map(([value, label]) => (
@@ -132,15 +147,15 @@ export const StepGeneralFeedback: React.FC = () => {
 
             <Textarea
               label="What improvements would you suggest for software provisioning or training?"
-              placeholder="Share any suggestions for improving software availability, training programs, or support..."
+              placeholder="Share any suggestions for improving software availability, training programmes, or support..."
               value={improvementSuggestions}
               onChange={(e) => setImprovementSuggestions(e.target.value)}
               rows={4}
             />
 
             <Textarea
-              label="Do you use any personal software licenses for work? If so, which ones?"
-              placeholder="e.g., Personal Adobe Creative Cloud subscription, purchased SketchUp license..."
+              label="Do you use any personal software licences for work? If so, which ones?"
+              placeholder="e.g., Personal Adobe Creative Cloud subscription, purchased SketchUp licence..."
               value={personalLicenses}
               onChange={(e) => setPersonalLicenses(e.target.value)}
               rows={3}

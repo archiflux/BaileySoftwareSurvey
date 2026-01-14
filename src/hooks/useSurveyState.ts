@@ -57,10 +57,10 @@ const initialSurveyResponse: Partial<SurveyResponse> = {
   previouslyUsedResponses: [],
   wouldLikeToUseResponses: [],
   generalFeedback: {
-    overallSatisfaction: 3,
-    trainingResources: 'neutral',
-    itSupport: 'neutral',
-    softwareIntegration: 'neutral',
+    overallSatisfaction: undefined as unknown as any,
+    trainingResources: undefined as unknown as any,
+    itSupport: undefined as unknown as any,
+    softwareIntegration: undefined as unknown as any,
     improvementSuggestions: '',
     personalLicenses: '',
     additionalComments: ''
