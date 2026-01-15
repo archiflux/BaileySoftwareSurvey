@@ -50,7 +50,7 @@ export const StepBasicInfo: React.FC = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 pt-28 pb-12">
+    <div className="min-h-screen pt-28 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <h2 className="text-2xl md:text-3xl font-display font-bold tracking-tight mb-2 text-foreground">Basic Information</h2>

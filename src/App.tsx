@@ -78,8 +78,9 @@ function App() {
   // Restore prompt modal
   if (showRestorePrompt) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 flex items-center justify-center p-4">
-        <div className="max-w-md w-full bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8">
+      <div className="min-h-screen bg-[#FAFAFA] flex items-center justify-center p-4 relative">
+        <div className="-translate-y-1/4 pointer-events-none fixed top-0 right-0 z-0 h-[600px] w-[600px] translate-x-1/4 rounded-full bg-[var(--accent)] opacity-[0.03] blur-[120px]" />
+        <div className="max-w-md w-full bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 relative z-10">
           <Alert
             type="info"
             title="Resume Previous Session?"
@@ -132,11 +133,12 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30">
+    <div className="min-h-screen bg-[#FAFAFA] relative">
+      <div className="-translate-y-1/4 pointer-events-none fixed top-0 right-0 z-0 h-[600px] w-[600px] translate-x-1/4 rounded-full bg-[var(--accent)] opacity-[0.03] blur-[120px]" />
       {currentStep > 0 && currentStep < 8 && (
         <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
       )}
-      <div key={currentStep} className="page-transition">
+      <div key={currentStep} className="page-transition relative z-10">
         {renderStep()}
       </div>
     </div>
