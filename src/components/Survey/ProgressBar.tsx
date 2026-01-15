@@ -25,7 +25,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep, totalStep
               </h2>
             </div>
             {currentStep > 0 && currentStep < totalSteps && (
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#0052FF]/10 text-[#0052FF]">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#1e6c93]/10 text-[#1e6c93]">
                 Step {currentStep} of {totalSteps - 1}
               </span>
             )}
@@ -40,7 +40,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep, totalStep
         {currentStep > 0 && currentStep < totalSteps && (
           <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
             <div
-              className="bg-gradient-to-r from-[#0052FF] to-[#4D7CFF] h-full rounded-full transition-all duration-500 ease-out"
+              className="bg-gradient-to-r from-[#1e6c93] to-[#2a8ab8] h-full rounded-full transition-all duration-500 ease-out"
               style={{ width: `${progressPercentage}%` }}
               role="progressbar"
               aria-valuenow={progressPercentage}

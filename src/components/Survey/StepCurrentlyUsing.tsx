@@ -94,18 +94,18 @@ export const StepCurrentlyUsing: React.FC = () => {
   const softwareName = currentSoftware.customName || currentSoftware.softwareName;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted pt-28 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 pt-28 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl md:text-3xl font-display font-bold tracking-tight text-foreground">Software You Currently Use</h2>
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#0052FF]/10 text-[#0052FF]">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#1e6c93]/10 text-[#1e6c93]">
               {currentIndex + 1} of {currentlyUsingSoftware.length}
             </span>
           </div>
 
-          <div className="bg-gradient-to-r from-[#0052FF]/10 to-[#4D7CFF]/10 border border-[#0052FF]/30 rounded-xl p-4 mb-6">
-            <p className="text-lg font-semibold text-[#0052FF]">
+          <div className="bg-gradient-to-r from-[#1e6c93]/10 to-[#2a8ab8]/10 border border-[#1e6c93]/30 rounded-xl p-4 mb-6">
+            <p className="text-lg font-semibold text-[#1e6c93]">
               {softwareName}
             </p>
           </div>
@@ -118,7 +118,7 @@ export const StepCurrentlyUsing: React.FC = () => {
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3 text-[#0052FF]">
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3 text-[#1e6c93]">
                 How frequently do you use this software? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
@@ -136,7 +136,7 @@ export const StepCurrentlyUsing: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3 text-[#0052FF]">
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3 text-[#1e6c93]">
                 How would you rate your training level? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">

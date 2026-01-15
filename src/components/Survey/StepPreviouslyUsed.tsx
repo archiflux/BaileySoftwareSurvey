@@ -118,7 +118,7 @@ export const StepPreviouslyUsed: React.FC = () => {
   const softwareName = currentSoftware.customName || currentSoftware.softwareName;
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 pt-32 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <div className="flex justify-between items-center mb-6">
@@ -142,7 +142,7 @@ export const StepPreviouslyUsed: React.FC = () => {
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#1e6c93' }}>
                 Where did you use this software? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
@@ -158,7 +158,7 @@ export const StepPreviouslyUsed: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#1e6c93' }}>
                 Why did you stop using this software? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">

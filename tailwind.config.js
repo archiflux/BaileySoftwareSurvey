@@ -7,31 +7,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Modern Design System - Electric Blue Accent
+        // Modern Design System - Bailey Teal Accent
         background: '#FAFAFA',
         foreground: '#0F172A',
         muted: '#F1F5F9',
         'muted-foreground': '#64748B',
         accent: {
-          DEFAULT: '#0052FF',
-          secondary: '#4D7CFF',
+          DEFAULT: '#1e6c93',
+          secondary: '#2a8ab8',
           foreground: '#FFFFFF',
         },
         border: '#E2E8F0',
         card: '#FFFFFF',
-        ring: '#0052FF',
+        ring: '#1e6c93',
 
-        // Primary colors updated to Electric Blue
+        // Primary colors - Bailey Teal
         primary: {
-          DEFAULT: '#0052FF',
-          dark: '#0041CC',
-          light: '#4D7CFF',
+          DEFAULT: '#1e6c93',
+          dark: '#165573',
+          light: '#2a8ab8',
         },
         bp: {
-          teal: '#0052FF',
-          'teal-dark': '#0041CC',
-          cyan: '#4D7CFF',
-          'sky-blue': '#4D7CFF',
+          teal: '#1e6c93',
+          'teal-dark': '#165573',
+          'teal-light': '#2a8ab8',
+          cyan: '#3aa0cc',
+          'sky-blue': '#5bb8db',
           'grey-light': '#F5F5F5',
           'grey-medium': '#E0E0E0',
           'grey-dark': '#424242',
@@ -60,8 +61,8 @@ export default {
         'md': '0 4px 6px rgba(0,0,0,0.07)',
         'lg': '0 10px 15px rgba(0,0,0,0.08)',
         'xl': '0 20px 25px rgba(0,0,0,0.1)',
-        'accent': '0 4px 14px rgba(0,82,255,0.25)',
-        'accent-lg': '0 8px 24px rgba(0,82,255,0.35)',
+        'accent': '0 4px 14px rgba(30,108,147,0.25)',
+        'accent-lg': '0 8px 24px rgba(30,108,147,0.35)',
       },
     },
   },

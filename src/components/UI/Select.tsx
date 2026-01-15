@@ -30,7 +30,7 @@ export const Select: React.FC<SelectProps> = ({
       {label && (
         <label
           htmlFor={selectId}
-          className="block text-sm font-semibold uppercase tracking-wide text-[#0052FF] mb-2"
+          className="block text-sm font-semibold uppercase tracking-wide text-[#1e6c93] mb-2"
         >
           {label}
           {props.required && <span className="text-red-500 ml-1">*</span>}
@@ -41,9 +41,9 @@ export const Select: React.FC<SelectProps> = ({
         className={`
           w-full px-4 py-3 border rounded-xl bg-white text-foreground
           transition-all duration-200
-          focus:outline-none focus:ring-2 focus:ring-[#0052FF] focus:ring-offset-2 focus:border-[#0052FF]
+          focus:outline-none focus:ring-2 focus:ring-[#1e6c93] focus:ring-offset-2 focus:border-[#1e6c93]
           disabled:bg-muted disabled:cursor-not-allowed
-          ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-border hover:border-[#0052FF]/30'}
+          ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-border hover:border-[#1e6c93]/30'}
           ${className}
         `}
         aria-invalid={!!error}
