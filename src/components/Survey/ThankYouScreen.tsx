@@ -22,7 +22,7 @@ export const ThankYouScreen: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 py-12">
+    <div className="min-h-screen py-12">
       <Container maxWidth="2xl">
         <Card className="text-center">
           <div className="flex justify-center mb-6">

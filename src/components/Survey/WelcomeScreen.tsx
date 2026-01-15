@@ -10,7 +10,7 @@ interface WelcomeScreenProps {
 
 export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1e6c93] via-[#1e6c93]/95 to-[#2a8ab8] py-12">
+    <div className="min-h-screen py-12">
       <Container maxWidth="2xl">
         <Card className="text-center">
           <div className="flex justify-center mb-8">

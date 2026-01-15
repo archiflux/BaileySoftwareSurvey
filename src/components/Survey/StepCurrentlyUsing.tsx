@@ -94,7 +94,7 @@ export const StepCurrentlyUsing: React.FC = () => {
   const softwareName = currentSoftware.customName || currentSoftware.softwareName;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 pt-28 pb-12">
+    <div className="min-h-screen pt-28 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <div className="flex justify-between items-center mb-6">

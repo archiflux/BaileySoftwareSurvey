@@ -68,7 +68,7 @@ export const StepGeneralFeedback: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 pt-32 pb-12">
+    <div className="min-h-screen pt-32 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <h2 className="text-3xl font-bold uppercase tracking-wide mb-2" style={{ color: '#212121' }}>General Feedback</h2>
