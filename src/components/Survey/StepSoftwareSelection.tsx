@@ -175,7 +175,7 @@ export const StepSoftwareSelection: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted pt-28 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 pt-28 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <h2 className="text-2xl md:text-3xl font-display font-bold tracking-tight mb-2 text-foreground">Software Selection</h2>
@@ -206,7 +206,7 @@ export const StepSoftwareSelection: React.FC = () => {
 
               return (
                 <div key={category.categoryId} className="border-b border-border pb-6 last:border-0">
-                  <h3 className="text-lg font-semibold mb-4 text-[#0052FF]">
+                  <h3 className="text-lg font-semibold mb-4 text-[#1e6c93]">
                     {category.categoryName}
                   </h3>
 
@@ -216,7 +216,7 @@ export const StepSoftwareSelection: React.FC = () => {
                       const statuses = selections.get(software.id) || new Set();
 
                       return (
-                        <div key={software.id} className="bg-gradient-to-r from-[#0052FF]/5 to-transparent p-4 rounded-xl border border-[#0052FF]/10 hover:border-[#0052FF]/20 transition-colors">
+                        <div key={software.id} className="bg-gradient-to-r from-[#1e6c93]/5 to-transparent p-4 rounded-xl border border-[#1e6c93]/10 hover:border-[#1e6c93]/20 transition-colors">
                           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
                             <div className="md:col-span-1 font-medium text-foreground">
                               {software.name}

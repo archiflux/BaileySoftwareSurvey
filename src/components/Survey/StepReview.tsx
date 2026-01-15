@@ -78,7 +78,7 @@ export const StepReview: React.FC = () => {
       className="w-full flex items-center justify-between p-4 bg-primary/5 hover:bg-primary/10 rounded-lg transition-colors"
     >
       <div className="flex items-center gap-2">
-        <h3 className="text-lg font-semibold uppercase tracking-wide" style={{ color: '#006064' }}>{title}</h3>
+        <h3 className="text-lg font-semibold uppercase tracking-wide" style={{ color: '#1e6c93' }}>{title}</h3>
         {count !== undefined && (
           <span className="text-sm" style={{ color: '#424242' }}>({count})</span>
         )}
@@ -92,7 +92,7 @@ export const StepReview: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 pt-32 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <div className="mb-6">
@@ -129,7 +129,7 @@ export const StepReview: React.FC = () => {
               <div className="flex items-center gap-3">
                 <RefreshCw className="w-5 h-5 text-primary animate-spin" />
                 <div>
-                  <p className="font-medium" style={{ color: '#006064' }}>Submitting your survey...</p>
+                  <p className="font-medium" style={{ color: '#1e6c93' }}>Submitting your survey...</p>
                   <p className="text-sm" style={{ color: '#424242' }}>Please wait while we save your responses.</p>
                 </div>
               </div>
@@ -201,7 +201,7 @@ export const StepReview: React.FC = () => {
                       const software = surveyResponse.softwareSelections?.find(s => s.softwareId === response.softwareId);
                       return (
                         <div key={idx} className="pb-4 border-b border-[#E0E0E0] last:border-0">
-                          <p className="font-semibold mb-2" style={{ color: '#006064' }}>{software?.customName || software?.softwareName}</p>
+                          <p className="font-semibold mb-2" style={{ color: '#1e6c93' }}>{software?.customName || software?.softwareName}</p>
                           <div className="text-sm space-y-1" style={{ color: '#424242' }}>
                             <p>Frequency: {frequencyLabels[response.frequency]}</p>
                             <p>Training: {trainingLevelLabels[response.trainingLevel]}</p>
@@ -226,7 +226,7 @@ export const StepReview: React.FC = () => {
                       const software = surveyResponse.softwareSelections?.find(s => s.softwareId === response.softwareId);
                       return (
                         <div key={idx} className="pb-4 border-b border-[#E0E0E0] last:border-0">
-                          <p className="font-semibold mb-2" style={{ color: '#006064' }}>{software?.customName || software?.softwareName}</p>
+                          <p className="font-semibold mb-2" style={{ color: '#1e6c93' }}>{software?.customName || software?.softwareName}</p>
                           <div className="text-sm space-y-1" style={{ color: '#424242' }}>
                             <p>Used at: {response.usedWhere.map(w => usageLocationLabels[w]).join(', ')}</p>
                             <p>Reasons for stopping: {response.stoppedReasons.map(r => stoppedReasonLabels[r]).join(', ')}</p>
@@ -251,7 +251,7 @@ export const StepReview: React.FC = () => {
                       const software = surveyResponse.softwareSelections?.find(s => s.softwareId === response.softwareId);
                       return (
                         <div key={idx} className="pb-4 border-b border-[#E0E0E0] last:border-0">
-                          <p className="font-semibold mb-2" style={{ color: '#006064' }}>{software?.customName || software?.softwareName}</p>
+                          <p className="font-semibold mb-2" style={{ color: '#1e6c93' }}>{software?.customName || software?.softwareName}</p>
                           <div className="text-sm space-y-1" style={{ color: '#424242' }}>
                             <p>Benefit: {benefitLabels[response.benefit]}</p>
                             {response.wouldReplace && <p>Would replace: {response.wouldReplace}</p>}

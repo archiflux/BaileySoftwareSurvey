@@ -10,7 +10,7 @@ interface WelcomeScreenProps {
 
 export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0052FF] via-[#0052FF]/95 to-[#4D7CFF] py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#1e6c93] via-[#1e6c93]/95 to-[#2a8ab8] py-12">
       <Container maxWidth="2xl">
         <Card className="text-center">
           <div className="flex justify-center mb-8">
@@ -34,8 +34,8 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
             all disciplines in the practice.
           </p>
 
-          <div className="bg-gradient-to-r from-[#0052FF]/5 to-[#4D7CFF]/5 border-l-4 border-[#0052FF] rounded-xl p-6 mb-6 text-left">
-            <h2 className="text-lg font-semibold mb-3 text-[#0052FF]">
+          <div className="bg-gradient-to-r from-[#1e6c93]/5 to-[#2a8ab8]/5 border-l-4 border-[#1e6c93] rounded-xl p-6 mb-6 text-left">
+            <h2 className="text-lg font-semibold mb-3 text-[#1e6c93]">
               About the IIET Committee
             </h2>
             <p className="text-foreground/80 leading-relaxed">
@@ -43,25 +43,25 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#0052FF]/5 to-transparent border border-[#0052FF]/20 rounded-xl p-6 mb-6 text-left">
-            <h2 className="text-lg font-semibold mb-4 text-[#0052FF]">
+          <div className="bg-gradient-to-br from-[#1e6c93]/5 to-transparent border border-[#1e6c93]/20 rounded-xl p-6 mb-6 text-left">
+            <h2 className="text-lg font-semibold mb-4 text-[#1e6c93]">
               Survey Purpose
             </h2>
             <ul className="space-y-3 text-foreground/80">
               <li className="flex items-start">
-                <span className="text-[#0052FF] mr-3 font-bold text-lg">&#10003;</span>
+                <span className="text-[#1e6c93] mr-3 font-bold text-lg">&#10003;</span>
                 <span>Assess current software usage across all disciplines</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#0052FF] mr-3 font-bold text-lg">&#10003;</span>
+                <span className="text-[#1e6c93] mr-3 font-bold text-lg">&#10003;</span>
                 <span>Identify training needs and skill development opportunities</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#0052FF] mr-3 font-bold text-lg">&#10003;</span>
+                <span className="text-[#1e6c93] mr-3 font-bold text-lg">&#10003;</span>
                 <span>Gather feedback on software preferences and integration</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#0052FF] mr-3 font-bold text-lg">&#10003;</span>
+                <span className="text-[#1e6c93] mr-3 font-bold text-lg">&#10003;</span>
                 <span>Understand interest in new software tools and technologies</span>
               </li>
             </ul>
@@ -73,25 +73,25 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
             </h2>
             <ul className="space-y-3 text-foreground/80">
               <li className="flex items-start">
-                <span className="text-[#0052FF] mr-3">&#8226;</span>
+                <span className="text-[#1e6c93] mr-3">&#8226;</span>
                 <span>
                   <strong className="text-foreground">Estimated time:</strong> {ESTIMATED_COMPLETION_TIME}
                 </span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#0052FF] mr-3">&#8226;</span>
+                <span className="text-[#1e6c93] mr-3">&#8226;</span>
                 <span>
                   <strong className="text-foreground">Progress saving:</strong> Your progress is automatically saved
                 </span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#0052FF] mr-3">&#8226;</span>
+                <span className="text-[#1e6c93] mr-3">&#8226;</span>
                 <span>
                   <strong className="text-foreground">Relevant questions:</strong> You'll only see software options for your discipline
                 </span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#0052FF] mr-3">&#8226;</span>
+                <span className="text-[#1e6c93] mr-3">&#8226;</span>
                 <span>
                   <strong className="text-foreground">Detailed feedback:</strong> Follow-up questions based on your selections
                 </span>

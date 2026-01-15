@@ -21,10 +21,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           id={checkboxId}
           type="checkbox"
           className={`
-            w-5 h-5 text-[#0052FF] bg-white border-border rounded-md
-            focus:ring-2 focus:ring-[#0052FF] focus:ring-offset-2
+            w-5 h-5 text-[#1e6c93] bg-white border-border rounded-md
+            focus:ring-2 focus:ring-[#1e6c93] focus:ring-offset-2
             disabled:opacity-50 disabled:cursor-not-allowed
-            accent-[#0052FF]
+            accent-[#1e6c93]
             ${error ? 'border-red-500' : ''}
             ${className}
           `}

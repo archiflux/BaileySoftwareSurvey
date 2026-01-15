@@ -68,7 +68,7 @@ export const StepGeneralFeedback: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] pt-32 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-sky-50/30 pt-32 pb-12">
       <Container maxWidth="2xl">
         <Card>
           <h2 className="text-3xl font-bold uppercase tracking-wide mb-2" style={{ color: '#212121' }}>General Feedback</h2>
@@ -92,7 +92,7 @@ export const StepGeneralFeedback: React.FC = () => {
             />
 
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#1e6c93' }}>
                 I have access to adequate training resources for the software I use <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
@@ -110,7 +110,7 @@ export const StepGeneralFeedback: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#1e6c93' }}>
                 IT support is responsive and helpful with software issues <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
@@ -128,7 +128,7 @@ export const StepGeneralFeedback: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#006064' }}>
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#1e6c93' }}>
                 Software tools integrate well with each other and our workflows <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
