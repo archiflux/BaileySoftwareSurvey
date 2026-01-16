@@ -64,6 +64,31 @@ export default {
         'accent': '0 4px 14px rgba(30,108,147,0.25)',
         'accent-lg': '0 8px 24px rgba(30,108,147,0.35)',
       },
+      animation: {
+        blob1: 'blob1 25s infinite linear',
+        blob2: 'blob2 45s infinite linear',
+        blob3: 'blob3 25s infinite linear',
+      },
+      keyframes: {
+        blob1: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(150px, 150px) scale(2)' },
+          '66%': { transform: 'translate(-400px, -200px) scale(1.5)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' },
+        },
+        blob2: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(-150px, -150px) scale(1.2)' },
+          '66%': { transform: 'translate(200px, 200px) scale(2)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' },
+        },
+        blob3: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(-150px, 150px) scale(2)' },
+          '66%': { transform: 'translate(-200px, -400px) scale(1.5)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' },
+        },
+      },
     },
   },
   plugins: [],

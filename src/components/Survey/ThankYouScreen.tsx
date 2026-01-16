@@ -22,7 +22,7 @@ export const ThankYouScreen: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen py-12">
+    <div className="min-h-screen pt-20 pb-12">
       <Container maxWidth="2xl">
         <Card className="text-center">
           <div className="flex justify-center mb-6">
