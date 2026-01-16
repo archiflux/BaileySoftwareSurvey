@@ -98,7 +98,7 @@ export const StepCurrentlyUsing: React.FC = () => {
       <Container maxWidth="2xl">
         <Card>
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl md:text-3xl font-display font-bold tracking-tight text-foreground">Software You Currently Use</h2>
+            <h2 className="text-2xl md:text-3xl font-sans font-bold tracking-wide uppercase text-foreground">Software You Currently Use</h2>
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#1e6c93]/10 text-[#1e6c93]">
               {currentIndex + 1} of {currentlyUsingSoftware.length}
             </span>

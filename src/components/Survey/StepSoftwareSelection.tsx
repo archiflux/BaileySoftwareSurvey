@@ -178,7 +178,7 @@ export const StepSoftwareSelection: React.FC = () => {
     <div className="min-h-screen pt-28 pb-12">
       <Container maxWidth="2xl">
         <Card>
-          <h2 className="text-2xl md:text-3xl font-display font-bold tracking-tight mb-2 text-foreground">Software Selection</h2>
+          <h2 className="text-2xl md:text-3xl font-sans font-bold tracking-wide uppercase mb-2 text-foreground">Software Selection</h2>
           <p className="mb-6 text-muted-foreground">
             For each software tool below, indicate your usage status. You can select multiple options for each software.
           </p>
