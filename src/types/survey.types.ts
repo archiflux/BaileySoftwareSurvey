@@ -146,7 +146,7 @@ export const roleLevelLabels: Record<RoleLevel, string> = {
   'slt': 'Senior Leadership Team',
   'associate': 'Associate',
   'senior': 'Senior',
-  'architect-pm-qs': 'Architect/PM/QS',
+  'architect-pm-qs': 'Architect/Project Manager/Surveyor/Engineer/Planner/Designer/Support Staff',
   'intern-trainee': 'Intern/Trainee'
 };
 

@@ -17,15 +17,15 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep, totalStep
     <div className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm border-b border-border/50 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
-              <img src="/Icon-colour.png" alt="BP" className="w-8 h-8 rounded-lg" />
+          <div className="flex items-center gap-2 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+              <img src="/Icon-colour.png" alt="BP" className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex-shrink-0" />
               <h2 className="text-sm font-semibold text-foreground hidden sm:block">
                 Software Survey
               </h2>
             </div>
             {currentStep > 0 && currentStep < totalSteps && (
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#1e6c93]/10 text-[#1e6c93]">
+              <span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-[#1e6c93]/10 text-[#1e6c93] whitespace-nowrap">
                 Step {currentStep} of {totalSteps - 1}
               </span>
             )}

@@ -133,8 +133,28 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] relative">
-      <div className="-translate-y-1/4 pointer-events-none fixed top-0 right-0 z-0 h-[600px] w-[600px] translate-x-1/4 rounded-full bg-[var(--accent)] opacity-[0.03] blur-[120px]" />
+    <div className="min-h-screen bg-[#FAFAFA] relative overflow-hidden">
+      {/* Animated blob background - persists across all pages */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-0 -left-0 w-[64rem] h-[64rem] bg-[#1e6c93] rounded-full mix-blend-multiply filter blur-xl opacity-[0.15] animate-blob1"></div>
+        <div className="absolute top-0 -right-96 w-[64rem] h-[64rem] bg-[#1e6c93] rounded-full mix-blend-multiply filter blur-xl opacity-[0.15] animate-blob2"></div>
+        <div className="absolute -bottom-0 left-20 w-[64rem] h-[64rem] bg-[#1e6c93] rounded-full mix-blend-multiply filter blur-xl opacity-[0.15] animate-blob3"></div>
+      </div>
+
+      {/* Top bar with logo - shown on ALL pages */}
+      {(currentStep === 0 || currentStep === 8) && (
+        <div className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm border-b border-border/50 z-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <img src="/Icon-colour.png" alt="BP" className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex-shrink-0" />
+              <h2 className="text-sm font-semibold text-foreground">
+                Software Survey
+              </h2>
+            </div>
+          </div>
+        </div>
+      )}
+
       {currentStep > 0 && currentStep < 8 && (
         <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
       )}
