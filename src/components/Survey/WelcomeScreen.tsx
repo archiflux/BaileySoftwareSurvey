@@ -25,7 +25,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
             />
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4 text-foreground">
+          <h1 className="text-3xl md:text-4xl font-sans font-bold tracking-wide uppercase mb-4 text-foreground">
             Bailey Partnership Group {APP_NAME}
           </h1>
 
