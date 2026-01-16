@@ -34,7 +34,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
             all disciplines in the practice.
           </p>
 
-          <div className="bg-gradient-to-r from-[#1e6c93]/5 to-[#2a8ab8]/5 border-l-4 border-[#1e6c93] rounded-xl p-6 mb-6 text-left">
+          <div className="bg-gradient-to-r from-[#1e6c93]/15 to-[#2a8ab8]/10 border-l-4 border-[#1e6c93] rounded-xl p-6 mb-6 text-left">
             <h2 className="text-lg font-semibold mb-3 text-[#1e6c93]">
               About the IIET Committee
             </h2>
@@ -43,7 +43,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#1e6c93]/5 to-transparent border border-[#1e6c93]/20 rounded-xl p-6 mb-6 text-left">
+          <div className="bg-gradient-to-br from-[#1e6c93]/15 to-[#1e6c93]/5 border border-[#1e6c93]/30 rounded-xl p-6 mb-6 text-left">
             <h2 className="text-lg font-semibold mb-4 text-[#1e6c93]">
               Survey Purpose
             </h2>
@@ -67,7 +67,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
             </ul>
           </div>
 
-          <div className="bg-muted/50 border border-border rounded-xl p-6 mb-6 text-left">
+          <div className="bg-muted/80 border border-border rounded-xl p-6 mb-6 text-left">
             <h2 className="text-lg font-semibold mb-4 text-foreground">
               What to Expect
             </h2>
