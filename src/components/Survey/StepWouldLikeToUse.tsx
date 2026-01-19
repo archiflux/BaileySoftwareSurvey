@@ -18,6 +18,11 @@ export const StepWouldLikeToUse: React.FC = () => {
   const [interest, setInterest] = useState('');
   const [error, setError] = useState('');
 
+  // Scroll to top when software changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentIndex]);
+
   // Load existing response if available
   useEffect(() => {
     if (currentSoftware) {
@@ -93,31 +98,31 @@ export const StepWouldLikeToUse: React.FC = () => {
   const softwareName = currentSoftware.customName || currentSoftware.softwareName;
 
   return (
-    <div className="min-h-screen pt-32 pb-12">
+    <div className="min-h-screen pt-28 pb-12">
       <Container maxWidth="2xl">
         <Card>
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-3xl font-bold uppercase tracking-wide" style={{ color: '#212121' }}>Software You Would Like to Use</h2>
-            <span className="text-sm font-medium" style={{ color: '#424242' }}>
+          <div className="flex justify-between items-center gap-3 mb-6">
+            <h2 className="text-2xl md:text-3xl font-sans font-bold tracking-wide uppercase text-foreground flex-1 min-w-0">Software You Would Like to Use</h2>
+            <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#1e6c93]/10 text-[#1e6c93] whitespace-nowrap flex-shrink-0">
               {currentIndex + 1} of {wouldLikeToUseSoftware.length}
             </span>
           </div>
 
-          <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 mb-6">
-            <p className="text-lg font-semibold text-primary">
+          <div className="bg-gradient-to-r from-[#1e6c93]/10 to-[#2a8ab8]/10 border border-[#1e6c93]/30 rounded-xl p-4 mb-6">
+            <p className="text-lg font-semibold text-[#1e6c93]">
               {softwareName}
             </p>
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700">
               {error}
             </div>
           )}
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#1e6c93' }}>
+              <label className="block text-sm font-semibold uppercase tracking-wide mb-3 text-[#1e6c93]">
                 What level of benefit would this software provide to your work? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">

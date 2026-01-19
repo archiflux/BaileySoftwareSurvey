@@ -38,6 +38,11 @@ function App() {
     }
   }, []);
 
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
+
   // Auto-save progress
   useEffect(() => {
     if (hasCheckedLocalStorage && currentStep > 0 && currentStep < 8) {
@@ -136,9 +141,9 @@ function App() {
     <div className="min-h-screen bg-[#FAFAFA] relative overflow-hidden">
       {/* Animated blob background - persists across all pages */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-0 -left-0 w-[34rem] h-[34rem] bg-[#1e6c93] rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob1"></div>
-        <div className="absolute top-0 -right-96 w-[34rem] h-[34rem] bg-[#1e6c93] rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob2"></div>
-        <div className="absolute -bottom-0 left-20 w-[34rem] h-[34rem] bg-[#1e6c93] rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob3"></div>
+        <div className="absolute top-0 -left-0 w-[34rem] h-[34rem] bg-[#1e6c93] rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob1"></div>
+        <div className="absolute top-0 -right-96 w-[34rem] h-[34rem] bg-[#1e6c93] rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob2"></div>
+        <div className="absolute -bottom-0 left-20 w-[34rem] h-[34rem] bg-[#1e6c93] rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob3"></div>
       </div>
 
       {/* Top bar with logo - shown on ALL pages */}
