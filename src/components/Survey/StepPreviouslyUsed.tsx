@@ -90,6 +90,15 @@ export const StepPreviouslyUsed: React.FC = () => {
     }
   };
 
+  const handleSkip = () => {
+    setError('');
+    if (currentIndex < previouslyUsedSoftware.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      goToNextValidStep();
+    }
+  };
+
   // This step should never render if no software - navigation will skip it
   if (previouslyUsedSoftware.length === 0) {
     return null;
@@ -202,6 +211,9 @@ export const StepPreviouslyUsed: React.FC = () => {
             <NavigationButtons
               onBack={handlePrevious}
               onNext={handleNext}
+              onSkip={handleSkip}
+              showSkip={true}
+              skipLabel="Skip this software"
               nextLabel={currentIndex < previouslyUsedSoftware.length - 1 ? 'Next Software' : 'Continue'}
               backLabel={currentIndex > 0 ? 'Previous Software' : 'Back'}
             />

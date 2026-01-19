@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Card } from '../UI/Card';
-import { Input, Select, Radio } from '../UI';
+import { Select, Radio } from '../UI';
 import { Container } from '../Layout/Container';
 import { NavigationButtons } from '../Layout/NavigationButtons';
 import { useSurveyState } from '../../hooks/useSurveyState';
 import { roleLevelLabels, disciplineLabels, type RoleLevel, type Discipline } from '../../types/survey.types';
-import { validateEmail, validateRequired } from '../../utils/validation';
+import { validateRequired } from '../../utils/validation';
 
 export const StepBasicInfo: React.FC = () => {
   const { surveyResponse, updateUserProfile, nextStep } = useSurveyState();
@@ -15,16 +15,6 @@ export const StepBasicInfo: React.FC = () => {
 
   const validate = (): boolean => {
     const newErrors: Record<string, string> = {};
-
-    if (!validateRequired(profile.email)) {
-      newErrors.email = 'Email is required';
-    } else if (!validateEmail(profile.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-
-    if (!validateRequired(profile.fullName)) {
-      newErrors.fullName = 'Full name is required';
-    }
 
     if (!validateRequired(profile.roleLevel)) {
       newErrors.roleLevel = 'Role level is required';
@@ -55,30 +45,10 @@ export const StepBasicInfo: React.FC = () => {
         <Card>
           <h2 className="text-2xl md:text-3xl font-sans font-bold tracking-wide uppercase mb-2 text-foreground">Basic Information</h2>
           <p className="mb-8 text-muted-foreground">
-            Let's start with some basic information about you and your role.
+            This survey is anonymous. Please tell us about your role.
           </p>
 
           <div className="space-y-6">
-            <Input
-              label="Email Address"
-              type="email"
-              required
-              value={profile.email}
-              onChange={(e) => updateUserProfile({ email: e.target.value })}
-              error={errors.email}
-              placeholder="your.email@baileypartnership.com"
-            />
-
-            <Input
-              label="Full Name"
-              type="text"
-              required
-              value={profile.fullName}
-              onChange={(e) => updateUserProfile({ fullName: e.target.value })}
-              error={errors.fullName}
-              placeholder="John Smith"
-            />
-
             <div>
               <label className="block text-sm font-semibold uppercase tracking-wide mb-3 text-[#1e6c93]">
                 Role Level <span className="text-red-500">*</span>

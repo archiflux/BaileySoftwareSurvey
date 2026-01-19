@@ -1,16 +1,19 @@
 import React from 'react';
 import { Button } from '../UI/Button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, SkipForward } from 'lucide-react';
 
 interface NavigationButtonsProps {
   onBack?: () => void;
   onNext?: () => void;
   onSubmit?: () => void;
+  onSkip?: () => void;
   nextLabel?: string;
   backLabel?: string;
+  skipLabel?: string;
   showBack?: boolean;
   showNext?: boolean;
   showSubmit?: boolean;
+  showSkip?: boolean;
   isNextDisabled?: boolean;
   isSubmitDisabled?: boolean;
   isLoading?: boolean;
@@ -21,11 +24,14 @@ export const NavigationButtons: React.FC<NavigationButtonsProps> = ({
   onBack,
   onNext,
   onSubmit,
+  onSkip,
   nextLabel = 'Next',
   backLabel = 'Back',
+  skipLabel = 'Skip',
   showBack = true,
   showNext = true,
   showSubmit = false,
+  showSkip = false,
   isNextDisabled = false,
   isSubmitDisabled = false,
   isLoading = false,
@@ -47,6 +53,17 @@ export const NavigationButtons: React.FC<NavigationButtonsProps> = ({
         )}
       </div>
       <div className="flex gap-3">
+        {showSkip && onSkip && (
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={onSkip}
+            className="inline-flex items-center text-muted-foreground hover:text-foreground"
+          >
+            {skipLabel}
+            <SkipForward className="w-4 h-4 ml-1" />
+          </Button>
+        )}
         {showNext && onNext && (
           <Button
             type="button"

@@ -21,8 +21,8 @@ export type Discipline =
   | 'it-support';
 
 export interface UserProfile {
-  email: string;
-  fullName: string;
+  email?: string;
+  fullName?: string;
   roleLevel: RoleLevel;
   discipline: Discipline;
 }
