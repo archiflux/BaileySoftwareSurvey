@@ -13,18 +13,6 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
     <div className="min-h-screen pt-20 pb-12">
       <Container maxWidth="2xl">
         <Card className="text-center">
-          <div className="flex justify-center mb-8">
-            <img
-              src="/Icon-colour.png"
-              alt="Bailey Partnership Logo"
-              className="w-24 h-24 object-contain rounded-xl shadow-lg"
-              onError={(e) => {
-                console.error('Failed to load icon:', e);
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          </div>
-
           <h1 className="text-3xl md:text-4xl font-sans font-bold tracking-wide uppercase mb-4 text-foreground">
             Bailey Partnership Group {APP_NAME}
           </h1>
