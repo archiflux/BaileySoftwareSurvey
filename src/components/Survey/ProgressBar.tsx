@@ -19,8 +19,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep, totalStep
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2 sm:gap-4">
             <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-              <img src="/Icon-colour.png" alt="BP" className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex-shrink-0" />
-              <h2 className="text-sm font-semibold text-foreground hidden sm:block">
+              <h2 className="text-sm font-semibold text-foreground">
                 Software Survey
               </h2>
             </div>
