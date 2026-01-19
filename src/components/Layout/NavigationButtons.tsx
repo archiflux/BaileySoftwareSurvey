@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../UI/Button';
-import { ChevronLeft, ChevronRight, SkipForward } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface NavigationButtonsProps {
   onBack?: () => void;
@@ -38,56 +38,58 @@ export const NavigationButtons: React.FC<NavigationButtonsProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`flex items-center justify-between gap-4 ${className}`}>
-      <div>
-        {showBack && onBack && (
-          <Button
-            type="button"
-            variant="outline"
-            onClick={onBack}
-            className="inline-flex items-center"
-          >
-            <ChevronLeft className="w-4 h-4 mr-1" />
-            {backLabel}
-          </Button>
-        )}
+    <div className={`flex flex-col gap-4 ${className}`}>
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          {showBack && onBack && (
+            <Button
+              type="button"
+              variant="outline"
+              onClick={onBack}
+              className="inline-flex items-center"
+            >
+              <ChevronLeft className="w-4 h-4 mr-1" />
+              {backLabel}
+            </Button>
+          )}
+        </div>
+        <div className="flex gap-3">
+          {showNext && onNext && (
+            <Button
+              type="button"
+              variant="primary"
+              onClick={onNext}
+              disabled={isNextDisabled || isLoading}
+              className="inline-flex items-center"
+            >
+              {nextLabel}
+              <ChevronRight className="w-4 h-4 ml-1" />
+            </Button>
+          )}
+          {showSubmit && onSubmit && (
+            <Button
+              type="button"
+              variant="primary"
+              onClick={onSubmit}
+              disabled={isSubmitDisabled}
+              isLoading={isLoading}
+            >
+              Submit Survey
+            </Button>
+          )}
+        </div>
       </div>
-      <div className="flex gap-3">
-        {showSkip && onSkip && (
-          <Button
+      {showSkip && onSkip && (
+        <div className="flex justify-center">
+          <button
             type="button"
-            variant="ghost"
             onClick={onSkip}
-            className="inline-flex items-center text-muted-foreground hover:text-foreground"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
           >
             {skipLabel}
-            <SkipForward className="w-4 h-4 ml-1" />
-          </Button>
-        )}
-        {showNext && onNext && (
-          <Button
-            type="button"
-            variant="primary"
-            onClick={onNext}
-            disabled={isNextDisabled || isLoading}
-            className="inline-flex items-center"
-          >
-            {nextLabel}
-            <ChevronRight className="w-4 h-4 ml-1" />
-          </Button>
-        )}
-        {showSubmit && onSubmit && (
-          <Button
-            type="button"
-            variant="primary"
-            onClick={onSubmit}
-            disabled={isSubmitDisabled}
-            isLoading={isLoading}
-          >
-            Submit Survey
-          </Button>
-        )}
-      </div>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
