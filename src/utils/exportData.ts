@@ -135,8 +135,8 @@ export const exportToCSV = (surveyResponse: SurveyResponse): void => {
   rows.push([
     surveyResponse.id,
     surveyResponse.timestamp,
-    profile.email,
-    profile.fullName,
+    profile.email || '',
+    profile.fullName || '',
     profile.roleLevel,
     profile.discipline,
     String(feedback.overallSatisfaction),
