@@ -12,7 +12,7 @@
           { "id": "arch-bim-vectorworks", "name": "Vectorworks Architect" },
           { "id": "arch-bim-rhino", "name": "Rhino 3D" },
           { "id": "arch-bim-sketchup", "name": "SketchUp Pro" },
-          { "id": "arch-bim-autocad-arch", "name": "AutoCAD Architecture" },
+          { "id": "arch-bim-autocad-arch", "name": "AutoCAD Architecture (3D)" },
           { "id": "arch-bim-forma", "name": "Autodesk Forma" },
           { "id": "arch-bim-other", "name": "Other - please specify", "isOther": true }
         ]

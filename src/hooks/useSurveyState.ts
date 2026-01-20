@@ -8,7 +8,8 @@ import type {
   WouldLikeToUseResponse,
   GeneralFeedback,
   RoleLevel,
-  Discipline
+  Discipline,
+  PrimaryOffice
 } from '../types/survey.types';
 
 interface SurveyStore {
@@ -56,7 +57,8 @@ const initialSurveyResponse: Partial<SurveyResponse> = {
     email: '',
     fullName: '',
     roleLevel: '' as RoleLevel,
-    discipline: '' as Discipline
+    discipline: '' as Discipline,
+    primaryOffice: '' as PrimaryOffice
   },
   softwareSelections: [],
   currentlyUsingResponses: [],
@@ -328,9 +330,8 @@ export const useSurveyState = create<SurveyStore>((set, get) => ({
       case 1: // Basic Info
         const profile = surveyResponse.userProfile;
         return !!(
-          profile?.email &&
-          profile?.fullName &&
           profile?.roleLevel &&
+          profile?.primaryOffice &&
           profile?.discipline
         );
 

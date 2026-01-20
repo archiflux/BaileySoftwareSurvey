@@ -4,7 +4,7 @@ import { Select, Radio } from '../UI';
 import { Container } from '../Layout/Container';
 import { NavigationButtons } from '../Layout/NavigationButtons';
 import { useSurveyState } from '../../hooks/useSurveyState';
-import { roleLevelLabels, disciplineLabels, type RoleLevel, type Discipline } from '../../types/survey.types';
+import { roleLevelLabels, disciplineLabels, primaryOfficeLabels, type RoleLevel, type Discipline, type PrimaryOffice } from '../../types/survey.types';
 import { validateRequired } from '../../utils/validation';
 
 export const StepBasicInfo: React.FC = () => {
@@ -18,6 +18,10 @@ export const StepBasicInfo: React.FC = () => {
 
     if (!validateRequired(profile.roleLevel)) {
       newErrors.roleLevel = 'Role level is required';
+    }
+
+    if (!validateRequired(profile.primaryOffice)) {
+      newErrors.primaryOffice = 'Primary office is required';
     }
 
     if (!validateRequired(profile.discipline)) {
@@ -35,6 +39,11 @@ export const StepBasicInfo: React.FC = () => {
   };
 
   const disciplineOptions = Object.entries(disciplineLabels).map(([value, label]) => ({
+    value,
+    label
+  }));
+
+  const primaryOfficeOptions = Object.entries(primaryOfficeLabels).map(([value, label]) => ({
     value,
     label
   }));
@@ -69,6 +78,16 @@ export const StepBasicInfo: React.FC = () => {
                 <p className="mt-1 text-sm text-red-600">{errors.roleLevel}</p>
               )}
             </div>
+
+            <Select
+              label="Primary Office"
+              required
+              value={profile.primaryOffice}
+              onChange={(e) => updateUserProfile({ primaryOffice: e.target.value as PrimaryOffice })}
+              options={primaryOfficeOptions}
+              error={errors.primaryOffice}
+              placeholder="Select your primary office"
+            />
 
             <Select
               label="Primary Discipline"

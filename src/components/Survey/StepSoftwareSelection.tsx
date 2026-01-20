@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from '../UI/Card';
-import { Checkbox, Input, Alert } from '../UI';
+import { Checkbox, Input, Button } from '../UI';
 import { Container } from '../Layout/Container';
 import { NavigationButtons } from '../Layout/NavigationButtons';
 import { useSurveyState } from '../../hooks/useSurveyState';
 import { getSoftwareForDiscipline } from '../../utils/softwareDatabase';
+import { X, AlertCircle } from 'lucide-react';
 import type { SoftwareSelection, UsageStatus, SoftwareItem } from '../../types/survey.types';
 
 export const StepSoftwareSelection: React.FC = () => {
@@ -16,6 +17,7 @@ export const StepSoftwareSelection: React.FC = () => {
   const [selections, setSelections] = useState<Map<string, Set<UsageStatus>>>(new Map());
   const [customNames, setCustomNames] = useState<Map<string, string>>(new Map());
   const [error, setError] = useState<string>('');
+  const [showReminderPopup, setShowReminderPopup] = useState<boolean>(true);
 
   // Track dynamic "Other" entries per category
   const [dynamicOthers, setDynamicOthers] = useState<Map<string, SoftwareItem[]>>(new Map());
@@ -183,12 +185,40 @@ export const StepSoftwareSelection: React.FC = () => {
             For each software tool below, indicate your usage status. You can select multiple options for each software.
           </p>
 
-          <Alert
-            type="info"
-            title="Important Reminder"
-            message="You don't need to select an option for all software listed below. Only indicate your status for the software you have used, are currently using, or are interested in using."
-            className="mb-6"
-          />
+          {/* Important Reminder Popup Modal */}
+          {showReminderPopup && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              <div
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+                onClick={() => setShowReminderPopup(false)}
+              />
+              <div className="relative bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 animate-in fade-in zoom-in duration-200">
+                <button
+                  onClick={() => setShowReminderPopup(false)}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-[#1e6c93]/10 rounded-full flex items-center justify-center">
+                    <AlertCircle className="w-6 h-6 text-[#1e6c93]" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-[#1e6c93] mb-3">Important Reminder</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      <strong>You do not need to select an option for all software listed.</strong> Only indicate your status for any software you have used, are currently using, or are interested in using.
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-6 flex justify-end">
+                  <Button onClick={() => setShowReminderPopup(false)}>
+                    Got it
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
 
           {error && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">

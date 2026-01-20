@@ -17,10 +17,16 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onBegin }) => {
             Bailey Partnership Group {APP_NAME}
           </h1>
 
-          <p className="text-lg mb-10 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
+          <p className="text-lg mb-6 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
             Help us understand software usage, training needs, and preferences across
             all disciplines in the practice.
           </p>
+
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-10 text-left max-w-2xl mx-auto">
+            <p className="text-amber-800 leading-relaxed">
+              <strong>Please note:</strong> The primary objective of this survey is to identify and address gaps in tool awareness, rather than to justify the procurement of additional software.
+            </p>
+          </div>
 
           <div className="bg-gradient-to-r from-[#1e6c93]/15 to-[#2a8ab8]/10 border-l-4 border-[#1e6c93] rounded-xl p-6 mb-6 text-left">
             <h2 className="text-lg font-semibold mb-3 text-[#1e6c93]">
