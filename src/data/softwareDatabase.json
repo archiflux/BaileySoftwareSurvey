@@ -36,7 +36,16 @@
         "software": [
           { "id": "arch-comp-dynamo", "name": "Dynamo (Revit)" },
           { "id": "arch-comp-grasshopper", "name": "Grasshopper (Rhino)" },
+          { "id": "arch-comp-pyrevit", "name": "pyRevit" },
           { "id": "arch-comp-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Building Physics & Compliance",
+        "categoryId": "arch-physics",
+        "software": [
+          { "id": "arch-physics-builddesk", "name": "BuildDesk U (U-Value/Thermal)" },
+          { "id": "arch-physics-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -132,6 +141,25 @@
         ]
       },
       {
+        "categoryName": "Specification & Standards",
+        "categoryId": "bs-spec",
+        "software": [
+          { "id": "bs-spec-nbs-chorus", "name": "NBS Chorus" },
+          { "id": "bs-spec-ihs-cis", "name": "IHS/CIS (Construction Information Service)" },
+          { "id": "bs-spec-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Contracts & Scheduling",
+        "categoryId": "bs-contracts",
+        "software": [
+          { "id": "bs-contracts-jct", "name": "JCT Contracts (JCT On Demand)" },
+          { "id": "bs-contracts-docusign", "name": "DocuSign" },
+          { "id": "bs-contracts-gantter", "name": "Gantter" },
+          { "id": "bs-contracts-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
         "categoryName": "Collaboration & Common Data Environment",
         "categoryId": "bs-collab",
         "software": [
@@ -173,7 +201,8 @@
           { "id": "mep-bim-revit", "name": "Revit MEP" },
           { "id": "mep-bim-autocad", "name": "AutoCAD MEP" },
           { "id": "mep-bim-fabrication", "name": "Autodesk Fabrication" },
-          { "id": "mep-bim-magicad", "name": "Magicad" },
+          { "id": "mep-bim-magicad", "name": "MagiCAD" },
+          { "id": "mep-bim-rhino", "name": "Rhino 3D" },
           { "id": "mep-bim-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -188,6 +217,7 @@
           { "id": "mep-analysis-relux", "name": "Relux (lighting)" },
           { "id": "mep-analysis-amtech", "name": "AmTech (electrical)" },
           { "id": "mep-analysis-trimble", "name": "Trimble ProDesign" },
+          { "id": "mep-analysis-electricalom", "name": "ElectricalOM (BS 7671)" },
           { "id": "mep-analysis-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -200,6 +230,16 @@
           { "id": "mep-cfd-tas", "name": "TAS (EDSL)" },
           { "id": "mep-cfd-designbuilder", "name": "DesignBuilder" },
           { "id": "mep-cfd-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Specification & Documentation",
+        "categoryId": "mep-spec",
+        "software": [
+          { "id": "mep-spec-nbs-chorus", "name": "NBS Chorus" },
+          { "id": "mep-spec-ihs-cis", "name": "IHS/CIS (Construction Information Service)" },
+          { "id": "mep-spec-bluebeam", "name": "Bluebeam Revu" },
+          { "id": "mep-spec-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -248,6 +288,7 @@
           { "id": "struct-analysis-sap2000", "name": "SAP2000" },
           { "id": "struct-analysis-tedds", "name": "Tedds" },
           { "id": "struct-analysis-masterseries", "name": "Masterseries" },
+          { "id": "struct-analysis-ideastatica", "name": "IDEA StatiCa" },
           { "id": "struct-analysis-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -259,7 +300,18 @@
           { "id": "struct-bim-autocad", "name": "AutoCAD Structural" },
           { "id": "struct-bim-advance-steel", "name": "Autodesk Advance Steel" },
           { "id": "struct-bim-tekla", "name": "Tekla Structures" },
+          { "id": "struct-bim-rhino", "name": "Rhino 3D" },
           { "id": "struct-bim-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Revit Add-ins & Detailing",
+        "categoryId": "struct-addins",
+        "software": [
+          { "id": "struct-addins-naviate", "name": "Naviate Structure" },
+          { "id": "struct-addins-naviate-rebar", "name": "Naviate Rebar" },
+          { "id": "struct-addins-cads-rc3d", "name": "CADS RC3D" },
+          { "id": "struct-addins-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -277,7 +329,18 @@
         "software": [
           { "id": "struct-civil-civil3d", "name": "Autodesk Civil 3D" },
           { "id": "struct-civil-infraworks", "name": "Autodesk InfraWorks" },
+          { "id": "struct-civil-causeway-flow", "name": "Causeway Flow (Drainage Design)" },
           { "id": "struct-civil-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Specification & Standards",
+        "categoryId": "struct-spec",
+        "software": [
+          { "id": "struct-spec-nbs-chorus", "name": "NBS Chorus" },
+          { "id": "struct-spec-ihs-cis", "name": "IHS/CIS (Construction Information Service)" },
+          { "id": "struct-spec-bluebeam", "name": "Bluebeam Revu" },
+          { "id": "struct-spec-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -336,13 +399,24 @@
           { "id": "int-viz-twinmotion", "name": "Twinmotion" },
           { "id": "int-viz-lumion", "name": "Lumion" },
           { "id": "int-viz-vray", "name": "V-Ray" },
+          { "id": "int-viz-3dsmax", "name": "3ds Max" },
+          { "id": "int-viz-unreal", "name": "Unreal Engine" },
           { "id": "int-viz-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Revit Add-ins",
+        "categoryId": "int-addins",
+        "software": [
+          { "id": "int-addins-pyrevit", "name": "pyRevit" },
+          { "id": "int-addins-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
         "categoryName": "Specification & FF&E",
         "categoryId": "int-spec",
         "software": [
+          { "id": "int-spec-nbs-chorus", "name": "NBS Chorus" },
           { "id": "int-spec-werkspot", "name": "Werkspot" },
           { "id": "int-spec-other", "name": "Other - please specify", "isOther": true }
         ]
@@ -419,6 +493,23 @@
         ]
       },
       {
+        "categoryName": "Documentation & Drawing",
+        "categoryId": "fire-doc",
+        "software": [
+          { "id": "fire-doc-autocad", "name": "AutoCAD" },
+          { "id": "fire-doc-bluebeam", "name": "Bluebeam Revu" },
+          { "id": "fire-doc-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Specification & Standards",
+        "categoryId": "fire-spec",
+        "software": [
+          { "id": "fire-spec-nbs-chorus", "name": "NBS Chorus" },
+          { "id": "fire-spec-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
         "categoryName": "Collaboration & Common Data Environment",
         "categoryId": "fire-collab",
         "software": [
@@ -481,7 +572,16 @@
         "categoryId": "plan-doc",
         "software": [
           { "id": "plan-doc-portal", "name": "Planning Portal systems" },
+          { "id": "plan-doc-bluebeam", "name": "Bluebeam Revu" },
           { "id": "plan-doc-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Graphics & Presentation",
+        "categoryId": "plan-graphics",
+        "software": [
+          { "id": "plan-graphics-adobe", "name": "Adobe Creative Suite" },
+          { "id": "plan-graphics-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -530,7 +630,16 @@
           { "id": "pm-software-asta", "name": "Asta Powerproject" },
           { "id": "pm-software-monday", "name": "Monday.com" },
           { "id": "pm-software-asana", "name": "Asana" },
+          { "id": "pm-software-gantter", "name": "Gantter" },
           { "id": "pm-software-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Documentation",
+        "categoryId": "pm-doc",
+        "software": [
+          { "id": "pm-doc-bluebeam", "name": "Bluebeam Revu" },
+          { "id": "pm-doc-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -601,6 +710,23 @@
           { "id": "qs-bim-acc", "name": "Autodesk Construction Cloud (ACC/BIM 360)" },
           { "id": "qs-bim-costx", "name": "CostX (BIM)" },
           { "id": "qs-bim-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Specification & Contracts",
+        "categoryId": "qs-spec",
+        "software": [
+          { "id": "qs-spec-nbs-chorus", "name": "NBS Chorus" },
+          { "id": "qs-spec-docusign", "name": "DocuSign" },
+          { "id": "qs-spec-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Scheduling",
+        "categoryId": "qs-schedule",
+        "software": [
+          { "id": "qs-schedule-gantter", "name": "Gantter" },
+          { "id": "qs-schedule-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
