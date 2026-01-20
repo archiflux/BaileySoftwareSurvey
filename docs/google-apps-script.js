@@ -1,5 +1,9 @@
 /**
- * Bailey Partnership Software Survey - Google Apps Script
+ * Bailey Partnership Software Survey - Google Apps Script (Basic Version)
+ *
+ * NOTE: For a full analytics dashboard with charts, metrics, and auto-refresh,
+ * use google-apps-script-with-dashboard.js instead. See GOOGLE_SHEETS_DASHBOARD_SETUP.md
+ * for setup instructions.
  *
  * DEPLOYMENT INSTRUCTIONS:
  * ========================
@@ -10,7 +14,7 @@
  * 5. Set "Execute as": "Me" (your Google account)
  * 6. Set "Who has access": "Anyone" (for public survey submissions)
  * 7. Click "Deploy" and authorise when prompted
- * 8. Copy the "Web app URL" - this is your GOOGLE_SHEETS_URL
+ * 8. Copy the "Web app URL" - this is your VITE_GOOGLE_SHEETS_URL
  * 9. Create a new Google Sheet and copy its ID from the URL
  *    (e.g., https://docs.google.com/spreadsheets/d/SHEET_ID_HERE/edit)
  * 10. Replace SPREADSHEET_ID below with your Sheet ID
@@ -108,6 +112,7 @@ function getHeaders() {
     'Email',
     'Full Name',
     'Role Level',
+    'Primary Office',
     'Discipline',
 
     // Summary Counts
@@ -169,6 +174,7 @@ function flattenSurveyData(data) {
     profile.email || '',
     profile.fullName || '',
     formatRoleLevel(profile.roleLevel),
+    formatPrimaryOffice(profile.primaryOffice),
     formatDiscipline(profile.discipline),
 
     // Summary Counts
@@ -203,14 +209,34 @@ function flattenSurveyData(data) {
  */
 function formatRoleLevel(role) {
   const labels = {
-    'executive': 'Executive',
-    'slt': 'Senior Leadership Team',
-    'associate': 'Associate',
-    'senior': 'Senior',
-    'architect-pm-qs': 'Architect/PM/QS',
+    'executive-director': 'Executive Director / Director',
+    'senior-associate': 'Senior Associate / Associate',
+    'general': 'General',
     'intern-trainee': 'Intern/Trainee'
   };
   return labels[role] || role || '';
+}
+
+/**
+ * Format primary office for display
+ */
+function formatPrimaryOffice(office) {
+  const labels = {
+    'bristol': 'Bristol',
+    'bury-st-edmunds': 'Bury St. Edmunds',
+    'chichester': 'Chichester',
+    'edinburgh': 'Edinburgh',
+    'exeter': 'Exeter',
+    'gibraltar': 'Gibraltar',
+    'kidderminster': 'Kidderminster',
+    'maidstone': 'Maidstone',
+    'manchester': 'Manchester',
+    'peterborough': 'Peterborough',
+    'plymouth': 'Plymouth',
+    'st-austell': 'St Austell',
+    'torquay': 'Torquay'
+  };
+  return labels[office] || office || '';
 }
 
 /**
@@ -262,7 +288,8 @@ function testSubmission() {
     userProfile: {
       email: 'test@baileypartnership.com',
       fullName: 'Test User',
-      roleLevel: 'associate',
+      roleLevel: 'senior-associate',
+      primaryOffice: 'bristol',
       discipline: 'architectural-design'
     },
     softwareSelections: [
