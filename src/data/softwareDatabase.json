@@ -8,12 +8,12 @@
         "categoryId": "arch-bim",
         "software": [
           { "id": "arch-bim-revit", "name": "Autodesk Revit" },
+          { "id": "arch-bim-forma", "name": "Autodesk Forma" },
+          { "id": "arch-bim-autocad-arch", "name": "AutoCAD Architecture (3D)" },
           { "id": "arch-bim-archicad", "name": "ArchiCAD" },
           { "id": "arch-bim-vectorworks", "name": "Vectorworks Architect" },
           { "id": "arch-bim-rhino", "name": "Rhino 3D" },
           { "id": "arch-bim-sketchup", "name": "SketchUp Pro" },
-          { "id": "arch-bim-autocad-arch", "name": "AutoCAD Architecture (3D)" },
-          { "id": "arch-bim-forma", "name": "Autodesk Forma" },
           { "id": "arch-bim-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -34,8 +34,8 @@
         "categoryName": "Computational Design",
         "categoryId": "arch-comp",
         "software": [
-          { "id": "arch-comp-grasshopper", "name": "Grasshopper (Rhino)" },
           { "id": "arch-comp-dynamo", "name": "Dynamo (Revit)" },
+          { "id": "arch-comp-grasshopper", "name": "Grasshopper (Rhino)" },
           { "id": "arch-comp-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -71,8 +71,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "arch-office",
         "software": [
-          { "id": "arch-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "arch-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "arch-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "arch-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -80,12 +80,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "arch-ai",
         "software": [
+          { "id": "arch-ai-gemini", "name": "Google Gemini" },
           { "id": "arch-ai-chatgpt", "name": "ChatGPT" },
           { "id": "arch-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "arch-ai-gemini", "name": "Google Gemini" },
-          { "id": "arch-ai-copilot", "name": "Microsoft Copilot" },
-          { "id": "arch-ai-midjourney", "name": "Midjourney" },
-          { "id": "arch-ai-stable-diffusion", "name": "Stable Diffusion" },
           { "id": "arch-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -99,11 +96,11 @@
         "categoryName": "Survey & Measurement",
         "categoryId": "bs-survey",
         "software": [
+          { "id": "bs-survey-revit", "name": "Revit" },
+          { "id": "bs-survey-autocad", "name": "AutoCAD" },
+          { "id": "bs-survey-recap", "name": "Autodesk ReCap" },
           { "id": "bs-survey-leica", "name": "Leica Cyclone" },
           { "id": "bs-survey-faro", "name": "Faro Scene" },
-          { "id": "bs-survey-autocad", "name": "AutoCAD" },
-          { "id": "bs-survey-revit", "name": "Revit" },
-          { "id": "bs-survey-recap", "name": "Autodesk ReCap" },
           { "id": "bs-survey-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -148,8 +145,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "bs-office",
         "software": [
-          { "id": "bs-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "bs-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "bs-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "bs-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -157,10 +154,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "bs-ai",
         "software": [
+          { "id": "bs-ai-gemini", "name": "Google Gemini" },
           { "id": "bs-ai-chatgpt", "name": "ChatGPT" },
           { "id": "bs-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "bs-ai-gemini", "name": "Google Gemini" },
-          { "id": "bs-ai-copilot", "name": "Microsoft Copilot" },
           { "id": "bs-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -176,8 +172,8 @@
         "software": [
           { "id": "mep-bim-revit", "name": "Revit MEP" },
           { "id": "mep-bim-autocad", "name": "AutoCAD MEP" },
-          { "id": "mep-bim-magicad", "name": "Magicad" },
           { "id": "mep-bim-fabrication", "name": "Autodesk Fabrication" },
+          { "id": "mep-bim-magicad", "name": "Magicad" },
           { "id": "mep-bim-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -185,13 +181,13 @@
         "categoryName": "Analysis & Calculation",
         "categoryId": "mep-analysis",
         "software": [
+          { "id": "mep-analysis-insight", "name": "Autodesk Insight" },
           { "id": "mep-analysis-ies", "name": "IES Virtual Environment (IES VE)" },
           { "id": "mep-analysis-hevacomp", "name": "Hevacomp" },
           { "id": "mep-analysis-dialux", "name": "Dialux (lighting)" },
           { "id": "mep-analysis-relux", "name": "Relux (lighting)" },
           { "id": "mep-analysis-amtech", "name": "AmTech (electrical)" },
           { "id": "mep-analysis-trimble", "name": "Trimble ProDesign" },
-          { "id": "mep-analysis-insight", "name": "Autodesk Insight" },
           { "id": "mep-analysis-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -199,10 +195,10 @@
         "categoryName": "CFD & Thermal",
         "categoryId": "mep-cfd",
         "software": [
+          { "id": "mep-cfd-cfd", "name": "Autodesk CFD" },
           { "id": "mep-cfd-ies", "name": "IES VE" },
           { "id": "mep-cfd-tas", "name": "TAS (EDSL)" },
           { "id": "mep-cfd-designbuilder", "name": "DesignBuilder" },
-          { "id": "mep-cfd-cfd", "name": "Autodesk CFD" },
           { "id": "mep-cfd-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -220,8 +216,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "mep-office",
         "software": [
-          { "id": "mep-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "mep-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "mep-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "mep-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -229,10 +225,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "mep-ai",
         "software": [
+          { "id": "mep-ai-gemini", "name": "Google Gemini" },
           { "id": "mep-ai-chatgpt", "name": "ChatGPT" },
           { "id": "mep-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "mep-ai-gemini", "name": "Google Gemini" },
-          { "id": "mep-ai-copilot", "name": "Microsoft Copilot" },
           { "id": "mep-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -246,8 +241,8 @@
         "categoryName": "Structural Analysis & Design",
         "categoryId": "struct-analysis",
         "software": [
-          { "id": "struct-analysis-tekla-designer", "name": "Tekla Structural Designer" },
           { "id": "struct-analysis-robot", "name": "Robot Structural Analysis" },
+          { "id": "struct-analysis-tekla-designer", "name": "Tekla Structural Designer" },
           { "id": "struct-analysis-etabs", "name": "ETABS" },
           { "id": "struct-analysis-staad", "name": "STAAD.Pro" },
           { "id": "struct-analysis-sap2000", "name": "SAP2000" },
@@ -261,9 +256,9 @@
         "categoryId": "struct-bim",
         "software": [
           { "id": "struct-bim-revit", "name": "Revit Structure" },
-          { "id": "struct-bim-tekla", "name": "Tekla Structures" },
           { "id": "struct-bim-autocad", "name": "AutoCAD Structural" },
           { "id": "struct-bim-advance-steel", "name": "Autodesk Advance Steel" },
+          { "id": "struct-bim-tekla", "name": "Tekla Structures" },
           { "id": "struct-bim-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -299,8 +294,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "struct-office",
         "software": [
-          { "id": "struct-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "struct-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "struct-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "struct-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -308,10 +303,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "struct-ai",
         "software": [
+          { "id": "struct-ai-gemini", "name": "Google Gemini" },
           { "id": "struct-ai-chatgpt", "name": "ChatGPT" },
           { "id": "struct-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "struct-ai-gemini", "name": "Google Gemini" },
-          { "id": "struct-ai-copilot", "name": "Microsoft Copilot" },
           { "id": "struct-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -326,11 +320,11 @@
         "categoryId": "int-design",
         "software": [
           { "id": "int-design-revit", "name": "Revit" },
-          { "id": "int-design-sketchup", "name": "SketchUp Pro" },
           { "id": "int-design-autocad", "name": "AutoCAD" },
+          { "id": "int-design-forma", "name": "Autodesk Forma" },
+          { "id": "int-design-sketchup", "name": "SketchUp Pro" },
           { "id": "int-design-vectorworks", "name": "Vectorworks" },
           { "id": "int-design-rhino", "name": "Rhino 3D" },
-          { "id": "int-design-forma", "name": "Autodesk Forma" },
           { "id": "int-design-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -376,8 +370,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "int-office",
         "software": [
-          { "id": "int-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "int-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "int-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "int-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -385,11 +379,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "int-ai",
         "software": [
+          { "id": "int-ai-gemini", "name": "Google Gemini" },
           { "id": "int-ai-chatgpt", "name": "ChatGPT" },
           { "id": "int-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "int-ai-gemini", "name": "Google Gemini" },
-          { "id": "int-ai-copilot", "name": "Microsoft Copilot" },
-          { "id": "int-ai-midjourney", "name": "Midjourney" },
           { "id": "int-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -440,8 +432,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "fire-office",
         "software": [
-          { "id": "fire-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "fire-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "fire-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "fire-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -449,10 +441,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "fire-ai",
         "software": [
+          { "id": "fire-ai-gemini", "name": "Google Gemini" },
           { "id": "fire-ai-chatgpt", "name": "ChatGPT" },
           { "id": "fire-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "fire-ai-gemini", "name": "Google Gemini" },
-          { "id": "fire-ai-copilot", "name": "Microsoft Copilot" },
           { "id": "fire-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -466,12 +457,12 @@
         "categoryName": "GIS & Mapping",
         "categoryId": "plan-gis",
         "software": [
+          { "id": "plan-gis-google-earth", "name": "Google Earth Pro" },
           { "id": "plan-gis-arcgis", "name": "ArcGIS (ArcMap/ArcGIS Pro)" },
           { "id": "plan-gis-qgis", "name": "QGIS" },
           { "id": "plan-gis-urban", "name": "ArcGIS Urban" },
           { "id": "plan-gis-cityengine", "name": "ArcGIS CityEngine" },
           { "id": "plan-gis-mapinfo", "name": "MapInfo" },
-          { "id": "plan-gis-google-earth", "name": "Google Earth Pro" },
           { "id": "plan-gis-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -479,9 +470,9 @@
         "categoryName": "3D Visualisation",
         "categoryId": "plan-3d",
         "software": [
+          { "id": "plan-3d-forma", "name": "Autodesk Forma" },
           { "id": "plan-3d-sketchup", "name": "SketchUp Pro" },
           { "id": "plan-3d-rhino", "name": "Rhino Urban" },
-          { "id": "plan-3d-forma", "name": "Autodesk Forma" },
           { "id": "plan-3d-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -506,8 +497,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "plan-office",
         "software": [
-          { "id": "plan-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "plan-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "plan-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "plan-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -515,10 +506,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "plan-ai",
         "software": [
+          { "id": "plan-ai-gemini", "name": "Google Gemini" },
           { "id": "plan-ai-chatgpt", "name": "ChatGPT" },
           { "id": "plan-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "plan-ai-gemini", "name": "Google Gemini" },
-          { "id": "plan-ai-copilot", "name": "Microsoft Copilot" },
           { "id": "plan-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -559,8 +549,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "pm-office",
         "software": [
-          { "id": "pm-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "pm-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "pm-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "pm-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -568,10 +558,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "pm-ai",
         "software": [
+          { "id": "pm-ai-gemini", "name": "Google Gemini" },
           { "id": "pm-ai-chatgpt", "name": "ChatGPT" },
           { "id": "pm-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "pm-ai-gemini", "name": "Google Gemini" },
-          { "id": "pm-ai-copilot", "name": "Microsoft Copilot" },
           { "id": "pm-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -585,12 +574,12 @@
         "categoryName": "Measurement & Takeoff",
         "categoryId": "qs-measure",
         "software": [
+          { "id": "qs-measure-navisworks", "name": "Autodesk Navisworks" },
           { "id": "qs-measure-costx", "name": "CostX" },
           { "id": "qs-measure-bluebeam", "name": "Bluebeam Revu" },
           { "id": "qs-measure-planswift", "name": "PlanSwift" },
           { "id": "qs-measure-cubit", "name": "Cubit" },
           { "id": "qs-measure-glodon", "name": "Glodon Cubicost" },
-          { "id": "qs-measure-navisworks", "name": "Autodesk Navisworks" },
           { "id": "qs-measure-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -608,9 +597,9 @@
         "categoryName": "BIM/5D",
         "categoryId": "qs-bim",
         "software": [
-          { "id": "qs-bim-costx", "name": "CostX (BIM)" },
           { "id": "qs-bim-revit", "name": "Revit" },
           { "id": "qs-bim-acc", "name": "Autodesk Construction Cloud (ACC/BIM 360)" },
+          { "id": "qs-bim-costx", "name": "CostX (BIM)" },
           { "id": "qs-bim-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -618,8 +607,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "qs-office",
         "software": [
-          { "id": "qs-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "qs-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "qs-office-365", "name": "Microsoft 365 (Word, Excel, PowerPoint)" },
           { "id": "qs-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -627,10 +616,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "qs-ai",
         "software": [
+          { "id": "qs-ai-gemini", "name": "Google Gemini" },
           { "id": "qs-ai-chatgpt", "name": "ChatGPT" },
           { "id": "qs-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "qs-ai-gemini", "name": "Google Gemini" },
-          { "id": "qs-ai-copilot", "name": "Microsoft Copilot" },
           { "id": "qs-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -644,8 +632,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "admin-core",
         "software": [
-          { "id": "admin-core-office365", "name": "Microsoft 365 (Word, Excel, PowerPoint, Outlook)" },
           { "id": "admin-core-google", "name": "Google Workspace (Docs, Sheets, Slides, Gmail)" },
+          { "id": "admin-core-office365", "name": "Microsoft 365 (Word, Excel, PowerPoint, Outlook)" },
           { "id": "admin-core-adobe", "name": "Adobe Acrobat Pro" },
           { "id": "admin-core-teams", "name": "Microsoft Teams" },
           { "id": "admin-core-sharepoint", "name": "Microsoft SharePoint" },
@@ -656,10 +644,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "admin-ai",
         "software": [
+          { "id": "admin-ai-gemini", "name": "Google Gemini" },
           { "id": "admin-ai-chatgpt", "name": "ChatGPT" },
           { "id": "admin-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "admin-ai-gemini", "name": "Google Gemini" },
-          { "id": "admin-ai-copilot", "name": "Microsoft Copilot" },
           { "id": "admin-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
@@ -673,8 +660,8 @@
         "categoryName": "Productivity & Office Suite",
         "categoryId": "it-core",
         "software": [
-          { "id": "it-core-office365", "name": "Microsoft 365 Admin" },
           { "id": "it-core-google", "name": "Google Workspace Admin" },
+          { "id": "it-core-office365", "name": "Microsoft 365 Admin" },
           { "id": "it-core-adobe", "name": "Adobe Admin Console" },
           { "id": "it-core-teams", "name": "Microsoft Teams" },
           { "id": "it-core-sharepoint", "name": "Microsoft SharePoint" },
@@ -694,10 +681,9 @@
         "categoryName": "AI Platforms",
         "categoryId": "it-ai",
         "software": [
+          { "id": "it-ai-gemini", "name": "Google Gemini" },
           { "id": "it-ai-chatgpt", "name": "ChatGPT" },
           { "id": "it-ai-claude", "name": "Claude (Anthropic)" },
-          { "id": "it-ai-gemini", "name": "Google Gemini" },
-          { "id": "it-ai-copilot", "name": "Microsoft Copilot" },
           { "id": "it-ai-other", "name": "Other - please specify", "isOther": true }
         ]
       }
