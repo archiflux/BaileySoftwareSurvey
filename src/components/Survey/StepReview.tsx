@@ -9,6 +9,7 @@ import { ChevronDown, ChevronUp, Edit, AlertCircle, RefreshCw } from 'lucide-rea
 import {
   roleLevelLabels,
   disciplineLabels,
+  primaryOfficeLabels,
   frequencyLabels,
   trainingLevelLabels,
   usageLocationLabels,
@@ -144,9 +145,8 @@ export const StepReview: React.FC = () => {
                 <div className="p-4 border border-[#E0E0E0] rounded-b-lg space-y-2">
                   <div className="flex justify-between items-start">
                     <div className="space-y-1" style={{ color: '#424242' }}>
-                      <p><span className="font-medium">Email:</span> {profile.email}</p>
-                      <p><span className="font-medium">Name:</span> {profile.fullName}</p>
                       <p><span className="font-medium">Role:</span> {roleLevelLabels[profile.roleLevel]}</p>
+                      <p><span className="font-medium">Primary Office:</span> {primaryOfficeLabels[profile.primaryOffice]}</p>
                       <p><span className="font-medium">Discipline:</span> {disciplineLabels[profile.discipline]}</p>
                     </div>
                     <Button

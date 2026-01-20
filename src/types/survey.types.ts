@@ -1,11 +1,24 @@
 // User Profile Types
 export type RoleLevel =
-  | 'executive'
-  | 'slt'
-  | 'associate'
-  | 'senior'
-  | 'architect-pm-qs'
+  | 'executive-director'
+  | 'senior-associate'
+  | 'general'
   | 'intern-trainee';
+
+export type PrimaryOffice =
+  | 'bristol'
+  | 'bury-st-edmunds'
+  | 'chichester'
+  | 'edinburgh'
+  | 'exeter'
+  | 'gibraltar'
+  | 'kidderminster'
+  | 'maidstone'
+  | 'manchester'
+  | 'peterborough'
+  | 'plymouth'
+  | 'st-austell'
+  | 'torquay';
 
 export type Discipline =
   | 'architectural-design'
@@ -25,6 +38,7 @@ export interface UserProfile {
   fullName?: string;
   roleLevel: RoleLevel;
   discipline: Discipline;
+  primaryOffice: PrimaryOffice;
 }
 
 // Software Category Types
@@ -142,12 +156,26 @@ export interface SurveyResponse {
 
 // Display Labels
 export const roleLevelLabels: Record<RoleLevel, string> = {
-  'executive': 'Executive',
-  'slt': 'Senior Leadership Team',
-  'associate': 'Associate',
-  'senior': 'Senior',
-  'architect-pm-qs': 'Architect/Project Manager/Surveyor/Engineer/Planner/Designer/Support Staff',
-  'intern-trainee': 'Intern/Trainee'
+  'executive-director': 'Executive Director / Director',
+  'senior-associate': 'Senior Associate / Associate',
+  'general': 'General (Architect / Project Manager / Surveyor / Engineer / Planner / Designer / Support Staff)',
+  'intern-trainee': 'Intern/Trainees'
+};
+
+export const primaryOfficeLabels: Record<PrimaryOffice, string> = {
+  'bristol': 'Bristol',
+  'bury-st-edmunds': 'Bury St. Edmunds',
+  'chichester': 'Chichester',
+  'edinburgh': 'Edinburgh',
+  'exeter': 'Exeter',
+  'gibraltar': 'Gibraltar',
+  'kidderminster': 'Kidderminster',
+  'maidstone': 'Maidstone',
+  'manchester': 'Manchester',
+  'peterborough': 'Peterborough',
+  'plymouth': 'Plymouth',
+  'st-austell': 'St Austell',
+  'torquay': 'Torquay'
 };
 
 export const disciplineLabels: Record<Discipline, string> = {
