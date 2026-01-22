@@ -752,7 +752,7 @@ function createInsightsSheet(spreadsheet) {
   sheet.getRange('A4:F4').merge().setValue('🔍 KEY FINDINGS')
     .setFontWeight('bold').setFontSize(14).setBackground(COLORS.PRIMARY).setFontColor(COLORS.WHITE);
 
-  sheet.getRange('A5:F13').setValues([
+  sheet.getRange('A5:F12').setValues([
     ['Finding', 'Value', 'Assessment', '', '', ''],
     ['Total Survey Participation', `=COUNTA(${R}!B:B)-1&" responses"`, `=IF(COUNTA(${R}!B:B)-1>=50,"✅ Strong participation",IF(COUNTA(${R}!B:B)-1>=20,"⚠️ Moderate participation","❌ Low participation"))`, '', '', ''],
     ['Overall Satisfaction Score', `=IFERROR(ROUND(AVERAGE(${R}!O:O),1)&" / 5","--")`, `=IF(AVERAGE(${R}!O:O)>=4,"✅ Excellent",IF(AVERAGE(${R}!O:O)>=3,"⚠️ Good","❌ Needs improvement"))`, '', '', ''],

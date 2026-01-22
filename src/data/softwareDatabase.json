@@ -9,7 +9,6 @@
         "software": [
           { "id": "arch-bim-revit", "name": "Autodesk Revit" },
           { "id": "arch-bim-forma", "name": "Autodesk Forma" },
-          { "id": "arch-bim-autocad-arch", "name": "AutoCAD Architecture (3D)" },
           { "id": "arch-bim-sketchup", "name": "SketchUp Pro" },
           { "id": "arch-bim-other", "name": "Other - please specify", "isOther": true }
         ]
