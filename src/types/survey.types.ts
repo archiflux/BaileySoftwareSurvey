@@ -3,6 +3,7 @@ export type RoleLevel =
   | 'executive-director'
   | 'senior-associate'
   | 'general'
+  | 'graduate-apprentice'
   | 'intern-trainee';
 
 export type PrimaryOffice =
@@ -21,17 +22,16 @@ export type PrimaryOffice =
   | 'torquay';
 
 export type Discipline =
-  | 'architectural-design'
+  | 'architecture'
+  | 'building-services-engineering'
   | 'building-surveying'
-  | 'building-services-mep'
-  | 'civil-structural-engineering'
-  | 'interior-design'
+  | 'cdm-principal-designer'
   | 'fire-engineering'
-  | 'planning'
   | 'project-management'
+  | 'interior-design'
   | 'quantity-surveying'
-  | 'admin-support'
-  | 'it-support';
+  | 'structural-civil-engineering'
+  | 'town-planning';
 
 export interface UserProfile {
   email?: string;
@@ -159,6 +159,7 @@ export const roleLevelLabels: Record<RoleLevel, string> = {
   'executive-director': 'Executive Director / Director',
   'senior-associate': 'Senior Associate / Associate',
   'general': 'General (Architect / Project Manager / Surveyor / Engineer / Planner / Designer / Support Staff)',
+  'graduate-apprentice': 'Graduate/Apprentice',
   'intern-trainee': 'Intern/Trainees'
 };
 
@@ -179,17 +180,16 @@ export const primaryOfficeLabels: Record<PrimaryOffice, string> = {
 };
 
 export const disciplineLabels: Record<Discipline, string> = {
-  'architectural-design': 'Architectural Design',
+  'architecture': 'Architecture',
+  'building-services-engineering': 'Building Services Engineering',
   'building-surveying': 'Building Surveying',
-  'building-services-mep': 'Building Services/MEP Engineering',
-  'civil-structural-engineering': 'Civil & Structural Engineering',
-  'interior-design': 'Interior Design',
+  'cdm-principal-designer': 'CDM/Principal Designer',
   'fire-engineering': 'Fire Engineering',
-  'planning': 'Planning',
   'project-management': 'Project Management',
+  'interior-design': 'Interior Design',
   'quantity-surveying': 'Quantity Surveying',
-  'admin-support': 'Admin Support',
-  'it-support': 'IT Support'
+  'structural-civil-engineering': 'Structural and Civil Engineering',
+  'town-planning': 'Town Planning'
 };
 
 export const frequencyLabels: Record<Frequency, string> = {

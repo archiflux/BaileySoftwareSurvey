@@ -55,12 +55,6 @@ export const ThankYouScreen: React.FC = () => {
               <p>
                 <span className="font-medium">Submitted:</span> {completionDate}
               </p>
-              <p>
-                <span className="font-medium">Name:</span> {surveyResponse.userProfile?.fullName}
-              </p>
-              <p>
-                <span className="font-medium">Email:</span> {surveyResponse.userProfile?.email}
-              </p>
             </div>
           </div>
 
