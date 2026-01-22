@@ -29,7 +29,7 @@ export const STEP_TITLES: Record<number, string> = {
   [SURVEY_STEPS.THANK_YOU]: 'Thank You'
 };
 
-export const ESTIMATED_COMPLETION_TIME = '15-20 minutes';
+export const ESTIMATED_COMPLETION_TIME = '10-15 minutes (may take longer if you use many software tools)';
 
 export const DATA_PRIVACY_STATEMENT = `
 Your responses will be used to improve software provisioning and training at Bailey Partnership Group.

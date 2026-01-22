@@ -45,7 +45,7 @@
         "software": [
           { "id": "arch-doc-autocad", "name": "AutoCAD" },
           { "id": "arch-doc-bluebeam", "name": "Bluebeam Revu" },
-          { "id": "arch-doc-adobe", "name": "Adobe Creative Suite" },
+          { "id": "arch-doc-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
           { "id": "arch-doc-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -70,6 +70,7 @@
         "categoryId": "arch-office",
         "software": [
           { "id": "arch-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "arch-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "arch-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -129,7 +130,6 @@
         "categoryId": "mep-spec",
         "software": [
           { "id": "mep-spec-nbs-chorus", "name": "NBS Chorus" },
-          { "id": "mep-spec-ihs-cis", "name": "IHS/CIS (Construction Information Service)" },
           { "id": "mep-spec-bluebeam", "name": "Bluebeam Revu" },
           { "id": "mep-spec-other", "name": "Other - please specify", "isOther": true }
         ]
@@ -147,6 +147,7 @@
         "categoryId": "mep-office",
         "software": [
           { "id": "mep-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "mep-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "mep-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -190,7 +191,7 @@
         "categoryId": "bs-doc",
         "software": [
           { "id": "bs-doc-bluebeam", "name": "Bluebeam Revu" },
-          { "id": "bs-doc-adobe", "name": "Adobe Acrobat Pro" },
+          { "id": "bs-doc-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
           { "id": "bs-doc-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -207,7 +208,6 @@
         "categoryId": "bs-spec",
         "software": [
           { "id": "bs-spec-nbs-chorus", "name": "NBS Chorus" },
-          { "id": "bs-spec-ihs-cis", "name": "IHS/CIS (Construction Information Service)" },
           { "id": "bs-spec-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -234,6 +234,7 @@
         "categoryId": "bs-office",
         "software": [
           { "id": "bs-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "bs-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "bs-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -267,7 +268,7 @@
         "software": [
           { "id": "cdm-doc-bluebeam", "name": "Bluebeam Revu" },
           { "id": "cdm-doc-autocad", "name": "AutoCAD" },
-          { "id": "cdm-doc-adobe", "name": "Adobe Acrobat Pro" },
+          { "id": "cdm-doc-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
           { "id": "cdm-doc-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -301,6 +302,7 @@
         "categoryId": "cdm-office",
         "software": [
           { "id": "cdm-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "cdm-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "cdm-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -319,30 +321,12 @@
     "displayName": "Fire Engineering",
     "categories": [
       {
-        "categoryName": "Fire Simulation & Modelling",
+        "categoryName": "Fire Simulation & Egress",
         "categoryId": "fire-sim",
         "software": [
           { "id": "fire-sim-pyrosim", "name": "PyroSim (FDS interface)" },
-          { "id": "fire-sim-fds", "name": "Fire Dynamics Simulator (FDS)" },
-          { "id": "fire-sim-cfast", "name": "CFAST" },
+          { "id": "fire-sim-pathfinder", "name": "Pathfinder" },
           { "id": "fire-sim-other", "name": "Other - please specify", "isOther": true }
-        ]
-      },
-      {
-        "categoryName": "Egress & Evacuation",
-        "categoryId": "fire-egress",
-        "software": [
-          { "id": "fire-egress-pathfinder", "name": "Pathfinder" },
-          { "id": "fire-egress-simulex", "name": "Simulex" },
-          { "id": "fire-egress-other", "name": "Other - please specify", "isOther": true }
-        ]
-      },
-      {
-        "categoryName": "Smoke Control",
-        "categoryId": "fire-smoke",
-        "software": [
-          { "id": "fire-smoke-contam", "name": "Contam" },
-          { "id": "fire-smoke-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -352,14 +336,6 @@
           { "id": "fire-doc-autocad", "name": "AutoCAD" },
           { "id": "fire-doc-bluebeam", "name": "Bluebeam Revu" },
           { "id": "fire-doc-other", "name": "Other - please specify", "isOther": true }
-        ]
-      },
-      {
-        "categoryName": "Specification & Standards",
-        "categoryId": "fire-spec",
-        "software": [
-          { "id": "fire-spec-nbs-chorus", "name": "NBS Chorus" },
-          { "id": "fire-spec-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -375,6 +351,7 @@
         "categoryId": "fire-office",
         "software": [
           { "id": "fire-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "fire-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "fire-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -431,6 +408,7 @@
         "categoryId": "pm-office",
         "software": [
           { "id": "pm-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "pm-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "pm-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -489,7 +467,7 @@
         "categoryName": "Graphics",
         "categoryId": "int-graphics",
         "software": [
-          { "id": "int-graphics-adobe", "name": "Adobe Creative Suite" },
+          { "id": "int-graphics-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
           { "id": "int-graphics-canva", "name": "Canva" },
           { "id": "int-graphics-other", "name": "Other - please specify", "isOther": true }
         ]
@@ -507,6 +485,7 @@
         "categoryId": "int-office",
         "software": [
           { "id": "int-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "int-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "int-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -531,20 +510,7 @@
           { "id": "qs-measure-navisworks", "name": "Autodesk Navisworks" },
           { "id": "qs-measure-costx", "name": "CostX" },
           { "id": "qs-measure-bluebeam", "name": "Bluebeam Revu" },
-          { "id": "qs-measure-planswift", "name": "PlanSwift" },
-          { "id": "qs-measure-cubit", "name": "Cubit" },
-          { "id": "qs-measure-glodon", "name": "Glodon Cubicost" },
           { "id": "qs-measure-other", "name": "Other - please specify", "isOther": true }
-        ]
-      },
-      {
-        "categoryName": "Cost Management",
-        "categoryId": "qs-cost",
-        "software": [
-          { "id": "qs-cost-causeway", "name": "Causeway (formerly COINS)" },
-          { "id": "qs-cost-conquest", "name": "Conquest" },
-          { "id": "qs-cost-asta", "name": "Asta Powerproject" },
-          { "id": "qs-cost-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -553,7 +519,6 @@
         "software": [
           { "id": "qs-bim-revit", "name": "Revit" },
           { "id": "qs-bim-acc", "name": "Autodesk Construction Cloud (ACC/BIM 360)" },
-          { "id": "qs-bim-costx", "name": "CostX (BIM)" },
           { "id": "qs-bim-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -564,14 +529,6 @@
           { "id": "qs-spec-nbs-chorus", "name": "NBS Chorus" },
           { "id": "qs-spec-docusign", "name": "DocuSign" },
           { "id": "qs-spec-other", "name": "Other - please specify", "isOther": true }
-        ]
-      },
-      {
-        "categoryName": "Scheduling",
-        "categoryId": "qs-schedule",
-        "software": [
-          { "id": "qs-schedule-gantter", "name": "Gantter" },
-          { "id": "qs-schedule-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -587,6 +544,7 @@
         "categoryId": "qs-office",
         "software": [
           { "id": "qs-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "qs-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "qs-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -610,12 +568,7 @@
         "software": [
           { "id": "struct-analysis-robot", "name": "Robot Structural Analysis" },
           { "id": "struct-analysis-tekla-designer", "name": "Tekla Structural Designer" },
-          { "id": "struct-analysis-etabs", "name": "ETABS" },
-          { "id": "struct-analysis-staad", "name": "STAAD.Pro" },
-          { "id": "struct-analysis-sap2000", "name": "SAP2000" },
           { "id": "struct-analysis-tedds", "name": "Tedds" },
-          { "id": "struct-analysis-masterseries", "name": "Masterseries" },
-          { "id": "struct-analysis-ideastatica", "name": "IDEA StatiCa" },
           { "id": "struct-analysis-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -624,29 +577,10 @@
         "categoryId": "struct-bim",
         "software": [
           { "id": "struct-bim-revit", "name": "Revit Structure" },
-          { "id": "struct-bim-autocad", "name": "AutoCAD Structural" },
+          { "id": "struct-bim-autocad", "name": "AutoCAD" },
           { "id": "struct-bim-advance-steel", "name": "Autodesk Advance Steel" },
           { "id": "struct-bim-tekla", "name": "Tekla Structures" },
           { "id": "struct-bim-other", "name": "Other - please specify", "isOther": true }
-        ]
-      },
-      {
-        "categoryName": "Revit Add-ins & Detailing",
-        "categoryId": "struct-addins",
-        "software": [
-          { "id": "struct-addins-naviate", "name": "Naviate Structure" },
-          { "id": "struct-addins-naviate-rebar", "name": "Naviate Rebar" },
-          { "id": "struct-addins-cads-rc3d", "name": "CADS RC3D" },
-          { "id": "struct-addins-other", "name": "Other - please specify", "isOther": true }
-        ]
-      },
-      {
-        "categoryName": "Foundation & Geotechnical",
-        "categoryId": "struct-geotech",
-        "software": [
-          { "id": "struct-geotech-rewall", "name": "ReWall/ReSlope" },
-          { "id": "struct-geotech-wallap", "name": "Wallap" },
-          { "id": "struct-geotech-other", "name": "Other - please specify", "isOther": true }
         ]
       },
       {
@@ -655,7 +589,6 @@
         "software": [
           { "id": "struct-civil-civil3d", "name": "Autodesk Civil 3D" },
           { "id": "struct-civil-infraworks", "name": "Autodesk InfraWorks" },
-          { "id": "struct-civil-causeway-flow", "name": "Causeway Flow (Drainage Design)" },
           { "id": "struct-civil-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -664,7 +597,6 @@
         "categoryId": "struct-spec",
         "software": [
           { "id": "struct-spec-nbs-chorus", "name": "NBS Chorus" },
-          { "id": "struct-spec-ihs-cis", "name": "IHS/CIS (Construction Information Service)" },
           { "id": "struct-spec-bluebeam", "name": "Bluebeam Revu" },
           { "id": "struct-spec-other", "name": "Other - please specify", "isOther": true }
         ]
@@ -682,6 +614,7 @@
         "categoryId": "struct-office",
         "software": [
           { "id": "struct-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "struct-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "struct-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -704,10 +637,8 @@
         "categoryId": "plan-gis",
         "software": [
           { "id": "plan-gis-google-earth", "name": "Google Earth Pro" },
-          { "id": "plan-gis-arcgis", "name": "ArcGIS (ArcMap/ArcGIS Pro)" },
           { "id": "plan-gis-qgis", "name": "QGIS" },
-          { "id": "plan-gis-urban", "name": "ArcGIS Urban" },
-          { "id": "plan-gis-cityengine", "name": "ArcGIS CityEngine" },
+          { "id": "plan-gis-magicmaps", "name": "Magic Maps" },
           { "id": "plan-gis-mapinfo", "name": "MapInfo" },
           { "id": "plan-gis-other", "name": "Other - please specify", "isOther": true }
         ]
@@ -733,7 +664,7 @@
         "categoryName": "Graphics & Presentation",
         "categoryId": "plan-graphics",
         "software": [
-          { "id": "plan-graphics-adobe", "name": "Adobe Creative Suite" },
+          { "id": "plan-graphics-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
           { "id": "plan-graphics-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -750,6 +681,7 @@
         "categoryId": "plan-office",
         "software": [
           { "id": "plan-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "plan-office-onlyoffice", "name": "OnlyOffice" },
           { "id": "plan-office-other", "name": "Other - please specify", "isOther": true }
         ]
       },
