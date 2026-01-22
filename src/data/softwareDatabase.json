@@ -45,7 +45,7 @@
         "software": [
           { "id": "arch-doc-autocad", "name": "AutoCAD" },
           { "id": "arch-doc-bluebeam", "name": "Bluebeam Revu" },
-          { "id": "arch-doc-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
+          { "id": "arch-doc-gimp", "name": "Affinity Suite" },
           { "id": "arch-doc-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -191,7 +191,7 @@
         "categoryId": "bs-doc",
         "software": [
           { "id": "bs-doc-bluebeam", "name": "Bluebeam Revu" },
-          { "id": "bs-doc-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
+          { "id": "bs-doc-gimp", "name": "Affinity Suite" },
           { "id": "bs-doc-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -268,7 +268,7 @@
         "software": [
           { "id": "cdm-doc-bluebeam", "name": "Bluebeam Revu" },
           { "id": "cdm-doc-autocad", "name": "AutoCAD" },
-          { "id": "cdm-doc-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
+          { "id": "cdm-doc-gimp", "name": "Affinity Suite" },
           { "id": "cdm-doc-other", "name": "Other - please specify", "isOther": true }
         ]
       },
@@ -467,7 +467,7 @@
         "categoryName": "Graphics",
         "categoryId": "int-graphics",
         "software": [
-          { "id": "int-graphics-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
+          { "id": "int-graphics-gimp", "name": "Affinity Suite" },
           { "id": "int-graphics-canva", "name": "Canva" },
           { "id": "int-graphics-other", "name": "Other - please specify", "isOther": true }
         ]
@@ -664,7 +664,7 @@
         "categoryName": "Graphics & Presentation",
         "categoryId": "plan-graphics",
         "software": [
-          { "id": "plan-graphics-gimp", "name": "GNU Image Manipulation Program (GIMP)" },
+          { "id": "plan-graphics-gimp", "name": "Affinity Suite" },
           { "id": "plan-graphics-other", "name": "Other - please specify", "isOther": true }
         ]
       },
