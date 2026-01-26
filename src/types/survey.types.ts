@@ -22,6 +22,7 @@ export type PrimaryOffice =
   | 'torquay';
 
 export type Discipline =
+  | 'admin-support'
   | 'architecture'
   | 'building-services-engineering'
   | 'building-surveying'
@@ -180,6 +181,7 @@ export const primaryOfficeLabels: Record<PrimaryOffice, string> = {
 };
 
 export const disciplineLabels: Record<Discipline, string> = {
+  'admin-support': 'Admin/Support',
   'architecture': 'Architecture',
   'building-services-engineering': 'Building Services Engineering',
   'building-surveying': 'Building Surveying',

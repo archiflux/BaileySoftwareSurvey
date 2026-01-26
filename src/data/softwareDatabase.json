@@ -1,5 +1,87 @@
 [
   {
+    "discipline": "admin-support",
+    "displayName": "Admin/Support",
+    "categories": [
+      {
+        "categoryName": "Productivity & Office Suite",
+        "categoryId": "admin-office",
+        "software": [
+          { "id": "admin-office-google", "name": "Google Workspace (Docs, Sheets, Slides)" },
+          { "id": "admin-office-onlyoffice", "name": "OnlyOffice" },
+          { "id": "admin-office-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Communication & Scheduling",
+        "categoryId": "admin-comms",
+        "software": [
+          { "id": "admin-comms-google-meet", "name": "Google Meet" },
+          { "id": "admin-comms-zoom", "name": "Zoom" },
+          { "id": "admin-comms-teams", "name": "Microsoft Teams" },
+          { "id": "admin-comms-slack", "name": "Slack" },
+          { "id": "admin-comms-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Document Management",
+        "categoryId": "admin-doc",
+        "software": [
+          { "id": "admin-doc-google-drive", "name": "Google Drive" },
+          { "id": "admin-doc-docusign", "name": "DocuSign" },
+          { "id": "admin-doc-bluebeam", "name": "Bluebeam Revu" },
+          { "id": "admin-doc-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "HR & Personnel",
+        "categoryId": "admin-hr",
+        "software": [
+          { "id": "admin-hr-breathe", "name": "Breathe HR" },
+          { "id": "admin-hr-bamboo", "name": "BambooHR" },
+          { "id": "admin-hr-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "Finance & Accounting",
+        "categoryId": "admin-finance",
+        "software": [
+          { "id": "admin-finance-xero", "name": "Xero" },
+          { "id": "admin-finance-sage", "name": "Sage" },
+          { "id": "admin-finance-quickbooks", "name": "QuickBooks" },
+          { "id": "admin-finance-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "CRM & Client Management",
+        "categoryId": "admin-crm",
+        "software": [
+          { "id": "admin-crm-salesforce", "name": "Salesforce" },
+          { "id": "admin-crm-hubspot", "name": "HubSpot" },
+          { "id": "admin-crm-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "IT Support & Helpdesk",
+        "categoryId": "admin-it",
+        "software": [
+          { "id": "admin-it-freshdesk", "name": "Freshdesk" },
+          { "id": "admin-it-zendesk", "name": "Zendesk" },
+          { "id": "admin-it-teamviewer", "name": "TeamViewer" },
+          { "id": "admin-it-other", "name": "Other - please specify", "isOther": true }
+        ]
+      },
+      {
+        "categoryName": "AI Platforms",
+        "categoryId": "admin-ai",
+        "software": [
+          { "id": "admin-ai-gemini", "name": "Gemini/Notebook LM" },
+          { "id": "admin-ai-other", "name": "Other - please specify", "isOther": true }
+        ]
+      }
+    ]
+  },
+  {
     "discipline": "architecture",
     "displayName": "Architecture",
     "categories": [
