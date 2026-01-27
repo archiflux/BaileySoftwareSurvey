@@ -82,6 +82,359 @@ The professional service area the respondent works in. **Critical for segmenting
 
 **Analysis Focus**: Compare software adoption, satisfaction, and training needs across disciplines.
 
+---
+
+## COMPLETE SOFTWARE CATALOG BY DISCIPLINE
+
+This section lists ALL predefined software options available to respondents in each discipline. This is critical for identifying when users have selected "Other" and provided custom software names.
+
+### How to Identify Custom "Other" Inputs
+
+**IMPORTANT**: In the survey data, you can identify custom user-submitted software by:
+
+1. **Software ID Pattern**: All "Other" options have IDs ending in `-other` (e.g., `arch-bim-other`, `mep-analysis-other`)
+2. **Software Name**: Will show as "Other - please specify"
+3. **Custom Name Field**: The `customName` field will contain the user's specified software name
+
+**When analyzing the data:**
+- If `softwareName` = "Other - please specify" → check the `customName` field for the actual software
+- If `softwareId` ends with `-other` → this is a custom entry
+- Any software name NOT in the lists below is a custom entry worth investigating
+
+### Why Custom Entries Matter
+
+Custom "Other" entries are **high-value data points** because they reveal:
+- Software tools the IIET Committee hadn't considered
+- Emerging tools gaining traction in the industry
+- Niche discipline-specific tools
+- Personal productivity tools staff find valuable
+- Potential gaps in the standard software provision
+
+**Create a dedicated section in the report highlighting all custom entries.**
+
+---
+
+### DISCIPLINE: Admin/Support (`admin-support`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **Productivity & Office Suite** | `admin-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `admin-office-onlyoffice` | OnlyOffice |
+| | `admin-office-other` | Other - please specify *(custom)* |
+| **Communication & Scheduling** | `admin-comms-google-meet` | Google Meet |
+| | `admin-comms-zoom` | Zoom |
+| | `admin-comms-teams` | Microsoft Teams |
+| | `admin-comms-slack` | Slack |
+| | `admin-comms-other` | Other - please specify *(custom)* |
+| **Document Management** | `admin-doc-google-drive` | Google Drive |
+| | `admin-doc-docusign` | DocuSign |
+| | `admin-doc-bluebeam` | Bluebeam Revu |
+| | `admin-doc-other` | Other - please specify *(custom)* |
+| **HR & Personnel** | `admin-hr-breathe` | Breathe HR |
+| | `admin-hr-bamboo` | BambooHR |
+| | `admin-hr-other` | Other - please specify *(custom)* |
+| **Finance & Accounting** | `admin-finance-xero` | Xero |
+| | `admin-finance-sage` | Sage |
+| | `admin-finance-quickbooks` | QuickBooks |
+| | `admin-finance-other` | Other - please specify *(custom)* |
+| **CRM & Client Management** | `admin-crm-salesforce` | Salesforce |
+| | `admin-crm-hubspot` | HubSpot |
+| | `admin-crm-other` | Other - please specify *(custom)* |
+| **IT Support & Helpdesk** | `admin-it-freshdesk` | Freshdesk |
+| | `admin-it-zendesk` | Zendesk |
+| | `admin-it-teamviewer` | TeamViewer |
+| | `admin-it-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `admin-ai-gemini` | Gemini/Notebook LM |
+| | `admin-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: Architecture (`architecture`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **BIM/Modelling Tools** | `arch-bim-revit` | Autodesk Revit |
+| | `arch-bim-forma` | Autodesk Forma |
+| | `arch-bim-sketchup` | SketchUp Pro |
+| | `arch-bim-other` | Other - please specify *(custom)* |
+| **Visualisation & Rendering** | `arch-viz-enscape` | Enscape |
+| | `arch-viz-twinmotion` | Twinmotion |
+| | `arch-viz-other` | Other - please specify *(custom)* |
+| **Computational Design** | `arch-comp-dynamo` | Dynamo (Revit) |
+| | `arch-comp-pyrevit` | pyRevit |
+| | `arch-comp-other` | Other - please specify *(custom)* |
+| **Building Physics & Compliance** | `arch-physics-builddesk` | BuildDesk U (U-Value/Thermal) |
+| | `arch-physics-other` | Other - please specify *(custom)* |
+| **Documentation & Drawing** | `arch-doc-autocad` | AutoCAD |
+| | `arch-doc-bluebeam` | Bluebeam Revu |
+| | `arch-doc-gimp` | Affinity Suite |
+| | `arch-doc-other` | Other - please specify *(custom)* |
+| **Specification & Schedules** | `arch-spec-nbs-chorus` | NBS Chorus |
+| | `arch-spec-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `arch-collab-acc` | Autodesk Construction Cloud (ACC/BIM 360) |
+| | `arch-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `arch-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `arch-office-onlyoffice` | OnlyOffice |
+| | `arch-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `arch-ai-gemini` | Gemini/Notebook LM |
+| | `arch-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: Building Services Engineering (`building-services-engineering`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **BIM/Modelling** | `mep-bim-revit` | Revit MEP |
+| | `mep-bim-autocad` | AutoCAD MEP |
+| | `mep-bim-fabrication` | Autodesk Fabrication |
+| | `mep-bim-magicad` | MagiCAD |
+| | `mep-bim-other` | Other - please specify *(custom)* |
+| **Analysis & Calculation** | `mep-analysis-insight` | Autodesk Insight |
+| | `mep-analysis-ies` | IES Virtual Environment (IES VE) |
+| | `mep-analysis-hevacomp` | Hevacomp |
+| | `mep-analysis-dialux` | Dialux (lighting) |
+| | `mep-analysis-relux` | Relux (lighting) |
+| | `mep-analysis-amtech` | AmTech (electrical) |
+| | `mep-analysis-trimble` | Trimble ProDesign |
+| | `mep-analysis-electricalom` | ElectricalOM (BS 7671) |
+| | `mep-analysis-other` | Other - please specify *(custom)* |
+| **CFD & Thermal** | `mep-cfd-cfd` | Autodesk CFD |
+| | `mep-cfd-ies` | IES VE |
+| | `mep-cfd-tas` | TAS (EDSL) |
+| | `mep-cfd-designbuilder` | DesignBuilder |
+| | `mep-cfd-other` | Other - please specify *(custom)* |
+| **Specification & Documentation** | `mep-spec-nbs-chorus` | NBS Chorus |
+| | `mep-spec-bluebeam` | Bluebeam Revu |
+| | `mep-spec-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `mep-collab-acc` | Autodesk Construction Cloud (ACC/BIM 360) |
+| | `mep-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `mep-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `mep-office-onlyoffice` | OnlyOffice |
+| | `mep-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `mep-ai-gemini` | Gemini/Notebook LM |
+| | `mep-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: Building Surveying (`building-surveying`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **Survey & Measurement** | `bs-survey-revit` | Revit |
+| | `bs-survey-autocad` | AutoCAD |
+| | `bs-survey-recap` | Autodesk ReCap |
+| | `bs-survey-leica` | Leica Cyclone |
+| | `bs-survey-faro` | Faro Scene |
+| | `bs-survey-other` | Other - please specify *(custom)* |
+| **Condition Assessment** | `bs-condition-kykloud` | Kykloud |
+| | `bs-condition-monitoring` | Condition Monitoring Software |
+| | `bs-condition-other` | Other - please specify *(custom)* |
+| **Documentation** | `bs-doc-bluebeam` | Bluebeam Revu |
+| | `bs-doc-gimp` | Affinity Suite |
+| | `bs-doc-other` | Other - please specify *(custom)* |
+| **Building Pathology** | `bs-pathology-snagr` | Snag R |
+| | `bs-pathology-other` | Other - please specify *(custom)* |
+| **Specification & Standards** | `bs-spec-nbs-chorus` | NBS Chorus |
+| | `bs-spec-other` | Other - please specify *(custom)* |
+| **Contracts & Scheduling** | `bs-contracts-jct` | JCT Contracts (JCT On Demand) |
+| | `bs-contracts-docusign` | DocuSign |
+| | `bs-contracts-gantter` | Gantter |
+| | `bs-contracts-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `bs-collab-acc` | Autodesk Construction Cloud (ACC) |
+| | `bs-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `bs-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `bs-office-onlyoffice` | OnlyOffice |
+| | `bs-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `bs-ai-gemini` | Gemini/Notebook LM |
+| | `bs-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: CDM/Principal Designer (`cdm-principal-designer`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **CDM & Health and Safety Management** | `cdm-hsm-fieldview` | Fieldview |
+| | `cdm-hsm-safetyculture` | SafetyCulture (iAuditor) |
+| | `cdm-hsm-siteassist` | SiteAssist |
+| | `cdm-hsm-other` | Other - please specify *(custom)* |
+| **Documentation & Drawing Review** | `cdm-doc-bluebeam` | Bluebeam Revu |
+| | `cdm-doc-autocad` | AutoCAD |
+| | `cdm-doc-gimp` | Affinity Suite |
+| | `cdm-doc-other` | Other - please specify *(custom)* |
+| **BIM Coordination** | `cdm-bim-navisworks` | Autodesk Navisworks |
+| | `cdm-bim-revit` | Revit |
+| | `cdm-bim-other` | Other - please specify *(custom)* |
+| **Risk Management** | `cdm-risk-procore` | Procore |
+| | `cdm-risk-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `cdm-collab-acc` | Autodesk Construction Cloud (ACC) |
+| | `cdm-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `cdm-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `cdm-office-onlyoffice` | OnlyOffice |
+| | `cdm-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `cdm-ai-gemini` | Gemini/Notebook LM |
+| | `cdm-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: Fire Engineering (`fire-engineering`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **Fire Simulation & Egress** | `fire-sim-pyrosim` | PyroSim (FDS interface) |
+| | `fire-sim-pathfinder` | Pathfinder |
+| | `fire-sim-other` | Other - please specify *(custom)* |
+| **Documentation & Drawing** | `fire-doc-autocad` | AutoCAD |
+| | `fire-doc-bluebeam` | Bluebeam Revu |
+| | `fire-doc-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `fire-collab-acc` | Autodesk Construction Cloud (ACC) |
+| | `fire-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `fire-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `fire-office-onlyoffice` | OnlyOffice |
+| | `fire-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `fire-ai-gemini` | Gemini/Notebook LM |
+| | `fire-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: Project Management (`project-management`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **Project Management Software** | `pm-software-procore` | Procore |
+| | `pm-software-asite` | Asite |
+| | `pm-software-viewpoint` | Viewpoint |
+| | `pm-software-msproject` | Microsoft Project |
+| | `pm-software-primavera` | Primavera P6 |
+| | `pm-software-asta` | Asta Powerproject |
+| | `pm-software-monday` | Monday.com |
+| | `pm-software-asana` | Asana |
+| | `pm-software-gantter` | Gantter |
+| | `pm-software-other` | Other - please specify *(custom)* |
+| **Documentation** | `pm-doc-bluebeam` | Bluebeam Revu |
+| | `pm-doc-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `pm-collab-acc` | Autodesk Construction Cloud (ACC/BIM 360) |
+| | `pm-collab-aconex` | Aconex |
+| | `pm-collab-4projects` | 4Projects |
+| | `pm-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `pm-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `pm-office-onlyoffice` | OnlyOffice |
+| | `pm-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `pm-ai-gemini` | Gemini/Notebook LM |
+| | `pm-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: Interior Design (`interior-design`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **Design & Modelling** | `int-design-revit` | Revit |
+| | `int-design-autocad` | AutoCAD |
+| | `int-design-forma` | Autodesk Forma |
+| | `int-design-sketchup` | SketchUp Pro |
+| | `int-design-other` | Other - please specify *(custom)* |
+| **Visualisation** | `int-viz-enscape` | Enscape |
+| | `int-viz-twinmotion` | Twinmotion |
+| | `int-viz-other` | Other - please specify *(custom)* |
+| **Revit Add-ins** | `int-addins-pyrevit` | pyRevit |
+| | `int-addins-other` | Other - please specify *(custom)* |
+| **Specification & FF&E** | `int-spec-nbs-chorus` | NBS Chorus |
+| | `int-spec-werkspot` | Werkspot |
+| | `int-spec-other` | Other - please specify *(custom)* |
+| **Graphics** | `int-graphics-gimp` | Affinity Suite |
+| | `int-graphics-canva` | Canva |
+| | `int-graphics-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `int-collab-acc` | Autodesk Construction Cloud (ACC) |
+| | `int-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `int-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `int-office-onlyoffice` | OnlyOffice |
+| | `int-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `int-ai-gemini` | Gemini/Notebook LM |
+| | `int-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: Quantity Surveying (`quantity-surveying`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **Measurement & Takeoff** | `qs-measure-navisworks` | Autodesk Navisworks |
+| | `qs-measure-costx` | CostX |
+| | `qs-measure-bluebeam` | Bluebeam Revu |
+| | `qs-measure-other` | Other - please specify *(custom)* |
+| **BIM/5D** | `qs-bim-revit` | Revit |
+| | `qs-bim-acc` | Autodesk Construction Cloud (ACC/BIM 360) |
+| | `qs-bim-other` | Other - please specify *(custom)* |
+| **Specification & Contracts** | `qs-spec-nbs-chorus` | NBS Chorus |
+| | `qs-spec-docusign` | DocuSign |
+| | `qs-spec-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `qs-collab-acc` | Autodesk Construction Cloud (ACC) |
+| | `qs-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `qs-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `qs-office-onlyoffice` | OnlyOffice |
+| | `qs-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `qs-ai-gemini` | Gemini/Notebook LM |
+| | `qs-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: Structural and Civil Engineering (`structural-civil-engineering`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **Structural Analysis & Design** | `struct-analysis-robot` | Robot Structural Analysis |
+| | `struct-analysis-tekla-designer` | Tekla Structural Designer |
+| | `struct-analysis-tedds` | Tedds |
+| | `struct-analysis-other` | Other - please specify *(custom)* |
+| **BIM/Modelling** | `struct-bim-revit` | Revit Structure |
+| | `struct-bim-autocad` | AutoCAD |
+| | `struct-bim-advance-steel` | Autodesk Advance Steel |
+| | `struct-bim-tekla` | Tekla Structures |
+| | `struct-bim-other` | Other - please specify *(custom)* |
+| **Civil Design** | `struct-civil-civil3d` | Autodesk Civil 3D |
+| | `struct-civil-infraworks` | Autodesk InfraWorks |
+| | `struct-civil-other` | Other - please specify *(custom)* |
+| **Specification & Standards** | `struct-spec-nbs-chorus` | NBS Chorus |
+| | `struct-spec-bluebeam` | Bluebeam Revu |
+| | `struct-spec-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `struct-collab-acc` | Autodesk Construction Cloud (ACC/BIM 360) |
+| | `struct-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `struct-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `struct-office-onlyoffice` | OnlyOffice |
+| | `struct-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `struct-ai-gemini` | Gemini/Notebook LM |
+| | `struct-ai-other` | Other - please specify *(custom)* |
+
+---
+
+### DISCIPLINE: Town Planning (`town-planning`)
+
+| Category | Software ID | Software Name |
+|----------|-------------|---------------|
+| **GIS & Mapping** | `plan-gis-google-earth` | Google Earth Pro |
+| | `plan-gis-qgis` | QGIS |
+| | `plan-gis-magicmaps` | Magic Maps |
+| | `plan-gis-mapinfo` | MapInfo |
+| | `plan-gis-other` | Other - please specify *(custom)* |
+| **3D Visualisation** | `plan-3d-forma` | Autodesk Forma |
+| | `plan-3d-sketchup` | SketchUp Pro |
+| | `plan-3d-other` | Other - please specify *(custom)* |
+| **Document Management** | `plan-doc-bluebeam` | Bluebeam Revu |
+| | `plan-doc-other` | Other - please specify *(custom)* |
+| **Graphics & Presentation** | `plan-graphics-gimp` | Affinity Suite |
+| | `plan-graphics-other` | Other - please specify *(custom)* |
+| **Collaboration & CDE** | `plan-collab-acc` | Autodesk Construction Cloud (ACC) |
+| | `plan-collab-other` | Other - please specify *(custom)* |
+| **Productivity & Office Suite** | `plan-office-google` | Google Workspace (Docs, Sheets, Slides) |
+| | `plan-office-onlyoffice` | OnlyOffice |
+| | `plan-office-other` | Other - please specify *(custom)* |
+| **AI Platforms** | `plan-ai-gemini` | Gemini/Notebook LM |
+| | `plan-ai-other` | Other - please specify *(custom)* |
+
+---
+
 #### Field: `primaryOffice`
 Physical office location. **Use for regional analysis and resource allocation.**
 
@@ -410,7 +763,70 @@ Generate a comprehensive report with the following sections:
 - **Table**: Software requests by discipline
 - Business case summary for top 5 requested tools
 
-### 6. GENERAL SATISFACTION ANALYSIS
+### 6. SOFTWARE DISCOVERY: CUSTOM "OTHER" ENTRIES
+
+**This section is critical for identifying software tools the IIET Committee may not have considered.**
+
+#### 6.1 Identifying Custom Entries
+
+To extract custom "Other" entries from the data:
+
+1. **Filter by Software ID**: Any `softwareId` ending in `-other` indicates a custom entry
+2. **Check `customName` field**: This contains the user-specified software name
+3. **Cross-reference**: Compare against the predefined software lists in this document
+
+#### 6.2 Required Analysis
+
+**Table: All Custom Software Entries**
+Create a comprehensive table with:
+
+| Custom Software Name | Discipline | Usage Status | Respondent Count | Category |
+|---------------------|------------|--------------|------------------|----------|
+| [From customName]   | [discipline] | [currently-using/used-previously/would-like-to-use] | [count] | [inferred category] |
+
+**Group custom entries by:**
+- **Currently Using** - Staff are already using these tools (highest priority to investigate)
+- **Would Like to Use** - Demand signal for new tools
+- **Previously Used** - Tools staff have experience with
+
+#### 6.3 Discovery Insights
+
+For each unique custom software entry, provide:
+
+1. **What is it?** - Brief description of the software (research if needed)
+2. **Who mentioned it?** - Which disciplines/roles
+3. **Usage context** - Currently using, previously used, or want to use
+4. **Frequency/Satisfaction** (if currently using) - How often and how satisfied
+5. **Strategic relevance** - Could this benefit other staff? Should we evaluate it?
+
+#### 6.4 Actionable Outputs
+
+**High Priority Discoveries** [Must investigate]
+- Custom software currently being used by multiple respondents
+- Custom software with high satisfaction scores
+- Custom software requested across multiple disciplines
+
+**Medium Priority Discoveries** [Worth evaluating]
+- Custom software with "significant benefit" expected
+- Custom software from senior staff (executives, senior associates)
+- Tools that could replace existing low-satisfaction software
+
+**Low Priority / Monitor**
+- Single mentions
+- Very niche/discipline-specific tools
+- Personal preference tools
+
+#### 6.5 Recommendations for Software Catalog
+
+Based on custom entries, recommend:
+1. Software to ADD to future surveys (frequently mentioned)
+2. Software to EVALUATE for company-wide provision
+3. Software to RESEARCH further (unclear benefit)
+4. Training opportunities (staff using tools company doesn't support)
+
+> **KEY INSIGHT BOX**: Summarize the most surprising or valuable discoveries from custom entries. What tools did staff reveal that the IIET Committee hadn't considered? What gaps does this expose in current software provision?
+
+### 7. GENERAL SATISFACTION ANALYSIS
 
 #### 6.1 Overall Metrics
 - **Table**: Agreement scores for each general feedback item
@@ -425,7 +841,7 @@ Generate a comprehensive report with the following sections:
 - Additional comments themes
 - Notable quotes (positive and critical)
 
-### 7. DISCIPLINE-SPECIFIC INSIGHTS
+### 8. DISCIPLINE-SPECIFIC INSIGHTS
 
 Create a mini-report for each discipline covering:
 - Response count
@@ -435,40 +851,40 @@ Create a mini-report for each discipline covering:
 - Software demand
 - Key quotes/feedback
 
-### 8. CROSS-CUTTING INSIGHTS
+### 9. CROSS-CUTTING INSIGHTS
 
-#### 8.1 Software Ecosystem Health
+#### 9.1 Software Ecosystem Health
 - Overall adoption consistency
 - Integration pain points
 - Training infrastructure assessment
 - Support effectiveness
 
-#### 8.2 Regional Analysis
+#### 9.2 Regional Analysis
 - Office-by-office comparison
 - Regional patterns or anomalies
 
-#### 8.3 Role Level Patterns
+#### 9.3 Role Level Patterns
 - How software needs differ by seniority
 - Training investment by career stage
 
-### 9. STRATEGIC RECOMMENDATIONS
+### 10. STRATEGIC RECOMMENDATIONS
 
-#### 9.1 Immediate Actions (0-3 months)
+#### 10.1 Immediate Actions (0-3 months)
 - Critical training interventions
 - Quick wins
 - Urgent issues to address
 
-#### 9.2 Short-term Initiatives (3-12 months)
+#### 10.2 Short-term Initiatives (3-12 months)
 - Software procurement priorities
 - Training program development
 - Support improvements
 
-#### 9.3 Long-term Strategy (1-3 years)
+#### 10.3 Long-term Strategy (1-3 years)
 - Technology roadmap considerations
 - Standardization opportunities
 - Investment priorities
 
-### 10. APPENDICES
+### 11. APPENDICES
 
 #### A. Full Data Tables
 - Complete software usage table
@@ -531,12 +947,22 @@ Use markdown tables with proper alignment. Example:
 - Software requested by multiple disciplines
 - Personal licenses being paid for
 - Consistent negative feedback themes
+- **Custom "Other" entries being used daily** - staff relying on unsupported tools
+- **Same custom software mentioned by multiple respondents** - indicates unmet need
 
 ### Success Stories to Highlight
 - Software with satisfaction > 4.5
 - Software with "very confident" > 60% of users
 - Positive feedback themes
 - Effective transitions (superseded software)
+- **Custom software with high satisfaction** - potential for wider adoption
+
+### Custom Entry Analysis Priorities
+1. **Aggregate all custom entries** - Create a master list of all unique `customName` values
+2. **De-duplicate and normalize** - "MS Project" and "Microsoft Project" are the same
+3. **Cross-reference with predefined list** - Ensure it's truly a new entry
+4. **Categorize by potential value** - High/Medium/Low priority for investigation
+5. **Research unknown tools** - Briefly describe what each custom software does
 
 ---
 
