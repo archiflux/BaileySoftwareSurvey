@@ -902,23 +902,6 @@ Create a mini-report for each discipline covering:
 
 ---
 
-## VISUALIZATION SPECIFICATIONS
-
-For all charts and graphs, provide:
-1. **ASCII/text-based representation** where appropriate
-2. **Detailed data tables** that could be used to create charts in Excel/Google Sheets
-3. **Chart type recommendation** and axis labels
-4. **Key insight** the visualization reveals
-
-Use markdown tables with proper alignment. Example:
-
-| Software | Users | Avg Satisfaction | Training Need Score |
-|:---------|------:|-----------------:|--------------------:|
-| Revit    |    45 |              4.2 |                  12 |
-| AutoCAD  |    38 |              3.8 |                   8 |
-
----
-
 ## ANALYSIS GUIDELINES
 
 ### Quantitative Analysis
@@ -966,22 +949,649 @@ Use markdown tables with proper alignment. Example:
 
 ---
 
-## OUTPUT FORMAT
+## OUTPUT FORMAT: GITHUB PAGES WEB DASHBOARD
 
-Please structure your report using:
-- **Markdown formatting** for headings, tables, and lists
-- **Clear section numbering**
-- **Data tables** with proper column alignment
-- **Insight callout boxes** for key findings (use blockquotes >)
-- **Recommendation priority tags** [HIGH], [MEDIUM], [LOW]
+**IMPORTANT**: Instead of generating a text report, you must create a complete, production-ready GitHub Pages web dashboard that presents the survey analysis as an interactive, professional data visualization platform.
 
-Begin each major section with a brief summary, then provide detailed analysis.
+### Deliverable Structure
+
+Generate a complete GitHub repository structure with all necessary files:
+
+```
+survey-report-dashboard/
+├── index.html                 # Main dashboard entry point
+├── css/
+│   └── styles.css            # All custom styles following design system
+├── js/
+│   ├── app.js                # Main application logic
+│   ├── data.js               # Processed survey data as JavaScript objects
+│   ├── charts.js             # Chart rendering functions
+│   └── navigation.js         # Section navigation handling
+├── pages/
+│   ├── executive-summary.html
+│   ├── demographics.html
+│   ├── software-usage.html
+│   ├── satisfaction.html
+│   ├── training-needs.html
+│   ├── software-churn.html
+│   ├── software-demand.html
+│   ├── software-discovery.html
+│   ├── general-feedback.html
+│   ├── discipline-insights.html
+│   ├── cross-cutting.html
+│   ├── recommendations.html
+│   └── appendices.html
+├── assets/
+│   └── logo.svg              # Bailey Partnership logo placeholder
+└── README.md                 # Deployment instructions
+```
+
+---
+
+## DESIGN SYSTEM SPECIFICATIONS
+
+### Color Palette
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--color-background` | `#FFFFFF` | Page background, card backgrounds |
+| `--color-primary-band` | `#143644` | Header bands, section dividers, navigation |
+| `--color-accent` | `#d1c800` | Key metric highlights, call-to-action backgrounds, status badges |
+| `--color-text-primary` | `#1a1a1a` | Body text, headings |
+| `--color-text-secondary` | `#666666` | Secondary text, labels |
+| `--color-text-inverse` | `#FFFFFF` | Text on dark backgrounds |
+| `--color-border` | `#e5e5e5` | Table borders, card borders |
+| `--color-success` | `#22c55e` | Positive indicators |
+| `--color-warning` | `#f59e0b` | Warning indicators |
+| `--color-danger` | `#ef4444` | Critical/negative indicators |
+
+### Typography
+
+```css
+:root {
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Type Scale */
+  --text-h1: 2rem;      /* 32px - Page titles */
+  --text-h2: 1.5rem;    /* 24px - Section headings */
+  --text-h3: 1.25rem;   /* 20px - Subsection headings */
+  --text-body: 1rem;    /* 16px - Normal text */
+  --text-small: 0.875rem; /* 14px - Labels, captions */
+  --text-micro: 0.75rem;  /* 12px - Metadata */
+
+  /* Font Weights */
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+}
+```
+
+### Typography Hierarchy
+
+| Level | Style | Usage |
+|-------|-------|-------|
+| **Heading 1** | 32px, Bold, `#143644` | Page titles only |
+| **Heading 2** | 24px, Semibold, `#1a1a1a` | Major section headings (1.0, 2.0) |
+| **Heading 3** | 20px, Medium, `#1a1a1a` | Subsection headings (1.1, 1.2) |
+| **Normal Text** | 16px, Regular, `#1a1a1a` | Body content |
+| **Small Text** | 14px, Regular, `#666666` | Labels, table headers |
+
+---
+
+## LAYOUT COMPONENTS
+
+### 1. Top Metadata Bar
+
+A fixed-position bar at the top of every page displaying report metadata:
+
+```html
+<header class="metadata-bar">
+  <div class="metadata-bar__inner">
+    <div class="metadata-item">
+      <span class="metadata-label">Report</span>
+      <span class="metadata-value">IIET Software Survey Analysis</span>
+    </div>
+    <div class="metadata-item">
+      <span class="metadata-label">Job No.</span>
+      <span class="metadata-value">IIET-2026-001</span>
+    </div>
+    <div class="metadata-item">
+      <span class="metadata-label">Date</span>
+      <span class="metadata-value">[Generated Date]</span>
+    </div>
+    <div class="metadata-item">
+      <span class="metadata-label">Status</span>
+      <span class="metadata-badge metadata-badge--approved">Final</span>
+    </div>
+    <div class="metadata-item">
+      <span class="metadata-label">Responses</span>
+      <span class="metadata-value">[N] of [Total]</span>
+    </div>
+  </div>
+</header>
+```
+
+Style the metadata bar with `background: #143644` and white text.
+
+### 2. Decimal Navigation System
+
+Implement a sidebar navigation using decimal numbering that mirrors formal technical reports:
+
+```html
+<nav class="nav-sidebar">
+  <div class="nav-section">
+    <a href="#1.0" class="nav-link nav-link--section">1.0 Executive Summary</a>
+  </div>
+  <div class="nav-section">
+    <a href="#2.0" class="nav-link nav-link--section">2.0 Response Demographics</a>
+    <a href="#2.1" class="nav-link nav-link--subsection">2.1 By Discipline</a>
+    <a href="#2.2" class="nav-link nav-link--subsection">2.2 By Role Level</a>
+    <a href="#2.3" class="nav-link nav-link--subsection">2.3 By Office</a>
+  </div>
+  <div class="nav-section">
+    <a href="#3.0" class="nav-link nav-link--section">3.0 Software Usage</a>
+    <a href="#3.1" class="nav-link nav-link--subsection">3.1 Currently Used</a>
+    <a href="#3.2" class="nav-link nav-link--subsection">3.2 Satisfaction</a>
+    <a href="#3.3" class="nav-link nav-link--subsection">3.3 Training Needs</a>
+  </div>
+  <div class="nav-section">
+    <a href="#4.0" class="nav-link nav-link--section">4.0 Software Churn</a>
+  </div>
+  <div class="nav-section">
+    <a href="#5.0" class="nav-link nav-link--section">5.0 Software Demand</a>
+  </div>
+  <div class="nav-section">
+    <a href="#6.0" class="nav-link nav-link--section">6.0 Software Discovery</a>
+  </div>
+  <div class="nav-section">
+    <a href="#7.0" class="nav-link nav-link--section">7.0 General Satisfaction</a>
+  </div>
+  <div class="nav-section">
+    <a href="#8.0" class="nav-link nav-link--section">8.0 Discipline Insights</a>
+  </div>
+  <div class="nav-section">
+    <a href="#9.0" class="nav-link nav-link--section">9.0 Cross-Cutting Insights</a>
+  </div>
+  <div class="nav-section">
+    <a href="#10.0" class="nav-link nav-link--section">10.0 Recommendations</a>
+    <a href="#10.1" class="nav-link nav-link--subsection">10.1 Immediate (0-3mo)</a>
+    <a href="#10.2" class="nav-link nav-link--subsection">10.2 Short-term (3-12mo)</a>
+    <a href="#10.3" class="nav-link nav-link--subsection">10.3 Long-term (1-3yr)</a>
+  </div>
+  <div class="nav-section">
+    <a href="#11.0" class="nav-link nav-link--section">11.0 Appendices</a>
+  </div>
+</nav>
+```
+
+### 3. Section Headers
+
+Each section must have a consistent header with decimal numbering:
+
+```html
+<section id="3.0" class="report-section">
+  <div class="section-band">
+    <span class="section-number">3.0</span>
+    <h2 class="section-title">Software Usage Analysis</h2>
+  </div>
+  <div class="section-content">
+    <!-- Content here -->
+  </div>
+</section>
+```
+
+Style `.section-band` with `background: #143644`, padding, and white text.
+
+### 4. Data Widget Grid System
+
+Create flexible widget containers for data display:
+
+```html
+<!-- Two-column horizontal layout -->
+<div class="widget-grid widget-grid--2col">
+  <div class="widget">
+    <div class="widget__header">
+      <h3 class="widget__title">Software by Usage Count</h3>
+    </div>
+    <div class="widget__body">
+      <!-- Chart or table -->
+    </div>
+  </div>
+  <div class="widget">
+    <div class="widget__header">
+      <h3 class="widget__title">Satisfaction Distribution</h3>
+    </div>
+    <div class="widget__body">
+      <!-- Chart or table -->
+    </div>
+  </div>
+</div>
+
+<!-- Full-width widget -->
+<div class="widget widget--full">
+  <div class="widget__header">
+    <h3 class="widget__title">Software Usage Heatmap by Discipline</h3>
+  </div>
+  <div class="widget__body">
+    <!-- Large visualization -->
+  </div>
+</div>
+
+<!-- Two-column vertical stack -->
+<div class="widget-grid widget-grid--2col-stack">
+  <div class="widget-column">
+    <div class="widget"><!-- Widget 1 --></div>
+    <div class="widget"><!-- Widget 2 --></div>
+  </div>
+  <div class="widget-column">
+    <div class="widget widget--tall"><!-- Tall widget --></div>
+  </div>
+</div>
+```
+
+### 5. Key Metric Cards
+
+For highlighting important statistics, use accent-colored metric cards:
+
+```html
+<div class="metric-row">
+  <div class="metric-card">
+    <span class="metric-card__value">78%</span>
+    <span class="metric-card__label">Response Rate</span>
+  </div>
+  <div class="metric-card metric-card--accent">
+    <span class="metric-card__value">4.2</span>
+    <span class="metric-card__label">Avg Satisfaction</span>
+  </div>
+  <div class="metric-card">
+    <span class="metric-card__value">23</span>
+    <span class="metric-card__label">Training Gaps Identified</span>
+  </div>
+  <div class="metric-card metric-card--warning">
+    <span class="metric-card__value">7</span>
+    <span class="metric-card__label">Critical Issues</span>
+  </div>
+</div>
+```
+
+Use `background: #d1c800` with dark text for `.metric-card--accent`.
+
+### 6. Data Tables
+
+Tables must follow a consistent, professional style:
+
+```html
+<div class="data-table-wrapper">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th class="data-table__header">Software</th>
+        <th class="data-table__header data-table__header--numeric">Users</th>
+        <th class="data-table__header data-table__header--numeric">Avg Satisfaction</th>
+        <th class="data-table__header data-table__header--numeric">Training Score</th>
+        <th class="data-table__header">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="data-table__cell">Autodesk Revit</td>
+        <td class="data-table__cell data-table__cell--numeric">45</td>
+        <td class="data-table__cell data-table__cell--numeric">4.2</td>
+        <td class="data-table__cell data-table__cell--numeric">12</td>
+        <td class="data-table__cell">
+          <span class="status-badge status-badge--success">Good</span>
+        </td>
+      </tr>
+      <!-- More rows -->
+    </tbody>
+  </table>
+</div>
+```
+
+Table headers should be **bold** with `background: #f5f5f5` and `border-bottom: 2px solid #143644`.
+
+### 7. Insight Callout Boxes
+
+For highlighting key findings:
+
+```html
+<div class="insight-box insight-box--highlight">
+  <div class="insight-box__icon">💡</div>
+  <div class="insight-box__content">
+    <strong>Key Finding:</strong> 67% of Architecture staff report needing additional Revit training,
+    despite it being the most-used software in the discipline.
+  </div>
+</div>
+
+<div class="insight-box insight-box--warning">
+  <div class="insight-box__icon">⚠️</div>
+  <div class="insight-box__content">
+    <strong>Action Required:</strong> AutoCAD satisfaction dropped below 3.0 across
+    Building Surveying and CDM disciplines.
+  </div>
+</div>
+
+<div class="insight-box insight-box--recommendation">
+  <div class="insight-box__priority">[HIGH]</div>
+  <div class="insight-box__content">
+    Implement Revit training program for Architecture team within Q1.
+  </div>
+</div>
+```
+
+---
+
+## CHART SPECIFICATIONS
+
+Use Chart.js (via CDN) for all visualizations. Maintain consistent styling:
+
+### Chart Color Palette
+
+```javascript
+const chartColors = {
+  primary: '#143644',
+  accent: '#d1c800',
+  secondary: '#4a7c8c',
+  tertiary: '#7ba3b0',
+  quaternary: '#a8c5ce',
+  success: '#22c55e',
+  warning: '#f59e0b',
+  danger: '#ef4444',
+  neutral: '#9ca3af'
+};
+```
+
+### Required Chart Types
+
+1. **Bar Charts** - Software usage counts, satisfaction comparisons
+2. **Horizontal Bar Charts** - Ranked lists, adoption rates
+3. **Pie/Doughnut Charts** - Distribution breakdowns (discipline, role level)
+4. **Stacked Bar Charts** - Agreement scale distributions
+5. **Scatter Plots** - Frequency vs. satisfaction analysis
+6. **Heatmaps** - Software × Discipline usage matrix (use HTML table with background colors)
+
+### Chart Styling Requirements
+
+```javascript
+const chartDefaults = {
+  font: {
+    family: "'Inter', sans-serif",
+    size: 12
+  },
+  plugins: {
+    legend: {
+      position: 'bottom',
+      labels: {
+        padding: 20,
+        usePointStyle: true
+      }
+    },
+    title: {
+      display: false // Use widget headers instead
+    }
+  },
+  scales: {
+    x: {
+      grid: {
+        display: false
+      },
+      ticks: {
+        color: '#666666'
+      }
+    },
+    y: {
+      grid: {
+        color: '#e5e5e5'
+      },
+      ticks: {
+        color: '#666666'
+      }
+    }
+  }
+};
+```
+
+---
+
+## INTERACTIVE FEATURES
+
+### 1. Discipline Filter
+
+Add a global filter to view data by discipline:
+
+```html
+<div class="filter-bar">
+  <label class="filter-label">Filter by Discipline:</label>
+  <select id="discipline-filter" class="filter-select">
+    <option value="all">All Disciplines</option>
+    <option value="architecture">Architecture</option>
+    <option value="building-services-engineering">Building Services Engineering</option>
+    <!-- All 11 disciplines -->
+  </select>
+</div>
+```
+
+### 2. Sortable Tables
+
+Make tables sortable by clicking column headers:
+
+```javascript
+// Add data-sort attribute to headers
+// Implement click-to-sort functionality
+```
+
+### 3. Expandable Detail Sections
+
+For long tables or detailed breakdowns:
+
+```html
+<div class="expandable-section">
+  <button class="expandable-trigger" aria-expanded="false">
+    <span>View all 45 software items</span>
+    <svg class="expand-icon"><!-- Chevron --></svg>
+  </button>
+  <div class="expandable-content" hidden>
+    <!-- Full table -->
+  </div>
+</div>
+```
+
+### 4. Print Stylesheet
+
+Include print-optimized styles:
+
+```css
+@media print {
+  .nav-sidebar,
+  .filter-bar,
+  .expandable-trigger {
+    display: none;
+  }
+
+  .report-section {
+    page-break-inside: avoid;
+  }
+
+  .section-band {
+    background: #143644 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+```
+
+---
+
+## DATA STRUCTURE
+
+Process the CSV data into JavaScript objects in `data.js`:
+
+```javascript
+const surveyData = {
+  metadata: {
+    totalResponses: 0,
+    generatedDate: '',
+    surveyPeriod: ''
+  },
+
+  demographics: {
+    byDiscipline: [
+      { discipline: 'Architecture', count: 0, percentage: 0 }
+    ],
+    byRoleLevel: [...],
+    byOffice: [...]
+  },
+
+  softwareUsage: {
+    currentlyUsing: [
+      {
+        softwareId: '',
+        softwareName: '',
+        userCount: 0,
+        avgSatisfaction: 0,
+        avgFrequency: 0,
+        trainingNeedScore: 0,
+        byDiscipline: {}
+      }
+    ],
+    previouslyUsed: [...],
+    wouldLikeToUse: [...]
+  },
+
+  customEntries: [
+    {
+      customName: '',
+      discipline: '',
+      usageStatus: '',
+      count: 0,
+      category: ''
+    }
+  ],
+
+  generalFeedback: {
+    overallSatisfaction: { avg: 0, distribution: [] },
+    trainingResources: { netScore: 0, distribution: [] },
+    itSupport: { netScore: 0, distribution: [] },
+    softwareIntegration: { netScore: 0, distribution: [] }
+  },
+
+  insights: {
+    redFlags: [],
+    successStories: [],
+    recommendations: {
+      immediate: [],
+      shortTerm: [],
+      longTerm: []
+    }
+  }
+};
+```
+
+---
+
+## FILE OUTPUT REQUIREMENTS
+
+Generate **complete, working code** for each file. Do not use placeholders or "// implement here" comments. Every function must be fully implemented.
+
+### index.html
+
+Complete HTML document with:
+- Proper DOCTYPE and meta tags
+- CSS link to styles.css
+- Chart.js CDN link
+- Google Fonts link for Inter
+- Complete navigation sidebar
+- All section content
+- Script tags for all JS files
+
+### css/styles.css
+
+Complete stylesheet with:
+- CSS custom properties (variables)
+- Base reset styles
+- Typography styles
+- All component styles (metadata bar, navigation, widgets, tables, cards, etc.)
+- Chart container styles
+- Responsive breakpoints
+- Print styles
+
+### js/data.js
+
+Complete data file with:
+- All processed survey data
+- Calculated metrics and aggregations
+- Pre-computed chart datasets
+
+### js/app.js
+
+Complete application logic with:
+- DOM ready initialization
+- Filter functionality
+- Table sorting
+- Expandable sections
+- Any other interactive features
+
+### js/charts.js
+
+Complete chart rendering with:
+- Chart.js initialization
+- All chart configurations
+- Render functions for each chart type
+
+### js/navigation.js
+
+Complete navigation handling with:
+- Active state management
+- Smooth scrolling
+- Section highlighting on scroll
+
+---
+
+## DEPLOYMENT INSTRUCTIONS
+
+Include in README.md:
+
+```markdown
+# Bailey Partnership Software Survey Dashboard
+
+## Deployment to GitHub Pages
+
+1. Create a new GitHub repository
+2. Upload all files maintaining the folder structure
+3. Go to Settings > Pages
+4. Select "Deploy from a branch"
+5. Choose "main" branch and "/ (root)" folder
+6. Click Save
+7. Dashboard will be available at: https://[username].github.io/[repo-name]/
+
+## Local Preview
+
+Open `index.html` in a web browser, or use a local server:
+
+```bash
+# Using Python
+python -m http.server 8000
+
+# Using Node.js
+npx serve
+```
+
+## Updating Data
+
+To update with new survey responses:
+1. Export new CSV from Google Sheets
+2. Process data and update `js/data.js`
+3. Commit and push changes
+```
 
 ---
 
 ## DATA INPUT
 
-The survey response data is provided below in CSV format. Please analyze this data according to the specifications above and generate the comprehensive report.
+The survey response data is provided below in CSV format. Analyze this data according to all specifications above and generate the complete GitHub Pages web dashboard with all files.
+
+**IMPORTANT**: Generate actual, complete, working code. Do not abbreviate or use placeholders. Every file must be production-ready and deployable.
 
 [PASTE YOUR CSV DATA HERE OR UPLOAD THE CSV FILE]
 ```
@@ -997,25 +1607,38 @@ Before using this prompt:
 1. Export responses from Google Sheets as CSV
 2. Ensure all columns are properly labeled
 3. Remove any test/duplicate responses
-4. Consider anonymizing names/emails if sharing externally
+4. Consider anonymizing names/emails before processing
+
+### Deployment Workflow
+
+1. **Generate Dashboard**: Run this prompt with your CSV data
+2. **Download Files**: Save all generated files maintaining the folder structure
+3. **Create Repository**: Create a new GitHub repository (e.g., `bailey-software-survey-2026`)
+4. **Upload Files**: Push all files to the repository
+5. **Enable GitHub Pages**: Settings → Pages → Deploy from main branch
+6. **Share URL**: Distribute the dashboard URL to stakeholders
 
 ### Customization Options
-You can modify the prompt to:
-- Focus on specific disciplines
-- Compare time periods (if running multiple surveys)
-- Add specific questions from leadership
-- Request specific chart types
+
+After generation, you can:
+- Modify colors in CSS custom properties
+- Add Bailey Partnership logo to `assets/logo.svg`
+- Adjust chart configurations in `js/charts.js`
+- Update metadata in the top bar
 
 ### Best Practices
-1. **Use Claude Opus** for best analytical capability
+
+1. **Use Claude Opus** for best code generation capability
 2. **Upload CSV directly** rather than pasting for large datasets
-3. **Request follow-up analysis** if initial report raises questions
-4. **Validate key metrics** manually for accuracy
+3. **Review generated code** before deployment
+4. **Test locally** before pushing to GitHub Pages
+5. **Version control** by creating dated branches for each survey period
 
 ### Example Follow-up Prompts
-After receiving the initial report, you might ask:
-- "Deep dive into the Architecture discipline findings"
-- "Create an executive presentation summary (5 slides)"
-- "Generate talking points for the training needs section"
-- "Compare satisfaction scores between office locations in more detail"
-- "Create a business case for [specific software] procurement"
+
+After receiving the initial dashboard:
+- "Add a comparison view for this year vs. last year's data"
+- "Create a separate page for executive presentation view"
+- "Add data export buttons to download charts as PNG"
+- "Implement dark mode toggle"
+- "Add drill-down capability to the discipline insights section"
